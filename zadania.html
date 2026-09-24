@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zadania - ÚDPO II NHF</title>
+<style>
+:root{--ink:#2d2a26;--muted:#7a7468;--paper:#f8f7f4;--line:#e0ddd6;--moss:#4a6741;--mossd:#3a5233;--mossl:#e8efe6;--gold:#9a7b2f;--goldl:#faf5e8;--navy:#3d5a80;--navyl:#e3edf7;--brick:#b34040;--brickl:#fce8e8;--white:#fff}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.5;font-size:16px}
+a{color:var(--moss)}
+header.top{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+header.top .in{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.logo b{width:34px;height:34px;border-radius:9px;background:var(--moss);color:#fff;display:grid;place-items:center;font-size:13px}
+.logo span{line-height:1.15}
+.logo small{display:block;color:var(--muted);font-size:11px}
+nav.main{display:flex;gap:2px;flex-wrap:wrap;margin-left:auto}
+nav.main a{padding:6px 11px;border-radius:7px;text-decoration:none;color:var(--ink);font-size:14px}
+nav.main a:hover{background:var(--paper)}
+nav.main a.on{background:var(--mossl);color:var(--moss);font-weight:600}
+main.wrap{max-width:1100px;margin:0 auto;padding:22px 16px 60px}
+h1{font-size:1.75rem;line-height:1.2;margin:0 0 6px}
+h2{font-size:1.25rem;margin:34px 0 10px;color:var(--mossd)}
+h3{font-size:1.05rem;margin:22px 0 6px}
+p.lead{font-size:1.08rem;color:#4a463f;margin:0 0 18px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:0 1px 3px rgba(45,42,38,.06)}
+.grid{display:grid;gap:14px}
+@media(min-width:700px){.grid.c2{grid-template-columns:1fr 1fr}.grid.c3{grid-template-columns:repeat(3,1fr)}.grid.c4{grid-template-columns:repeat(4,1fr)}}
+.tile{display:block;text-decoration:none;color:inherit;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px;transition:border-color .15s}
+.tile:hover{border-color:var(--moss)}
+.tile h3{margin:0 0 4px;color:var(--moss)}
+.tile p{margin:0;color:var(--muted);font-size:14px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;background:var(--white)}
+th,td{border:1px solid var(--line);padding:7px 9px;vertical-align:top;text-align:left}
+th{background:var(--mossl);color:var(--mossd);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+.pp{background:var(--brickl);color:var(--brick)}
+.op{background:var(--navyl);color:var(--navy)}
+.ok{background:var(--mossl);color:var(--moss)}
+.note{background:var(--goldl);border-left:4px solid var(--gold);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+.warn{background:var(--brickl);border-left:4px solid var(--brick);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+.small{font-size:13px;color:var(--muted)}
+code,kbd{font-family:"Cascadia Mono",Consolas,ui-monospace,monospace;font-size:.92em;background:#f1efe9;padding:1px 5px;border-radius:4px}
+.btn{display:inline-block;background:var(--moss);color:#fff;text-decoration:none;padding:9px 16px;border-radius:8px;font-weight:600}
+.btn.sec{background:var(--white);color:var(--moss);border:1px solid var(--moss)}
+footer.bot{border-top:1px solid var(--line);color:var(--muted);font-size:12px;background:var(--white)}
+footer.bot .in{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;gap:16px;flex-wrap:wrap}
+.eq{font-size:1.25rem;text-align:center;padding:14px;background:var(--white);border:1px dashed var(--moss);border-radius:10px;margin:12px 0;font-weight:600;color:var(--mossd)}
+ul,ol{padding-left:22px}
+li{margin:3px 0}
+.toc a{display:block;padding:4px 0;text-decoration:none}
+</style>
+
+</head>
+<body>
+<header class="top"><div class="in">
+<a class="logo" href="index.html"><b>ÚD</b><span>Účtovníctvo a dane právnických osôb II<small>študenti NHF - zimný semester 2026/2027</small></span></a>
+<nav class="main"><a href="index.html">Úvod</a><a href="prednaska.html">Prednáška</a><a href="tahak.html">Ťahák PP a OP</a><a href="zadania.html" class=on>Zadania</a><a href="app/index.html">Aplikácia IUP 2 NHF</a></nav>
+</div></header>
+<main class="wrap">
+
+<h1>Zadania</h1>
+<p class="lead">Obe zadania sú zabudované v aplikácii <a href="app/index.html">IUP 2 NHF</a> (tlačidlo <b>Zadania</b> v denníku), CSV súbory sú aj tu na stiahnutie. Účtuje sa v základných kategóriách: <b>NM</b> neobežný majetok, <b>OM</b> obežný majetok, <b>VI</b> vlastné imanie, <b>DZ</b> dlhodobé záväzky, <b>KZ</b> krátkodobé záväzky, <b>N</b> náklady, <b>V</b> výnosy, plus dvojica pre daň z príjmov <b>ND</b> (náklad - splatná daň) a <b>DU</b> (zúčtovanie s daňovým úradom).</p>
+
+<div class="grid c2">
+<div class="card">
+<h3 style="margin-top:0">Zadanie 1 - Kaviareň KÁVA &amp; KOLÁČ s. r. o.</h3>
+<p>Prvý mesiac podnikania (január 2026), 12 účtovných prípadov bez DPH a bez daňových úprav. Cieľ: pochopiť, že každý prípad mení dve kategórie a bilančná rovnica stále platí; zostaviť súvahu a výkaz ziskov a strát; nájsť výsledok hospodárenia.</p>
+<p><b>Úlohy</b></p>
+<ol>
+<li>Ku každému prípadu určte, ktorá kategória sa zvyšuje (stĺpec MD) a ktorá sa znižuje alebo vzniká ako zdroj (stĺpec D). Pomôcka: aktíva rastú na MD, záväzky, vlastné imanie a výnosy rastú na D, náklady rastú na MD.</li>
+<li>V záložke Výkazy skontrolujte, či sa súvaha rovná (aktíva = pasíva), a prečítajte výsledok hospodárenia za január.</li>
+<li>Odpovedzte: Koľko peňazí má kaviareň na konci januára a prečo je to iné číslo ako zisk?</li>
+</ol>
+<p><a class="btn sec" href="zadania/Kaviaren-zadanie-nhf.csv" download>Zadanie CSV</a> &nbsp; <a class="btn sec" href="zadania/Kaviaren-riesenie-zaklad.csv" download>Riešenie CSV</a></p>
+</div>
+
+<div class="card">
+<h3 style="margin-top:0">Zadanie 2 - Advers s. r. o. (rok 2025)</h3>
+<p>Spoločnosť sa venuje projektovému manažmentu, je platiteľom DPH, nevedie knihu jázd. Rovnaký príklad, aký riešia študenti FHI s účtami (PR-01), tu v základných kategóriách. 31 riadkov vrátane DPH, odpisov, krádeže vozidla, opravnej položky, rezervy a preddavku na daň.</p>
+<p><b>Úlohy</b></p>
+<ol>
+<li>Zaúčtujte prípady v základných kategóriách, doplňte chýbajúce sumy (inkaso, DPH, úhrada 50 %).</li>
+<li>Pri každom riadku rozhodnite, či vzniká položka zvyšujúca (PP) alebo znižujúca (OP) výsledok hospodárenia, a napíšte prečo. Vysvetlenia sú v <a href="tahak.html#advers">ťaháku</a>.</li>
+<li>V záložke Daň z príjmov prejdite kalkuláciu: výsledok hospodárenia, PP, OP, základ dane, sadzba, daň, preddavky, daň na úhradu. Nakoniec daň zaúčtujte (tlačidlo Zaúčtovať daň) a pozrite, ako sa zmenil výsledok hospodárenia po zdanení.</li>
+</ol>
+<p><a class="btn sec" href="zadania/PR-01-NHF-zadanie.csv" download>Zadanie CSV</a> &nbsp; <a class="btn sec" href="zadania/PR-01-NHF-riesenie.csv" download>Riešenie CSV</a></p>
+</div>
+</div>
+
+<h2>Ako pracovať s aplikáciou</h2>
+<div class="card">
+<ul style="margin:0">
+<li><b>Denník</b>: Tab alebo Enter posúva kurzor, na konci riadku pridá nový. Do stĺpcov MD a D píšte kód kategórie (napr. <code>OM</code>) alebo začiatok názvu, aplikácia našepkáva. Dátum stačí ako <code>31.1.</code>, suma prijme aj výpočet (<code>300000*0,23</code>).</li>
+<li><b>Stĺpce PP (+), OP (-) a §</b>: sem patrí suma, o ktorú sa výsledok hospodárenia upraví, a paragraf zákona. Kalkulácia dane si ich prečíta sama.</li>
+<li><b>T-účty</b>: každá použitá kategória s obratmi a zostatkom. Výstraha znamená zostatok na neprirodzenej strane (napr. záporný majetok).</li>
+<li><b>Výkazy</b>: účet ziskov a strát a súvaha; kontrola aktíva = pasíva.</li>
+<li><b>Daň z príjmov</b>: výsledok hospodárenia pred zdanením, PP, OP, základ dane, odpočet straty, sadzba podľa výnosov, minimálna daň, preddavky, daň na úhradu. Tlačidlo <b>Zaúčtovať daň</b> zapíše ND / DU.</li>
+<li>Údaje sa ukladajú len vo vašom prehliadači. Ak chcete pokračovať na inom počítači, stiahnite si denník ako CSV a potom ho načítajte.</li>
+<li>Prepínač osnovy vpravo hore umožňuje pozrieť si to isté riešenie aj v 27 kategóriách, v účtových skupinách alebo na syntetických účtoch, ako to majú študenti FHI.</li>
+</ul>
+</div>
+
+</main>
+<footer class="bot"><div class="in"><span>Ing. Anton Marci, PhD. - Katedra účtovníctva a audítorstva FHI EU v Bratislave - anton.marci@euba.sk</span><span>Zákony: <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101">ZDP</a> · <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2004/222/20260101">ZDPH</a> · <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2002/431/20260101">zákon o účtovníctve</a> (slov-lex.sk, znenie od 1. 1. 2026)</span></div></footer>
+</body>
+</html>

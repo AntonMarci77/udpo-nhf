@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prednáška - ÚDPO II NHF</title>
+<style>
+:root{--ink:#2d2a26;--muted:#7a7468;--paper:#f8f7f4;--line:#e0ddd6;--moss:#4a6741;--mossd:#3a5233;--mossl:#e8efe6;--gold:#9a7b2f;--goldl:#faf5e8;--navy:#3d5a80;--navyl:#e3edf7;--brick:#b34040;--brickl:#fce8e8;--white:#fff}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.5;font-size:16px}
+a{color:var(--moss)}
+header.top{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+header.top .in{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.logo b{width:34px;height:34px;border-radius:9px;background:var(--moss);color:#fff;display:grid;place-items:center;font-size:13px}
+.logo span{line-height:1.15}
+.logo small{display:block;color:var(--muted);font-size:11px}
+nav.main{display:flex;gap:2px;flex-wrap:wrap;margin-left:auto}
+nav.main a{padding:6px 11px;border-radius:7px;text-decoration:none;color:var(--ink);font-size:14px}
+nav.main a:hover{background:var(--paper)}
+nav.main a.on{background:var(--mossl);color:var(--moss);font-weight:600}
+main.wrap{max-width:1100px;margin:0 auto;padding:22px 16px 60px}
+h1{font-size:1.75rem;line-height:1.2;margin:0 0 6px}
+h2{font-size:1.25rem;margin:34px 0 10px;color:var(--mossd)}
+h3{font-size:1.05rem;margin:22px 0 6px}
+p.lead{font-size:1.08rem;color:#4a463f;margin:0 0 18px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:0 1px 3px rgba(45,42,38,.06)}
+.grid{display:grid;gap:14px}
+@media(min-width:700px){.grid.c2{grid-template-columns:1fr 1fr}.grid.c3{grid-template-columns:repeat(3,1fr)}.grid.c4{grid-template-columns:repeat(4,1fr)}}
+.tile{display:block;text-decoration:none;color:inherit;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px;transition:border-color .15s}
+.tile:hover{border-color:var(--moss)}
+.tile h3{margin:0 0 4px;color:var(--moss)}
+.tile p{margin:0;color:var(--muted);font-size:14px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;background:var(--white)}
+th,td{border:1px solid var(--line);padding:7px 9px;vertical-align:top;text-align:left}
+th{background:var(--mossl);color:var(--mossd);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+.pp{background:var(--brickl);color:var(--brick)}
+.op{background:var(--navyl);color:var(--navy)}
+.ok{background:var(--mossl);color:var(--moss)}
+.note{background:var(--goldl);border-left:4px solid var(--gold);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+.warn{background:var(--brickl);border-left:4px solid var(--brick);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+.small{font-size:13px;color:var(--muted)}
+code,kbd{font-family:"Cascadia Mono",Consolas,ui-monospace,monospace;font-size:.92em;background:#f1efe9;padding:1px 5px;border-radius:4px}
+.btn{display:inline-block;background:var(--moss);color:#fff;text-decoration:none;padding:9px 16px;border-radius:8px;font-weight:600}
+.btn.sec{background:var(--white);color:var(--moss);border:1px solid var(--moss)}
+footer.bot{border-top:1px solid var(--line);color:var(--muted);font-size:12px;background:var(--white)}
+footer.bot .in{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;gap:16px;flex-wrap:wrap}
+.eq{font-size:1.25rem;text-align:center;padding:14px;background:var(--white);border:1px dashed var(--moss);border-radius:10px;margin:12px 0;font-weight:600;color:var(--mossd)}
+ul,ol{padding-left:22px}
+li{margin:3px 0}
+.toc a{display:block;padding:4px 0;text-decoration:none}
+
+main.wrap{max-width:none;padding:0}
+.deck{position:relative}
+.slide{display:none;min-height:calc(100vh - 58px);padding:38px 7vw 70px;background:var(--paper)}
+.slide.on{display:block}
+.slide h2{font-size:2rem;margin:0 0 18px;color:var(--mossd);border-bottom:3px solid var(--moss);padding-bottom:8px;display:inline-block}
+.slide h1{font-size:2.6rem;margin:60px 0 10px}
+.slide p,.slide li{font-size:1.25rem}
+.slide table{font-size:1.1rem}
+.slide .eq{font-size:1.6rem}
+.slide .k{font-size:1.5rem;font-weight:700;color:var(--mossd);background:var(--white);border:2px solid var(--moss);border-radius:12px;padding:16px 22px;text-align:center;margin:20px 0}
+.cols{display:grid;gap:24px}
+@media(min-width:800px){.cols{grid-template-columns:1fr 1fr}.cols.c3{grid-template-columns:1fr 1fr 1fr}}
+.box{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+.box h3{margin:0 0 8px;color:var(--moss);font-size:1.15rem}
+.ctl{position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--line);display:flex;align-items:center;gap:12px;padding:8px 16px;font-size:14px;z-index:20}
+.ctl button{background:var(--moss);color:#fff;border:0;border-radius:7px;padding:6px 14px;font-size:14px;cursor:pointer}
+.ctl .n{font-variant-numeric:tabular-nums;color:var(--muted)}
+.ctl .bar{flex:1;height:5px;background:var(--line);border-radius:3px;overflow:hidden}
+.ctl .bar i{display:block;height:100%;background:var(--moss)}
+.sec-label{font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px}
+.big{font-size:3rem;font-weight:800;color:var(--moss);line-height:1.1}
+.q{background:var(--goldl);border-left:5px solid var(--gold);padding:12px 18px;border-radius:0 10px 10px 0;font-size:1.25rem;margin:16px 0}
+.hint{color:var(--muted);font-size:1rem}
+.tbl2 td.num{font-weight:600}
+.strike{text-decoration:line-through;color:var(--muted)}
+@media print{header.top,.ctl{display:none}.slide{display:block;page-break-after:always;min-height:0;padding:20px}.slide h1{margin-top:0}}
+</style>
+
+</head>
+<body>
+<header class="top"><div class="in">
+<a class="logo" href="index.html"><b>ÚD</b><span>Účtovníctvo a dane právnických osôb II<small>študenti NHF - zimný semester 2026/2027</small></span></a>
+<nav class="main"><a href="index.html">Úvod</a><a href="prednaska.html" class=on>Prednáška</a><a href="tahak.html">Ťahák PP a OP</a><a href="zadania.html">Zadania</a><a href="app/index.html">Aplikácia IUP 2 NHF</a></nav>
+</div></header>
+<main class="wrap">
+<div class="deck"><section class="slide">
+<h1>Od dane z príjmov k účtovníctvu a späť</h1>
+<p style="font-size:1.5rem;color:var(--muted)">Účtovníctvo a dane právnických osôb II · prednáška pre študentov NHF · 1. týždeň</p>
+<p>Ing. Anton Marci, PhD. · Katedra účtovníctva a audítorstva FHI EU v Bratislave</p>
+<p class="hint">Ovládanie: šípky alebo medzerník, na mobile potiahnutie prstom. Tlačidlo „Všetky slidy“ zobrazí celú prednášku pod sebou (aj na tlač).</p>
+</section>
+<section class="slide">
+<h2>Čo dnes potrebujeme pochopiť</h2>
+<div class="cols c3">
+<div class="box"><h3>1. Ako vzniká daň z príjmov firmy</h3><p>Základ dane × sadzba. A základ dane sa u firmy zisťuje z výsledku hospodárenia.</p></div>
+<div class="box"><h3>2. Odkiaľ sa berie výsledok hospodárenia</h3><p>Z účtovníctva: výnosy mínus náklady. Bez účtovníctva nevieme, z čoho daň počítať.</p></div>
+<div class="box"><h3>3. Účtovníctvo bez účtov</h3><p>Stačí nám 7 kategórií: neobežný a obežný majetok, vlastné imanie, dlhodobé a krátkodobé záväzky, náklady, výnosy.</p></div>
+</div>
+<div class="k">Kľúčová veta semestra: výsledok hospodárenia + položky zvyšujúce - položky znižujúce = základ dane</div>
+</section>
+<section class="slide"><div class="sec-label">Časť A · Daň z príjmov právnickej osoby</div>
+<h2>Kto platí daň z príjmov právnickej osoby</h2>
+<ul>
+<li>Právnické osoby: s. r. o., a. s., družstvá, aj neziskové organizácie z podnikateľskej činnosti. Zákon č. 595/2003 Z. z. o dani z príjmov (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-2" target="_blank">§ 2</a>, <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-12" target="_blank">§ 12</a> predmet dane PO).</li>
+<li>Zdaňovacie obdobie je spravidla kalendárny rok. Daňové priznanie sa podáva do troch mesiacov po jeho skončení (31. 3.), rovnako je splatná aj daň.</li>
+<li>Daň sa vyberá z <b>príjmov</b>. U firmy, ktorá vedie podvojné účtovníctvo, sú príjmami <b>výnosy</b> a výdavkami <b>náklady</b> - tak, ako ich zachytí účtovníctvo.</li>
+<li>Počas roka firma platí <b>preddavky</b> podľa minuloročnej dane (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-42" target="_blank">§ 42</a>), v priznaní ich odpočíta.</li>
+</ul>
+</section>
+<section class="slide"><div class="sec-label">Časť A · Daň z príjmov právnickej osoby</div>
+<h2>Koľko: základ dane × sadzba</h2>
+<div class="cols">
+<div class="box"><h3>Sadzba dane (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-15.pismeno-b" target="_blank">§ 15 písm. b)</a>)</h3>
+<table class="tbl2"><tr><th>Zdaniteľné príjmy (výnosy) za rok</th><th class="num">Sadzba</th></tr>
+<tr><td>do 100 000 € vrátane</td><td class="num">10 %</td></tr>
+<tr><td>nad 100 000 € do 5 000 000 €</td><td class="num">21 %</td></tr>
+<tr><td>nad 5 000 000 €</td><td class="num">24 %</td></tr></table>
+<p class="hint">Sadzbu určuje výška výnosov, nie výška zisku.</p></div>
+<div class="box"><h3>Minimálna daň (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-46b" target="_blank">§ 46b</a>)</h3>
+<p>Aj firma so stratou platí minimálnu daň podľa výnosov: 340 € (výnosy do 50 000 €), 960 € (do 250 000 €), 1 920 € (do 500 000 €), 3 840 € (do 5 000 000 €), nad to 11 520 €.</p>
+<p class="hint">V období, za ktoré firma podáva priznanie prvýkrát, sa minimálna daň neplatí. Rozdiel oproti vypočítanej dani sa dá započítať v ďalších troch rokoch.</p></div>
+</div>
+<div class="q">Otázka: firma A má výnosy 95 000 € a zisk 60 000 €, firma B má výnosy 2 000 000 € a rovnaký zisk 60 000 €. Ktorá zaplatí vyššiu daň a prečo?</div>
+</section>
+<section class="slide"><div class="sec-label">Časť A · Daň z príjmov právnickej osoby</div>
+<h2>Z čoho sa zisťuje základ dane</h2>
+<p><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-17.odsek-1" target="_blank">§ 17 ods. 1 ZDP</a>: u daňovníka účtujúceho v sústave <b>podvojného účtovníctva</b> sa základ dane zisťuje <b>z výsledku hospodárenia</b>. (U živnostníka s jednoduchým účtovníctvom z rozdielu príjmov a výdavkov.)</p>
+<p><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-17.odsek-2" target="_blank">§ 17 ods. 2 ZDP</a>: výsledok hospodárenia sa pri zisťovaní základu dane <b>zvýši</b> o sumy, ktoré nemožno zahrnúť do daňových výdavkov (a o nezaúčtované zdaniteľné príjmy), a <b>zníži</b> o sumy, ktoré sa nezdaňujú alebo už zdanené boli.</p>
+<div class="eq">výsledok hospodárenia pred zdanením + PP - OP = základ dane</div>
+<p class="hint">PP = položky zvyšujúce výsledok hospodárenia („pripočítateľné“), OP = položky znižujúce („odpočítateľné“). Účtovníctvo sa kvôli dani nemení - úpravy sa robia len v daňovom priznaní.</p>
+</section>
+<section class="slide"><div class="sec-label">Časť A · Daň z príjmov právnickej osoby</div>
+<h2>Cesta od zisku k dani na úhradu (riadky daňového priznania)</h2>
+<table class="tbl2">
+<tr><th>Riadok</th><th>Položka</th><th class="num">Advers s. r. o. 2025</th></tr>
+<tr><td>r. 100</td><td>Výsledok hospodárenia pred zdanením (z účtovníctva)</td><td class="num">171 317</td></tr>
+<tr><td>r. 200</td><td>+ položky zvyšujúce VH (PP)</td><td class="num">67 283</td></tr>
+<tr><td>r. 300</td><td>- položky znižujúce VH (OP)</td><td class="num">12 000</td></tr>
+<tr><td>r. 400</td><td>= základ dane</td><td class="num">226 600</td></tr>
+<tr><td>r. 410</td><td>- odpočet daňovej straty z minulých rokov (§ 30)</td><td class="num">0</td></tr>
+<tr><td>r. 550 / 600</td><td>× sadzba (výnosy 308 500 € → 21 %) = daň</td><td class="num">47 586</td></tr>
+<tr><td>r. 1010</td><td>- zaplatené preddavky</td><td class="num">5 000</td></tr>
+<tr><td>r. 1100</td><td>= daň na úhradu do 31. 3. 2026</td><td class="num">42 586</td></tr>
+</table>
+<p class="hint">Tento príklad budeme riešiť na cvičení. Všimnite si: všetko začína výsledkom hospodárenia.</p>
+</section>
+<section class="slide"><div class="sec-label">Časť A · Daň z príjmov právnickej osoby</div>
+<h2>Prečo účtovný zisk nie je základ dane</h2>
+<div class="cols">
+<div class="box"><h3>Účtovníctvo chce</h3><ul><li>verný obraz firmy pre majiteľov, banky, obchodných partnerov,</li><li>opatrnosť: keď hrozí strata, zaúčtuje ju hneď (rezervy, opravné položky),</li><li>náklad v období, s ktorým súvisí, bez ohľadu na platbu.</li></ul></div>
+<div class="box"><h3>Zákon o dani z príjmov chce</h3><ul><li>vybrať daň spravodlivo a jednotne pre všetkých,</li><li>zabrániť znižovaniu dane odhadmi a súkromnou spotrebou,</li><li>niekedy motivovať (napr. platiť dodávateľom včas).</li></ul></div>
+</div>
+<h3>Tri dôvody, prečo vzniká položka zvyšujúca VH</h3>
+<ul>
+<li><b>A. Nikdy:</b> náklad štát neuznáva vôbec - reprezentácia, pokuty voči štátu, dary (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-21" target="_blank">§ 21</a>).</li>
+<li><b>B. Len do limitu:</b> pohonné látky 80 %, predané akcie len do výšky príjmu, odpisy podľa zákona (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-19" target="_blank">§ 19</a>, <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-22" target="_blank">§ 22</a>).</li>
+<li><b>C. V inom čase:</b> nájomné a poradenstvo až po zaplatení (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-17.odsek-19" target="_blank">§ 17 ods. 19</a>), opravné položky postupne (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-20.odsek-14" target="_blank">§ 20 ods. 14</a>). Vtedy v ďalšom roku vzniká zrkadlová položka znižujúca.</li>
+</ul>
+</section>
+<section class="slide"><div class="sec-label">Časť A · Daň z príjmov právnickej osoby</div>
+<h2>Zastavme sa</h2>
+<div class="k">Bez výsledku hospodárenia niet základu dane.<br>Výsledok hospodárenia = výnosy - náklady.<br>Výnosy a náklady vznikajú v účtovníctve.</div>
+<p>Preto zvyšok prednášky venujeme účtovníctvu. Nie účtom 311, 321 a 518 - tie majú kolegovia z FHI za sebou tri semestre. Nám stačí pochopiť <b>sedem kategórií</b> a jedno pravidlo: každý účtovný prípad zmení aspoň dve z nich.</p>
+</section>
+<section class="slide"><div class="sec-label">Časť B · Účtovníctvo v základných kategóriách</div>
+<h2>Príbeh: čo vlastním</h2>
+<p>Predstavte si, že ste rok podnikali a nič ste si nezapisovali. Na konci roka chcete vedieť, ako na tom ste. Prvé, čo urobíte: spíšete, čo máte.</p>
+<table class="tbl2" style="max-width:520px"><tr><th>Majetok</th><th class="num">€</th></tr>
+<tr><td>Tovar na sklade</td><td class="num">6 000</td></tr><tr><td>Hotovosť</td><td class="num">7 000</td></tr><tr><td>Peniaze v banke</td><td class="num">14 000</td></tr>
+<tr><th>Spolu</th><th class="num">27 000</th></tr></table>
+<div class="q">Čo sa z toho dozviem? A čo sa z toho nedozviem?</div>
+</section>
+<section class="slide"><div class="sec-label">Časť B · Účtovníctvo v základných kategóriách</div>
+<h2>Príbeh: čo dlhujem</h2>
+<p>Zoznam majetku nestačí, lebo časť z neho nie je „moja“. Dopíšem dlhy.</p>
+<div class="cols">
+<table class="tbl2"><tr><th>Majetok</th><th class="num">€</th></tr><tr><td>Tovar</td><td class="num">6 000</td></tr><tr><td>Hotovosť</td><td class="num">7 000</td></tr><tr><td>Banka</td><td class="num">14 000</td></tr><tr><th>Spolu</th><th class="num">27 000</th></tr></table>
+<table class="tbl2"><tr><th>Záväzky</th><th class="num">€</th></tr><tr><td>Nevyplatené mzdy zamestnancom</td><td class="num">3 000</td></tr><tr><td>Pôžička od kamaráta</td><td class="num">24 000</td></tr><tr><th>Spolu</th><th class="num">27 000</th></tr></table>
+</div>
+<div class="q">Majetok 27 000, dlhy 27 000. Čo to znamená pre mňa ako majiteľa?</div>
+</section>
+<section class="slide"><div class="sec-label">Časť B · Účtovníctvo v základných kategóriách</div>
+<h2>Príbeh: čo je moje</h2>
+<p>Spomeniem si, že som do firmy vložil svoj počítač za 2 000 €. Majetok je teraz 29 000 €, dlhy stále 27 000 €. Rozdiel 2 000 € je to, čo do firmy vložil <b>vlastník</b>.</p>
+<div class="cols">
+<table class="tbl2"><tr><th>Majetok (čo firma má)</th><th class="num">€</th></tr><tr><td>Počítač</td><td class="num">2 000</td></tr><tr><td>Tovar</td><td class="num">6 000</td></tr><tr><td>Peniaze (hotovosť + banka)</td><td class="num">21 000</td></tr><tr><th>Spolu</th><th class="num">29 000</th></tr></table>
+<table class="tbl2"><tr><th>Zdroje (komu to patrí)</th><th class="num">€</th></tr><tr><td><b>Vlastné imanie</b> - vklad vlastníka</td><td class="num">2 000</td></tr><tr><td>Záväzky - mzdy</td><td class="num">3 000</td></tr><tr><td>Záväzky - pôžička</td><td class="num">24 000</td></tr><tr><th>Spolu</th><th class="num">29 000</th></tr></table>
+</div>
+<div class="eq">MAJETOK = VLASTNÉ IMANIE + ZÁVÄZKY</div>
+<p class="hint">Táto tabuľka je <b>súvaha</b>: fotografia firmy k jednému dňu. Ľavá strana hovorí, čo firma má (aktíva), pravá, z čoho to zaplatila (pasíva). Vždy sa rovnajú, lebo každé euro majetku niekomu patrí.</p>
+</section>
+<section class="slide"><div class="sec-label">Časť B · Účtovníctvo v základných kategóriách</div>
+<h2>Majetok: neobežný a obežný</h2>
+<div class="cols">
+<div class="box"><h3>Neobežný majetok (NM)</h3><p>Slúži firme <b>dlhšie ako rok</b>, nespotrebuje sa naraz: budovy, pozemky, stroje, autá, počítače, softvér, licencie, dlhodobé finančné investície.</p><p class="hint">Do nákladov sa dostáva postupne cez <b>odpisy</b>.</p></div>
+<div class="box"><h3>Obežný majetok (OM)</h3><p>Mení sa v priebehu roka, „obieha“: zásoby (materiál, tovar, výrobky), pohľadávky (odberatelia nám dlhujú, štát nám vráti DPH), peniaze v pokladnici a na účtoch, krátkodobé cenné papiere.</p><p class="hint">Kolobeh: peniaze → zásoby → pohľadávky → peniaze.</p></div>
+</div>
+<div class="q">Kam patrí: kávovar za 3 600 €? Káva v sklade? Faktúra, ktorú nám zákazník ešte nezaplatil? Nápad majiteľa, ktorý si sám cení na 5 000 €?</div>
+</section>
+<section class="slide"><div class="sec-label">Časť B · Účtovníctvo v základných kategóriách</div>
+<h2>Zdroje: vlastné imanie a záväzky</h2>
+<div class="cols c3">
+<div class="box"><h3>Vlastné imanie (VI)</h3><p>Čo do firmy vložili vlastníci (základné imanie) a čo v nej nechali zo zisku (nerozdelený zisk, fondy). Strata vlastné imanie znižuje.</p><p class="hint">VI = majetok - záväzky</p></div>
+<div class="box"><h3>Krátkodobé záväzky (KZ)</h3><p>Splatné <b>do jedného roka</b>: faktúry dodávateľom, mzdy zamestnancom, odvody poisťovniam, dane štátu (DPH, daň z príjmov), krátkodobé úvery, rezervy na blízke výdavky.</p></div>
+<div class="box"><h3>Dlhodobé záväzky (DZ)</h3><p>Splatné <b>za viac ako rok</b>: dlhodobé bankové úvery, pôžičky od spoločníkov, dlhodobé rezervy.</p></div>
+</div>
+<div class="q">Firma má majetok 100 000 € a záväzky 150 000 €. Čo viete povedať o jej vlastnom imaní? Môže taká firma existovať?</div>
+</section>
+<section class="slide"><div class="sec-label">Časť B · Účtovníctvo v základných kategóriách</div>
+<h2>Kvíz: majetok, alebo záväzok?</h2>
+<div class="cols">
+<div class="box"><ol style="font-size:1.2rem">
+<li>Počítač kúpený za 2 000 €</li>
+<li>Mobil kúpený za 1 000 €</li>
+<li>Nápad majiteľa, ktorý si cení na 5 000 €</li>
+<li>Daň z príjmov za minulý rok 2 000 €, ešte nezaplatená</li>
+<li>Mzdy zamestnancom 3 000 €, výplata bude 10. deň budúceho mesiaca</li>
+<li>Bankový úver 5 000 € splatný o 3 roky</li>
+<li>Hotovosť v pokladnici 5 000 €</li>
+<li>Faktúra zákazníkovi za 4 000 €, splatná o 14 dní</li>
+</ol></div>
+<div class="box"><h3>Ako rozhodnúť</h3><p><b>Majetok</b> je zdroj, ktorý firma ovláda v dôsledku minulých udalostí a od ktorého očakáva budúci úžitok. <b>Záväzok</b> je povinnosť z minulých udalostí, ktorá v budúcnosti odčerpá zdroje.</p><p class="hint">Nápad nie je majetok (nedá sa spoľahlivo oceniť, nevznikol kúpou). Nezaplatená daň a mzdy sú krátkodobé záväzky. Úver na 3 roky je dlhodobý záväzok.</p></div>
+</div>
+</section>
+<section class="slide"><div class="sec-label">Časť B · Účtovníctvo v základných kategóriách</div>
+<h2>Príbeh pokračuje: kde sa vzal zisk</h2>
+<p>Tovar, ktorý ma stál 6 000 €, som predal za 10 000 €. Z peňazí som splatil všetky dlhy (27 000 €). Zostáva mi:</p>
+<div class="cols">
+<table class="tbl2"><tr><th>Majetok</th><th class="num">€</th></tr><tr><td>Počítač</td><td class="num">2 000</td></tr><tr><td>Peniaze (21 000 + 10 000 - 27 000)</td><td class="num">4 000</td></tr><tr><th>Spolu</th><th class="num">6 000</th></tr></table>
+<table class="tbl2"><tr><th>Zdroje</th><th class="num">€</th></tr><tr><td>Vlastné imanie - vklad</td><td class="num">2 000</td></tr><tr><td>Záväzky</td><td class="num">0</td></tr><tr><td><b>Výsledok hospodárenia - zisk</b></td><td class="num">4 000</td></tr><tr><th>Spolu</th><th class="num">6 000</th></tr></table>
+</div>
+<p>Rovnica by bez ďalšieho riadku neplatila. Chýbajúce 4 000 € je <b>zisk</b>: majetok, ktorý firma sama vytvorila. Patrí vlastníkovi, preto je súčasťou vlastného imania.</p>
+<div class="q">Prečo je pre mňa dôležité vedieť nielen to, koľko mám, ale aj koľko som zarobil?</div>
+</section>
+<section class="slide"><div class="sec-label">Časť B · Účtovníctvo v základných kategóriách</div>
+<h2>Ako zisk vznikol: výnosy a náklady</h2>
+<div class="cols">
+<div class="box"><h3>Výnosy (V)</h3><p>Hodnota, ktorú firma za obdobie <b>vytvorila</b>: tržby za predaný tovar a služby, náhrady škôd, úroky, predaj majetku. Zvyšujú vlastné imanie. <b>Nepatrí sem vklad vlastníka ani prijatý úver.</b></p></div>
+<div class="box"><h3>Náklady (N)</h3><p>Hodnota, ktorú firma za obdobie <b>spotrebovala</b>: predaný tovar, materiál, energie, služby, mzdy, odpisy, škody, úroky, pokuty. Znižujú vlastné imanie. <b>Nepatrí sem splátka úveru ani výplata podielu na zisku.</b></p></div>
+</div>
+<div class="eq">VÝNOSY - NÁKLADY = VÝSLEDOK HOSPODÁRENIA (zisk alebo strata)</div>
+<table class="tbl2" style="max-width:600px"><tr><th>Výkaz ziskov a strát za rok</th><th class="num">€</th></tr><tr><td>Tržby za tovar (výnos)</td><td class="num">10 000</td></tr><tr><td>Predaný tovar (náklad)</td><td class="num">- 6 000</td></tr><tr><th>Zisk</th><th class="num">4 000</th></tr></table>
+<p class="hint">Súvaha je fotografia k jednému dňu. Výkaz ziskov a strát je film za celé obdobie a vysvetľuje, ako vznikol zisk uvedený v súvahe.</p>
+</section>
+<section class="slide"><div class="sec-label">Časť B · Účtovníctvo v základných kategóriách</div>
+<h2>Náklad nie je výdavok, výnos nie je príjem</h2>
+<div class="cols">
+<div class="box"><h3>Náklad ≠ výdavok</h3><p>Kúpim 100 striekačiek za 1 000 € - to je <b>výdavok</b> (odišli peniaze, pribudli zásoby, majetok sa len premenil). Spotrebujem 50 ks - to je <b>náklad</b> 500 € (majetok ubudol, nič za to nepribudlo).</p><p>Kúpim kávovar za 3 600 € na 4 roky - výdavok teraz, náklad 75 € každý mesiac (<b>odpis</b>).</p></div>
+<div class="box"><h3>Výnos ≠ príjem</h3><p>Vystavím faktúru za 1 000 € - to je <b>výnos</b> (pribudla pohľadávka). Zákazník zaplatí len 500 € - to je <b>príjem</b> (pohľadávka sa mení na peniaze).</p><p>Prijmem úver 5 000 € - je to príjem, ale nie výnos (pribudol záväzok).</p></div>
+</div>
+<div class="q">Prečo na tom záleží pri dani? Zákon niekedy neuzná náklad, kým sa nestane aj výdavkom (§ 17 ods. 19: nájomné, poradenstvo až po zaplatení). A zisk firmy môže byť vysoký, aj keď na účte nemá nič.</div>
+</section>
+<section class="slide"><div class="sec-label">Časť B · Účtovníctvo v základných kategóriách</div>
+<h2>Podvojnosť: každý prípad mení dve kategórie</h2>
+<p>Aby rovnica majetok = vlastné imanie + záväzky platila stále, zapisujeme každý prípad dvakrát: čo sa zvýšilo a čo sa znížilo (alebo odkiaľ sa to vzalo). Osem typov prípadov:</p>
+<table class="tbl2">
+<tr><th>Typ</th><th>Príklad</th><th>Zápis v kategóriách (MD / D)</th></tr>
+<tr><td>majetok + / záväzok +</td><td>Firma dostane bankový úver</td><td>OM / KZ (alebo DZ)</td></tr>
+<tr><td>záväzok - / majetok -</td><td>Splatí úver, zaplatí faktúru dodávateľovi</td><td>KZ / OM</td></tr>
+<tr><td>majetok + / výnos +</td><td>Predá službu za hotové alebo na faktúru</td><td>OM / V</td></tr>
+<tr><td>náklad + / záväzok +</td><td>Príde faktúra za elektrinu, vzniknú mzdy</td><td>N / KZ</td></tr>
+<tr><td>náklad + / majetok -</td><td>Zaplatí nájom v hotovosti, spotrebuje zásoby, odpíše stroj</td><td>N / OM (alebo NM)</td></tr>
+<tr><td>záväzok - / výnos +</td><td>Dodávateľ odpustí dlh</td><td>KZ / V</td></tr>
+<tr><td>majetok + / majetok -</td><td>Kúpi notebook za hotové, zákazník zaplatí faktúru</td><td>NM / OM, OM / OM</td></tr>
+<tr><td>záväzok - / záväzok +</td><td>Krátkodobý úver sa zmení na dlhodobý</td><td>KZ / DZ</td></tr>
+</table>
+<p class="hint">Ľavá strana (MD, „má dať“) je tam, kde rastie majetok a náklady. Pravá strana (D, „dal“) je tam, kde rastú záväzky, vlastné imanie a výnosy. Zníženie je vždy na opačnej strane. Viac netreba.</p>
+</section>
+<section class="slide"><div class="sec-label">Časť B · Účtovníctvo v základných kategóriách</div>
+<h2>Kaviareň KÁVA &amp; KOLÁČ s. r. o. - prvý mesiac</h2>
+<table class="tbl2">
+<tr><th>#</th><th>Účtovný prípad</th><th class="num">€</th><th>MD</th><th>D</th><th>Prečo</th></tr>
+<tr><td>1</td><td>Spoločník vložil základné imanie na účet</td><td class="num">10 000</td><td>OM</td><td>VI</td><td>pribudli peniaze, zdrojom je vlastník</td></tr>
+<tr><td>2</td><td>Kúpa kávovaru na faktúru (4 roky)</td><td class="num">3 600</td><td>NM</td><td>KZ</td><td>pribudol neobežný majetok, dlhujeme dodávateľovi</td></tr>
+<tr><td>3</td><td>Úhrada faktúry za kávovar</td><td class="num">3 600</td><td>KZ</td><td>OM</td><td>dlh zanikol, ubudli peniaze; nie je to náklad</td></tr>
+<tr><td>5</td><td>Tržby za nápoje v hotovosti</td><td class="num">2 400</td><td>OM</td><td>V</td><td>pribudli peniaze, vznikol výnos</td></tr>
+<tr><td>6</td><td>Nájomné za január v hotovosti</td><td class="num">900</td><td>N</td><td>OM</td><td>spotrebovaná služba = náklad, ubudli peniaze</td></tr>
+<tr><td>7</td><td>Faktúra za catering firemnému zákazníkovi</td><td class="num">1 500</td><td>OM</td><td>V</td><td>výnos vzniká už faktúrou, pohľadávka je obežný majetok</td></tr>
+<tr><td>10</td><td>Hrubé mzdy za január (výplata vo februári)</td><td class="num">1 800</td><td>N</td><td>KZ</td><td>práca bola spotrebovaná v januári, zaplatí sa neskôr</td></tr>
+<tr><td>11</td><td>Odpis kávovaru za január (3 600 / 48 mesiacov)</td><td class="num">75</td><td>N</td><td>NM</td><td>opotrebenie = náklad, hodnota majetku klesá</td></tr>
+</table>
+<p class="hint">Celé zadanie (12 prípadov) riešime na cvičení v aplikácii IUP 2 NHF. Ostatné prípady: nákup zásob na faktúru (OM / KZ), spotreba zásob (N / OM), inkaso pohľadávky (OM / OM), krátkodobý úver (OM / KZ).</p>
+</section>
+<section class="slide"><div class="sec-label">Časť B · Účtovníctvo v základných kategóriách</div>
+<h2>Kaviareň: súvaha a výkaz ziskov a strát k 31. 1. 2026</h2>
+<div class="cols">
+<table class="tbl2"><tr><th colspan="2">Súvaha</th></tr>
+<tr><td>Neobežný majetok (3 600 - 75)</td><td class="num">3 525</td></tr>
+<tr><td>Obežný majetok (peniaze 14 400, zásoby 150)</td><td class="num">14 550</td></tr>
+<tr><th>Aktíva spolu</th><th class="num">18 075</th></tr>
+<tr><td>Vlastné imanie - vklad</td><td class="num">10 000</td></tr>
+<tr><td>Vlastné imanie - zisk januára</td><td class="num">475</td></tr>
+<tr><td>Krátkodobé záväzky (zásoby 800, mzdy 1 800, úver 5 000)</td><td class="num">7 600</td></tr>
+<tr><th>Pasíva spolu</th><th class="num">18 075</th></tr></table>
+<table class="tbl2"><tr><th colspan="2">Výkaz ziskov a strát</th></tr>
+<tr><td>Výnosy (2 400 + 1 500)</td><td class="num">3 900</td></tr>
+<tr><td>Náklady: nájom 900, spotreba zásob 650, mzdy 1 800, odpis 75</td><td class="num">- 3 425</td></tr>
+<tr><th>Výsledok hospodárenia - zisk</th><th class="num">475</th></tr>
+<tr><td colspan="2" class="hint">Peniaze na účte a v pokladnici: 14 400 €. Zisk: 475 €. Rozdiel je úver, vklad, nezaplatené mzdy, kávovar a zásoby. Zisk nie sú peniaze.</td></tr></table>
+</div>
+</section>
+<section class="slide"><div class="sec-label">Časť C · Späť k dani</div>
+<h2>Späť k dani: kaviareň</h2>
+<ul>
+<li>Výsledok hospodárenia pred zdanením: 475 €. Sú v nákladoch položky, ktoré štát neuzná? Nájom je zaplatený, mzdy sú daňové, spotreba zásob tiež, odpis 75 € berieme zatiaľ ako zhodný s daňovým. <b>PP 0, OP 0</b>.</li>
+<li>Základ dane 475 €. Výnosy 3 900 € → sadzba 10 % (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-15.pismeno-b" target="_blank">§ 15 písm. b)</a>). Daň 47,50 €.</li>
+<li>Minimálna daň by bola 340 €, ale v prvom zdaňovacom období sa neplatí (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-46b" target="_blank">§ 46b</a>). (Ide o január; v skutočnosti sa daň počíta za celý rok.)</li>
+<li>Zaúčtovanie dane: náklad ND 47,50 / záväzok voči daňovému úradu DU 47,50. Výsledok hospodárenia po zdanení 427,50 €.</li>
+</ul>
+<div class="q">Čo by sa stalo so základom dane, keby kaviareň nájomné 900 € do konca roka nezaplatila? (§ 17 ods. 19 písm. b) - PP 900, základ dane 1 375.)</div>
+</section>
+<section class="slide"><div class="sec-label">Časť C · Späť k dani</div>
+<h2>Späť k dani: čo nás čaká v Advers s. r. o.</h2>
+<table class="tbl2">
+<tr><th>Prípad</th><th>Dôvod úpravy</th><th>Úprava</th></tr>
+<tr><td>Pracovná večera s klientmi, kalendáre nad 17 €</td><td>A. nikdy - reprezentácia (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-21.odsek-1.pismeno-h" target="_blank">§ 21 ods. 1 písm. h)</a>)</td><td><span class="tag pp">PP</span></td></tr>
+<tr><td>Úrok z omeškania voči daňovému úradu</td><td>A. nikdy - sankcia voči štátu (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-21.odsek-2.pismeno-a" target="_blank">§ 21 ods. 2 písm. a)</a>)</td><td><span class="tag pp">PP</span></td></tr>
+<tr><td>Rezerva na audit</td><td>A. nikdy - nie je v zozname daňových rezerv (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-21.odsek-2.pismeno-j" target="_blank">§ 21 ods. 2 písm. j)</a>)</td><td><span class="tag pp">PP</span></td></tr>
+<tr><td>Pohonné látky bez knihy jázd</td><td>B. limit 80 % (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-19.odsek-2.pismeno-l" target="_blank">§ 19 ods. 2 písm. l)</a>)</td><td><span class="tag pp">PP 20 %</span></td></tr>
+<tr><td>Akcie predané pod cenu</td><td>B. limit - len do výšky príjmu (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-19.odsek-2.pismeno-f" target="_blank">§ 19 ods. 2 písm. f)</a>)</td><td><span class="tag pp">PP strata</span></td></tr>
+<tr><td>Krádež auta, poisťovňa uhradila menej</td><td>B. limit - škoda len do výšky náhrady (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-21.odsek-2.pismeno-e" target="_blank">§ 21 ods. 2 písm. e)</a>)</td><td><span class="tag pp">PP rozdiel</span></td></tr>
+<tr><td>Nájomné a poradenstvo nezaplatené do konca roka</td><td>C. iný čas - až po zaplatení (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-17.odsek-19" target="_blank">§ 17 ods. 19</a>)</td><td><span class="tag pp">PP</span> teraz, <span class="tag op">OP</span> po úhrade</td></tr>
+<tr><td>Nájomné z minulého roka zaplatené teraz</td><td>C. iný čas - v minulom roku bolo PP</td><td><span class="tag op">OP</span></td></tr>
+<tr><td>Opravná položka k pohľadávke po 1 080 dňoch</td><td>C. čas uplynul, 100 % je daňové (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-20.odsek-14" target="_blank">§ 20 ods. 14</a>)</td><td><span class="tag ok">bez úpravy</span></td></tr>
+</table>
+<p class="hint">Všetky prípady s vysvetlením a odkazmi na zákon sú v ťaháku na stránke predmetu.</p>
+</section>
+<section class="slide">
+<h2>Čo si odniesť</h2>
+<ol style="font-size:1.35rem">
+<li>Daň z príjmov právnickej osoby = základ dane × sadzba (10 / 21 / 24 % podľa výnosov), najmenej však minimálna daň.</li>
+<li>Základ dane sa u firmy zisťuje z výsledku hospodárenia: VH + PP - OP.</li>
+<li>Výsledok hospodárenia = výnosy - náklady. Náklad nie je výdavok, výnos nie je príjem, zisk nie sú peniaze.</li>
+<li>Súvaha: majetok (neobežný, obežný) = vlastné imanie + záväzky (dlhodobé, krátkodobé). Fotografia k jednému dňu.</li>
+<li>Výkaz ziskov a strát: film za obdobie, vysvetľuje zisk v súvahe.</li>
+<li>Každý účtovný prípad mení dve kategórie; rovnica platí stále.</li>
+<li>PP vznikajú z troch dôvodov: nikdy, len do limitu, v inom čase. OP sú ich zrkadlo alebo nezdaňované výnosy.</li>
+</ol>
+</section>
+<section class="slide">
+<h2>Na cvičení a doma</h2>
+<div class="cols">
+<div class="box"><h3>Cvičenie 1</h3><p>Kvíz na slido.com. Kaviareň KÁVA &amp; KOLÁČ v aplikácii IUP 2 NHF: 12 prípadov, súvaha, výkaz ziskov a strát, prvá kalkulácia dane.</p></div>
+<div class="box"><h3>Cvičenie 2</h3><p>Advers s. r. o.: 31 riadkov, pri každom rozhodnúť PP / OP a nájsť paragraf. Zjednodušené daňové priznanie a zaúčtovanie dane.</p></div>
+</div>
+<h3>Materiály</h3>
+<ul>
+<li>Stránka predmetu: úvod, táto prednáška, ťahák PP a OP, zadania, aplikácia.</li>
+<li><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101" target="_blank">Zákon č. 595/2003 Z. z. o dani z príjmov</a> - § 2, § 12, § 15, § 17, § 19 až § 22, § 30, § 42, § 46b (odkazy na slov-lex.sk).</li>
+<li><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2004/222/20260101" target="_blank">Zákon č. 222/2004 Z. z. o DPH</a> - § 27 sadzby, § 49 odpočítanie dane.</li>
+</ul>
+<p class="hint">Otázky kedykoľvek: anton.marci@euba.sk</p>
+</section>
+</div><div class="ctl"><button id="prev">◀</button><button id="next">▶</button><span class="n" id="n"></span><div class="bar"><i id="bar"></i></div><button id="all" style="background:var(--white);color:var(--moss);border:1px solid var(--moss)">Všetky slidy</button></div>
+<script>
+(function(){
+  const s=[...document.querySelectorAll('.slide')];let i=0;
+  const n=document.getElementById('n'),bar=document.getElementById('bar');
+  function show(k){i=Math.max(0,Math.min(s.length-1,k));s.forEach((x,j)=>x.classList.toggle('on',j===i));n.textContent=(i+1)+' / '+s.length;bar.style.width=((i+1)/s.length*100)+'%';history.replaceState(null,'','#'+(i+1));window.scrollTo(0,0);}
+  const h=parseInt((location.hash||'').slice(1),10);show(isNaN(h)?0:h-1);
+  document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();show(i+1);}else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();show(i-1);}else if(e.key==='Home')show(0);else if(e.key==='End')show(s.length-1);});
+  document.getElementById('prev').onclick=()=>show(i-1);document.getElementById('next').onclick=()=>show(i+1);
+  document.getElementById('all').onclick=()=>{document.body.classList.toggle('all');s.forEach(x=>x.style.display=document.body.classList.contains('all')?'block':'');if(!document.body.classList.contains('all'))show(i);};
+  let tx=null;document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);document.addEventListener('touchend',e=>{if(tx===null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60)show(d<0?i+1:i-1);tx=null;});
+})();
+</script>
+
+</main>
+<footer class="bot"><div class="in"><span>Ing. Anton Marci, PhD. - Katedra účtovníctva a audítorstva FHI EU v Bratislave - anton.marci@euba.sk</span><span>Zákony: <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101">ZDP</a> · <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2004/222/20260101">ZDPH</a> · <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2002/431/20260101">zákon o účtovníctve</a> (slov-lex.sk, znenie od 1. 1. 2026)</span></div></footer>
+</body>
+</html>

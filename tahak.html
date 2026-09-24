@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ťahák PP a OP - ÚDPO II NHF</title>
+<style>
+:root{--ink:#2d2a26;--muted:#7a7468;--paper:#f8f7f4;--line:#e0ddd6;--moss:#4a6741;--mossd:#3a5233;--mossl:#e8efe6;--gold:#9a7b2f;--goldl:#faf5e8;--navy:#3d5a80;--navyl:#e3edf7;--brick:#b34040;--brickl:#fce8e8;--white:#fff}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.5;font-size:16px}
+a{color:var(--moss)}
+header.top{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+header.top .in{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.logo b{width:34px;height:34px;border-radius:9px;background:var(--moss);color:#fff;display:grid;place-items:center;font-size:13px}
+.logo span{line-height:1.15}
+.logo small{display:block;color:var(--muted);font-size:11px}
+nav.main{display:flex;gap:2px;flex-wrap:wrap;margin-left:auto}
+nav.main a{padding:6px 11px;border-radius:7px;text-decoration:none;color:var(--ink);font-size:14px}
+nav.main a:hover{background:var(--paper)}
+nav.main a.on{background:var(--mossl);color:var(--moss);font-weight:600}
+main.wrap{max-width:1100px;margin:0 auto;padding:22px 16px 60px}
+h1{font-size:1.75rem;line-height:1.2;margin:0 0 6px}
+h2{font-size:1.25rem;margin:34px 0 10px;color:var(--mossd)}
+h3{font-size:1.05rem;margin:22px 0 6px}
+p.lead{font-size:1.08rem;color:#4a463f;margin:0 0 18px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:0 1px 3px rgba(45,42,38,.06)}
+.grid{display:grid;gap:14px}
+@media(min-width:700px){.grid.c2{grid-template-columns:1fr 1fr}.grid.c3{grid-template-columns:repeat(3,1fr)}.grid.c4{grid-template-columns:repeat(4,1fr)}}
+.tile{display:block;text-decoration:none;color:inherit;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px;transition:border-color .15s}
+.tile:hover{border-color:var(--moss)}
+.tile h3{margin:0 0 4px;color:var(--moss)}
+.tile p{margin:0;color:var(--muted);font-size:14px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;background:var(--white)}
+th,td{border:1px solid var(--line);padding:7px 9px;vertical-align:top;text-align:left}
+th{background:var(--mossl);color:var(--mossd);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+.pp{background:var(--brickl);color:var(--brick)}
+.op{background:var(--navyl);color:var(--navy)}
+.ok{background:var(--mossl);color:var(--moss)}
+.note{background:var(--goldl);border-left:4px solid var(--gold);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+.warn{background:var(--brickl);border-left:4px solid var(--brick);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+.small{font-size:13px;color:var(--muted)}
+code,kbd{font-family:"Cascadia Mono",Consolas,ui-monospace,monospace;font-size:.92em;background:#f1efe9;padding:1px 5px;border-radius:4px}
+.btn{display:inline-block;background:var(--moss);color:#fff;text-decoration:none;padding:9px 16px;border-radius:8px;font-weight:600}
+.btn.sec{background:var(--white);color:var(--moss);border:1px solid var(--moss)}
+footer.bot{border-top:1px solid var(--line);color:var(--muted);font-size:12px;background:var(--white)}
+footer.bot .in{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;gap:16px;flex-wrap:wrap}
+.eq{font-size:1.25rem;text-align:center;padding:14px;background:var(--white);border:1px dashed var(--moss);border-radius:10px;margin:12px 0;font-weight:600;color:var(--mossd)}
+ul,ol{padding-left:22px}
+li{margin:3px 0}
+.toc a{display:block;padding:4px 0;text-decoration:none}
+</style>
+
+</head>
+<body>
+<header class="top"><div class="in">
+<a class="logo" href="index.html"><b>ÚD</b><span>Účtovníctvo a dane právnických osôb II<small>študenti NHF - zimný semester 2026/2027</small></span></a>
+<nav class="main"><a href="index.html">Úvod</a><a href="prednaska.html">Prednáška</a><a href="tahak.html" class=on>Ťahák PP a OP</a><a href="zadania.html">Zadania</a><a href="app/index.html">Aplikácia IUP 2 NHF</a></nav>
+</div></header>
+<main class="wrap">
+
+<h1>Ťahák: prečo vznikajú položky zvyšujúce (PP) a znižujúce (OP) výsledok hospodárenia</h1>
+<p class="lead">Účtovníctvo a daň z príjmov sledujú iné ciele. Účtovníctvo chce ukázať verný obraz firmy (aj s opatrnosťou - odhadmi budúcich strát). Zákon o dani z príjmov chce vybrať daň spravodlivo a bez zneužívania, preto niektoré náklady neuznáva, iné uznáva len do limitu alebo až neskôr. Rozdiely sa neopravujú v účtovníctve, ale mimo neho - v daňovom priznaní - ako položky zvyšujúce a znižujúce výsledok hospodárenia.</p>
+
+<div class="card toc">
+<b>Obsah</b>
+<a href="#slovnik">1. Slovník pojmov</a>
+<a href="#postup">2. Postup výpočtu dane v šiestich krokoch</a>
+<a href="#dovody">3. Tri dôvody, prečo vzniká PP (a zrkadlovo OP)</a>
+<a href="#pripady">4. Najčastejšie prípady s odkazmi na zákon</a>
+<a href="#advers">5. Riadok po riadku: Advers s. r. o.</a>
+<a href="#omyly">6. Časté omyly neúčtovníkov</a>
+</div>
+
+<h2 id="slovnik">1. Slovník pojmov</h2>
+<div class="card">
+<table>
+<tr><th style="width:26%">Pojem</th><th>Čo to znamená</th></tr>
+<tr><td>Výsledok hospodárenia (VH)</td><td>Výnosy mínus náklady za účtovné obdobie podľa účtovníctva. Kladný = zisk, záporný = strata. Pred zdanením = ešte bez nákladu na daň z príjmov.</td></tr>
+<tr><td>Základ dane (ZD)</td><td>Suma, z ktorej sa počíta daň. U právnickej osoby účtujúcej v podvojnom účtovníctve sa zisťuje z výsledku hospodárenia (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-17.odsek-1">§ 17 ods. 1 ZDP</a>) po jeho úprave o PP a OP (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-17.odsek-2">§ 17 ods. 2 ZDP</a>).</td></tr>
+<tr><td>Položka zvyšujúca VH (PP, "pripočítateľná")</td><td>Suma, ktorú k výsledku hospodárenia pripočítame, lebo ju zákon ako náklad neuznáva (alebo ju uznáva inokedy), prípadne príjem, ktorý v účtovníctve nie je, ale zdaniť sa má.</td></tr>
+<tr><td>Položka znižujúca VH (OP, "odpočítateľná")</td><td>Suma, ktorú od výsledku hospodárenia odpočítame: náklad, ktorý bol dodanený v minulom roku a teraz splnil podmienku (napr. zaplatenie), alebo výnos, ktorý sa nezdaňuje (nie je predmetom dane, je oslobodený, bol zdanený zrážkou).</td></tr>
+<tr><td>Daňový výdavok</td><td>Náklad, ktorý zákon uznáva: slúži na dosiahnutie, zabezpečenie a udržanie zdaniteľných príjmov, je preukázaný a zaúčtovaný (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-2">§ 2 písm. i) ZDP</a>). Čo nie je daňovým výdavkom, je PP.</td></tr>
+<tr><td>Zdaniteľný príjem (výnos)</td><td>Výnos, ktorý je predmetom dane a nie je oslobodený. Súčet zdaniteľných výnosov určuje sadzbu dane a minimálnu daň.</td></tr>
+<tr><td>Sadzba dane</td><td><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-15.pismeno-b">§ 15 písm. b) ZDP</a>: 10 % pri zdaniteľných príjmoch (výnosoch) do 100 000 € vrátane, 21 % nad 100 000 € do 5 000 000 € vrátane, 24 % nad 5 000 000 €.</td></tr>
+<tr><td>Minimálna daň</td><td><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-46b">§ 46b ZDP</a>: aj firma s nulovým alebo malým základom dane platí minimálnu daň podľa výšky výnosov (340 € do 50 000 €, 960 € do 250 000 €, 1 920 € do 500 000 €, 3 840 € do 5 000 000 €, nad túto hranicu 11 520 €). Kladný rozdiel medzi minimálnou a vypočítanou daňou sa dá započítať v ďalších troch obdobiach. V období, za ktoré firma podáva priznanie prvýkrát, sa minimálna daň neplatí.</td></tr>
+<tr><td>Preddavky na daň</td><td><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-42">§ 42 ZDP</a>: platby počas roka podľa poslednej známej daňovej povinnosti (do 5 000 € bez preddavkov, do 16 600 € štvrťročne, nad 16 600 € mesačne). V priznaní sa odpočítajú od celkovej dane; zvyšok je daň na úhradu.</td></tr>
+<tr><td>Daňová strata</td><td>Záporný základ dane. Dá sa odpočítať od kladného základu dane v nasledujúcich piatich obdobiach, najviac do 50 % základu dane (mikrodaňovník 100 %), <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-30">§ 30 ZDP</a>.</td></tr>
+</table>
+</div>
+
+<h2 id="postup">2. Postup výpočtu dane v šiestich krokoch</h2>
+<div class="card">
+<table>
+<tr><th>Krok</th><th>Riadok priznania</th><th>Čo urobím</th></tr>
+<tr><td>1</td><td>r. 100</td><td>Výsledok hospodárenia pred zdanením z účtovníctva (výnosy - náklady, bez nákladu na daň z príjmov).</td></tr>
+<tr><td>2</td><td>r. 110 až r. 200</td><td>Pripočítam položky zvyšujúce VH (PP) - nedaňové náklady, nezaplatené náklady s podmienkou zaplatenia, rozdiel účtovných a daňových odpisov, nezaplatené záväzky po splatnosti a pod.</td></tr>
+<tr><td>3</td><td>r. 210 až r. 300</td><td>Odpočítam položky znižujúce VH (OP) - náklady dodanené v minulosti a teraz zaplatené, výnosy, ktoré sa nezdaňujú.</td></tr>
+<tr><td>4</td><td>r. 400, r. 410, r. 500</td><td>Základ dane = r. 100 + PP - OP. Odpočítam daňovú stratu z minulých rokov (§ 30). Výsledok je základ dane po odpočte straty.</td></tr>
+<tr><td>5</td><td>r. 550, r. 600, r. 1080</td><td>Určím sadzbu podľa zdaniteľných výnosov (§ 15) a vypočítam daň. Porovnám s minimálnou daňou (§ 46b), platí vyššia suma.</td></tr>
+<tr><td>6</td><td>r. 1010, r. 1100</td><td>Odpočítam zaplatené preddavky (§ 42). Zvyšok je daň na úhradu (alebo preplatok). Daň sa zaúčtuje ako náklad (ND) a záväzok voči daňovému úradu (DU). Výsledok hospodárenia po zdanení = VH pred zdanením - daň.</td></tr>
+</table>
+<div class="eq">VH pred zdanením + PP - OP = základ dane &nbsp;→&nbsp; - daňová strata &nbsp;→&nbsp; × sadzba = daň &nbsp;→&nbsp; - preddavky = daň na úhradu</div>
+</div>
+
+<h2 id="dovody">3. Tri dôvody, prečo vzniká PP (a zrkadlovo OP)</h2>
+<div class="grid c3">
+<div class="card"><h3 style="margin-top:0"><span class="tag pp">PP</span> A. Náklad štát neuzná nikdy</h3>
+<p>Zoznam je v <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-21">§ 21 ZDP</a>: reprezentácia (pohostenie, dary klientom okrem reklamných predmetov do 17 €), pokuty a úroky z omeškania voči štátu, dary, manká a škody nad prijaté náhrady, rezervy a opravné položky, ktoré nie sú v § 20, náklady na osobnú potrebu. Náklad ostáva v účtovníctve (znižuje zisk), ale k základu dane sa pripočíta celý.</p></div>
+<div class="card"><h3 style="margin-top:0"><span class="tag pp">PP</span> B. Náklad štát uzná len do limitu</h3>
+<p><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-19">§ 19 ZDP</a>: pohonné látky bez knihy jázd len 80 %, cena predaných akcií len do výšky príjmu z predaja, odpisy len vo výške daňových odpisov (§ 22 až § 29), škoda len do výšky náhrady. Pripočíta sa iba časť nad limit.</p></div>
+<div class="card"><h3 style="margin-top:0"><span class="tag pp">PP</span> <span class="tag op">OP</span> C. Náklad štát uzná v inom čase</h3>
+<p><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-17.odsek-19">§ 17 ods. 19 ZDP</a>: nájomné, poradenské a právne služby, provízie, marketingové štúdie a ďalšie sú daňovým výdavkom až po zaplatení. Nezaplatené v roku vzniku = PP; zaplatené v ďalšom roku = OP (aby sa náklad uznal práve raz). Podobne odpisy: účtovný odpis vyšší ako daňový = PP, nižší = OP. Opravné položky k pohľadávkam sa uznávajú postupne podľa doby po splatnosti (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-20.odsek-14">§ 20 ods. 14</a>).</p></div>
+</div>
+<div class="note">Iné OP: výnosy, ktoré sa nezdaňujú - podiely na zisku (dividendy) nie sú predmetom dane (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-12.odsek-7">§ 12 ods. 7</a>), príjmy zdanené zrážkou pri zdroji, napr. úroky na účte (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-43">§ 43</a>), úhrada záväzku, ktorý bol v minulosti dodanený podľa <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-17.odsek-27">§ 17 ods. 27</a> alebo ods. 32.</div>
+
+<h2 id="pripady">4. Najčastejšie prípady s odkazmi na zákon</h2>
+<div class="card">
+<table>
+<tr><th style="width:24%">Situácia</th><th>Ľudsky povedané</th><th style="width:8%">Úprava</th><th style="width:20%">Ustanovenie ZDP</th></tr>
+<tr><td>Pracovná večera, pohostenie, dary klientom</td><td>Reprezentácia nie je daňový výdavok, vrátane DPH, ktorú si z nej firma nemôže odpočítať (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2004/222/20260101#paragraf-49.odsek-7.pismeno-a">§ 49 ods. 7 písm. a) ZDPH</a>).</td><td><span class="tag pp">PP</span> celá suma</td><td><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-21.odsek-1.pismeno-h">§ 21 ods. 1 písm. h)</a></td></tr>
+<tr><td>Reklamné predmety</td><td>Predmet do 17 € za kus je daňový výdavok (perá, kalendáre s logom do 17 €). Nad 17 € je to reprezentácia.</td><td><span class="tag ok">bez úpravy</span> / <span class="tag pp">PP</span></td><td><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-21.odsek-1.pismeno-h">§ 21 ods. 1 písm. h)</a></td></tr>
+<tr><td>Pohonné látky</td><td>Tri možnosti: kniha jázd (skutočná spotreba), GPS evidencia, alebo paušál 80 % bez knihy jázd. Pri paušáli je 20 % základu dane aj 20 % neodpočítanej DPH nedaňových.</td><td><span class="tag pp">PP</span> 20 %</td><td><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-19.odsek-2.pismeno-l">§ 19 ods. 2 písm. l)</a></td></tr>
+<tr><td>Predaj akcií, podielov</td><td>Obstarávacia cena predaných cenných papierov je daňovým výdavkom len do výšky príjmu z predaja. Strata z predaja je PP.</td><td><span class="tag pp">PP</span> strata</td><td><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-19.odsek-2.pismeno-f">§ 19 ods. 2 písm. f)</a></td></tr>
+<tr><td>Odpisy dlhodobého majetku</td><td>Účtovné odpisy si firma určí sama (podľa skutočného opotrebenia), daňové odpisy predpisuje zákon (odpisové skupiny a doby). Uznajú sa len daňové. Pri vyradení majetku krádežou sa daňový odpis za rok vyradenia neuplatní.</td><td><span class="tag pp">PP</span> / <span class="tag op">OP</span> rozdiel</td><td><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-22">§ 22 až § 29</a>, <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-22.odsek-12">§ 22 ods. 12</a></td></tr>
+<tr><td>Škoda (krádež, havária, živel)</td><td>Škoda je daňová len do výšky prijatej náhrady (poistné plnenie). Výnimka: škoda spôsobená neznámym páchateľom potvrdená políciou a živelná pohroma sa uznajú celé.</td><td><span class="tag pp">PP</span> nad náhradu</td><td><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-21.odsek-2.pismeno-e">§ 21 ods. 2 písm. e)</a>, výnimka <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-19.odsek-3.pismeno-g.bod-2">§ 19 ods. 3 písm. g)</a></td></tr>
+<tr><td>Pokuty, penále, úroky z omeškania voči daňovému úradu, poisťovniam</td><td>Sankcie voči štátu nie sú daňovým výdavkom (zmluvné pokuty medzi podnikateľmi sa uznávajú po zaplatení).</td><td><span class="tag pp">PP</span> celá suma</td><td><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-21.odsek-2.pismeno-a">§ 21 ods. 2 písm. a)</a></td></tr>
+<tr><td>Nájomné, poradenské a právne služby, provízie, štúdie</td><td>Sú daňovým výdavkom až po zaplatení. Faktúra nezaplatená do 31. 12. je PP, jej úhrada v ďalšom roku je OP.</td><td><span class="tag pp">PP</span> nezaplatené / <span class="tag op">OP</span> zaplatené</td><td><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-17.odsek-19">§ 17 ods. 19 písm. b), f)</a></td></tr>
+<tr><td>Opravná položka k pohľadávke</td><td>Účtovne firma zníži hodnotu pohľadávky, keď ju dlžník neplatí. Daňovo sa uzná postupne: 20 % po 360 dňoch, 50 % po 720 dňoch, 100 % po 1 080 dňoch po splatnosti (pohľadávka musela byť zdaniteľným výnosom).</td><td><span class="tag pp">PP</span> nad daňový limit</td><td><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-20.odsek-14">§ 20 ods. 14</a></td></tr>
+<tr><td>Rezerva (na audit, súdny spor, opravy)</td><td>Rezerva je odhad budúceho záväzku. Daňovo sa uznajú len rezervy vymenované v § 20 ods. 9; ostatné (napr. na audit účtovnej závierky) sú PP pri tvorbe a OP pri použití alebo zrušení.</td><td><span class="tag pp">PP</span> tvorba</td><td><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-21.odsek-2.pismeno-j">§ 21 ods. 2 písm. j)</a>, <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-20.odsek-9">§ 20 ods. 9</a></td></tr>
+<tr><td>Nezaplatený záväzok po splatnosti</td><td>Ak firma nezaplatí dodávateľovi, náklad si uplatnila, ale peniaze neminula. Zákon preto základ dane zvýši o 20 % po 360 dňoch, 50 % po 720 dňoch a 100 % po 1 080 dňoch po splatnosti; pri neskoršej úhrade vzniká OP.</td><td><span class="tag pp">PP</span> / neskôr <span class="tag op">OP</span></td><td><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-17.odsek-27">§ 17 ods. 27</a></td></tr>
+<tr><td>Podiely na zisku (dividendy) prijaté od inej firmy</td><td>Nie sú predmetom dane právnickej osoby, výnos sa zo základu dane vylúči.</td><td><span class="tag op">OP</span></td><td><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-12.odsek-7">§ 12 ods. 7</a></td></tr>
+<tr><td>Úroky na bankovom účte</td><td>Banka z nich zrazila daň pri výplate, do základu dane sa už nezahrnú.</td><td><span class="tag op">OP</span></td><td><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-43">§ 43</a></td></tr>
+</table>
+</div>
+
+<h2 id="advers">5. Riadok po riadku: Advers s. r. o. (rok 2025)</h2>
+<div class="card">
+<p>Výnosy 308 500 €, náklady 137 183 €, výsledok hospodárenia pred zdanením 171 317 €. PP spolu 67 283 €, OP 12 000 €, základ dane 226 600 €, sadzba 21 % (výnosy nad 100 000 €), daň 47 586 €, po odpočte preddavku 5 000 € daň na úhradu 42 586 €. Minimálna daň pri výnosoch 250 000 až 500 000 € je 1 920 €, vypočítaná daň je vyššia, preto sa neuplatní.</p>
+<table>
+<tr><th>Riadok</th><th>Prípad</th><th>Úprava</th><th>Prečo</th></tr>
+<tr><td>5</td><td>Úhrada nájomného z roku 2024 (12 000)</td><td><span class="tag op">OP 12 000</span></td><td>Nájomné je daňové až po zaplatení. V roku 2024 bolo PP, po úhrade v roku 2025 sa odpočíta. <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-17.odsek-19">§ 17 ods. 19 písm. b)</a></td></tr>
+<tr><td>6 a 7</td><td>Predaj akcií za 2 500, obstarané za 3 000</td><td><span class="tag pp">PP 500</span></td><td>Cena predaných akcií je daňová len do výšky príjmu z predaja. <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-19.odsek-2.pismeno-f">§ 19 ods. 2 písm. f)</a></td></tr>
+<tr><td>8 až 11</td><td>Reklamné perá 10 €/ks a kalendáre 20 €/ks</td><td><span class="tag pp">PP 2 460</span></td><td>Perá do 17 € sú daňové. Kalendáre nad 17 € sú reprezentácia vrátane DPH (2 000 + 460). <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-21.odsek-1.pismeno-h">§ 21 ods. 1 písm. h)</a></td></tr>
+<tr><td>12 až 15</td><td>Pohonné látky 500 + DPH 115, bez knihy jázd</td><td><span class="tag pp">PP 123</span></td><td>Paušál 80 %: 20 % základu (100) a 20 % DPH, ktorú si firma nemôže odpočítať (23), sú nedaňové. <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-19.odsek-2.pismeno-l">§ 19 ods. 2 písm. l) bod 3</a></td></tr>
+<tr><td>16</td><td>Odpis vozidla za január až apríl (4 000)</td><td><span class="tag pp">PP 4 000</span></td><td>Vozidlo bolo v máji ukradnuté; pri vyradení krádežou sa daňový odpis za rok vyradenia neuplatní, účtovný odpis je celý PP. <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-22.odsek-12">§ 22 ods. 12</a></td></tr>
+<tr><td>17 a 18</td><td>Krádež vozidla, zostatková cena 8 000, náhrada od poisťovne 6 000</td><td><span class="tag pp">PP 2 000</span></td><td>Škoda je daňová len do výšky náhrady. Daňová zostatková cena 12 000 - náhrada 6 000 = 6 000 nedaňových; 4 000 už je v riadku 16, zvyšok 2 000 tu. Potvrdenie polície o neznámom páchateľovi v roku 2025 neprišlo, výnimka sa nepoužije. <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-21.odsek-2.pismeno-e">§ 21 ods. 2 písm. e)</a></td></tr>
+<tr><td>19</td><td>Úrok z omeškania za neskorú platbu DPH (150)</td><td><span class="tag pp">PP 150</span></td><td>Sankcia voči správcovi dane nie je daňový výdavok. <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-21.odsek-2.pismeno-a">§ 21 ods. 2 písm. a)</a></td></tr>
+<tr><td>21 až 23</td><td>Poradenské služby 100 000, zaplatených 50 %</td><td><span class="tag pp">PP 50 000</span></td><td>Poradenstvo je daňové len po zaplatení; nezaplatená polovica je PP, po úhrade v roku 2026 bude OP. <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-17.odsek-19">§ 17 ods. 19 písm. f)</a></td></tr>
+<tr><td>24 a 25</td><td>Pracovná večera s klientmi 1 000 + DPH 5 % (50)</td><td><span class="tag pp">PP 1 050</span></td><td>Reprezentácia vrátane neodpočítanej DPH. <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-21.odsek-1.pismeno-h">§ 21 ods. 1 písm. h)</a>, sadzba DPH 5 % na reštauračné služby <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2004/222/20260101#paragraf-27">§ 27 ZDPH</a></td></tr>
+<tr><td>26</td><td>Opravná položka 100 % k pohľadávke splatnej 1. 4. 2022 (10 000)</td><td><span class="tag ok">bez úpravy</span></td><td>K 30. 9. 2025 je pohľadávka viac ako 1 080 dní po splatnosti, opravná položka 100 % je daňová. <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-20.odsek-14">§ 20 ods. 14 písm. c)</a></td></tr>
+<tr><td>27</td><td>Rezerva na audit účtovnej závierky (2 000)</td><td><span class="tag pp">PP 2 000</span></td><td>Rezerva na audit nie je medzi daňovými rezervami v § 20 ods. 9. <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-21.odsek-2.pismeno-j">§ 21 ods. 2 písm. j)</a></td></tr>
+<tr><td>28</td><td>Nájomné za rok 2025 nezaplatené do 31. 12. (5 000)</td><td><span class="tag pp">PP 5 000</span></td><td>Nájomné je daňové až po zaplatení; odpočíta sa v roku úhrady. <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-17.odsek-19">§ 17 ods. 19 písm. b)</a></td></tr>
+<tr><td>30 a 31</td><td>Preddavok 5 000, splatná daň 47 586</td><td>-</td><td>Sadzba 21 % podľa výnosov <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-15.pismeno-b">§ 15 písm. b)</a>, minimálna daň <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-46b">§ 46b</a> sa neuplatní, preddavky <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-42">§ 42</a>. Daň na úhradu 42 586 € do 31. 3. 2026; keďže daň presiahla 16 600 €, v roku 2026 sa platia mesačné preddavky 1/12.</td></tr>
+</table>
+<p class="small">Riadky 1 až 4, 20, 29: bežné účtovanie bez daňovej úpravy (tržby, DPH, inkaso, úhrady, náhrada škody od poisťovne je zdaniteľný výnos).</p>
+</div>
+
+<h2 id="omyly">6. Časté omyly neúčtovníkov</h2>
+<div class="card">
+<ul style="margin:0">
+<li><b>DPH nie je náklad ani výnos platiteľa.</b> Je to prietok: DPH z predaja firma dlhuje štátu (krátkodobý záväzok), DPH z nákupov si od štátu pýta späť (pohľadávka). Do nákladov ide len DPH, ktorú si odpočítať nemôže (reprezentácia, 20 % z PHL pri paušáli).</li>
+<li><b>Úhrada faktúry nie je náklad.</b> Náklad vznikol už pri prijatí služby alebo spotrebe. Úhrada len mení záväzok na menej peňazí. Preto existuje podmienka zaplatenia v § 17 ods. 19: náklad je v účtovníctve, ale daňovo sa uzná až po zaplatení.</li>
+<li><b>Prijatý úver nie je výnos</b> a jeho splátka nie je náklad. Nákladom je len úrok.</li>
+<li><b>Vklad spoločníka nie je výnos</b>, výplata podielu na zisku nie je náklad. Obe menia vlastné imanie.</li>
+<li><b>Odpis je náklad bez výdavku.</b> Peniaze odišli pri kúpe stroja, náklad sa rozkladá na roky používania. Zákon rozloženie predpisuje (daňové odpisy), preto vznikajú rozdiely.</li>
+<li><b>Rezerva a opravná položka sú tiež náklady bez výdavku</b> - odhady budúcich strát. Zákon ich uznáva len vo vymenovaných prípadoch, ostatné sú PP a po skutočnom vzniku výdavku OP.</li>
+<li><b>Základ dane nie je zisk.</b> Zisk je z účtovníctva; základ dane je zisk upravený o PP a OP. Firma môže mať zisk a daňovú stratu, aj stratu a základ dane.</li>
+</ul>
+</div>
+
+</main>
+<footer class="bot"><div class="in"><span>Ing. Anton Marci, PhD. - Katedra účtovníctva a audítorstva FHI EU v Bratislave - anton.marci@euba.sk</span><span>Zákony: <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101">ZDP</a> · <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2004/222/20260101">ZDPH</a> · <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2002/431/20260101">zákon o účtovníctve</a> (slov-lex.sk, znenie od 1. 1. 2026)</span></div></footer>
+</body>
+</html>
