@@ -8,7 +8,8 @@ Obsah:
 - tahak.html      ťahák: prečo vznikajú PP a OP, tabuľka prípadov s odkazmi na slov-lex, Advers riadok po riadku
 - zadania.html    zadania Kaviareň a Advers (NHF verzia) + návod na aplikáciu
 - zadania/*.csv   CSV zadaní a riešení (načítajú sa v appke cez Zadania alebo "CSV z internetu")
-- app/index.html  IUP 2 NHF - zbuildovaná aplikácia (jeden súbor, funguje offline)
+- app.html        IUP 2 NHF - zbuildovaná aplikácia (jeden súbor, funguje offline); kópia aj v app/index.html
+- *.csv v koreni  kópie zadaní na stiahnutie (GitHub web upload nezoberie priečinky, preto sú v koreni)
 - app-src/        zdrojový kód aplikácie (Vite + React); npm install, npm run build -> dist/index.html, skopírovať do app/
 
 Nasadenie na Vercel:

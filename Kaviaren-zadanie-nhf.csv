@@ -1,0 +1,13 @@
+﻿poradie;datum;doklad;popis;suma;md;dal;pripocitatelna;odpocitatelna;paragraf
+1;02.01.2026;VBÚ01;Vklad základného imania spoločníkom na bankový účet;10000;;;;;
+2;03.01.2026;DFA01;Nákup kávovaru na faktúru (neobežný majetok, bude slúžiť 4 roky);3600;;;;;
+3;05.01.2026;VBÚ02;Úhrada faktúry za kávovar z bankového účtu;3600;;;;;
+4;07.01.2026;DFA02;Nákup kávy a mlieka do zásob na faktúru;800;;;;;
+5;10.01.2026;PPD01;Tržby za predané nápoje v hotovosti;2400;;;;;
+6;12.01.2026;VPD01;Nájomné za január zaplatené v hotovosti;900;;;;;
+7;15.01.2026;VFA01;Faktúra za catering firemnému zákazníkovi (zatiaľ nezaplatená);1500;;;;;
+8;20.01.2026;IÚD01;Spotreba kávy a mlieka zo skladu;650;;;;;
+9;25.01.2026;VBÚ03;Inkaso faktúry za catering na bankový účet;1500;;;;;
+10;31.01.2026;IÚD02;Hrubé mzdy zamestnancov za január (vyplatia sa vo februári);1800;;;;;
+11;31.01.2026;IÚD03;Odpis kávovaru za január (3 600 / 4 roky / 12 mesiacov);75;;;;;
+12;31.01.2026;VBÚ04;Prijatý krátkodobý bankový úver (splatný do 1 roka);5000;;;;;

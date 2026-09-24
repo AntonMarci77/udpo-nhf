@@ -1,0 +1,32 @@
+﻿poradie;datum;doklad;popis;suma;md;dal;pripocitatelna;odpocitatelna;paragraf
+1;01.01.2025;IÚD00;Začiatočný stav k 1. 1. 2025: motorové vozidlo v zostatkovej cene (OC 48 000 - doterajšie odpisy 36 000), kryté vlastným imaním;12000;NM;VI;;;
+2;31.01.2025;VFA01;Faktúra za poskytnuté služby - základ dane (výnos, zákazník zatiaľ nezaplatil);300000;OM;V;;;
+3;31.01.2025;VFA01;Faktúra za poskytnuté služby - DPH 23 % (dlžíme štátu, nie je to náš výnos);69000;OM;KZ;;;
+4;14.02.2025;VBÚ01;Inkaso VFA01 na bankový účet v plnej výške (pohľadávka sa mení na peniaze);369000;OM;OM;;;
+5;15.02.2025;VBÚ02;Úhrada faktúry za nájom z predchádzajúceho roka (náklad bol už v roku 2024);12000;KZ;OM;;12000;§ 17 ods. 19 písm. b)
+6;28.02.2025;VBÚ03;Predaj akcií 50 ks á 50 EUR - peniaze prišli na účet (výnos);2500;OM;V;;;
+7;28.02.2025;IÚD01;Vyradenie predaných akcií v obstarávacej cene (náklad);3000;N;OM;500;;§ 19 ods. 2 písm. f)
+8;15.03.2025;DFA01;Reklamné perá 100 ks á 10 EUR bez DPH (reklamný predmet do 17 EUR - daňový náklad);1000;N;KZ;;;
+9;15.03.2025;DFA01;DPH 23 % z reklamných pier (nárok na odpočítanie - pohľadávka voči štátu);230;OM;KZ;;;
+10;15.03.2025;DFA01;Reklamné kalendáre 100 ks á 20 EUR bez DPH (nad 17 EUR - reprezentácia);2000;N;KZ;2000;;§ 21 ods. 1 písm. h)
+11;15.03.2025;DFA01;DPH 23 % z kalendárov - bez nároku na odpočítanie (zostáva v nákladoch);460;N;KZ;460;;§ 21 ods. 1 písm. h)
+12;01.04.2025;VPD01;Nákup PHL v hotovosti - základ dane, daňová časť 80 % (bez knihy jázd);400;N;OM;;;
+13;01.04.2025;VPD01;Nákup PHL - základ dane, nedaňová časť 20 %;100;N;OM;100;;§ 19 ods. 2 písm. l) bod 3
+14;01.04.2025;VPD01;DPH z PHL - odpočítaná časť 80 % (pohľadávka voči štátu);92;OM;OM;;;
+15;01.04.2025;VPD01;DPH z PHL - neodpočítaná časť 20 % (zostáva v nákladoch);23;N;OM;23;;§ 19 ods. 2 písm. l) bod 3
+16;30.04.2025;IÚD02;Odpis motorového vozidla za január až apríl (OC 48 000, 4 roky) - znižuje hodnotu majetku;4000;N;NM;4000;;§ 22 ods. 12
+17;01.05.2025;IÚD03;Vyradenie vozidla z dôvodu krádeže - zostatková cena 8 000 (škoda, náklad);8000;N;NM;2000;;§ 21 ods. 2 písm. e)
+18;15.05.2025;IÚD04;Priznaná náhrada škody od poisťovne (výnos, pohľadávka voči poisťovni);6000;OM;V;;;
+19;01.06.2025;IÚD05;Úrok z omeškania za neskorú platbu DPH za rok 2022 (náklad, záväzok voči štátu);150;N;KZ;150;;§ 21 ods. 2 písm. a)
+20;15.06.2025;VBÚ04;Úhrada úroku z omeškania z bankového účtu;150;KZ;OM;;;
+21;30.06.2025;DFA02;Faktúra za poradenské služby - základ dane (náklad, zatiaľ nezaplatený);100000;N;KZ;50000;;§ 17 ods. 19 písm. f)
+22;30.06.2025;DFA02;Faktúra za poradenské služby - DPH 23 % (pohľadávka voči štátu);23000;OM;KZ;;;
+23;15.07.2025;VBÚ05;Úhrada DFA02 vo výške 50 % (61 500 z 123 000);61500;KZ;OM;;;
+24;31.08.2025;VPD02;Pracovná večera s klientmi v hotovosti - základ dane (reprezentácia);1000;N;OM;1000;;§ 21 ods. 1 písm. h)
+25;31.08.2025;VPD02;Pracovná večera s klientmi - DPH 5 % bez nároku na odpočítanie;50;N;OM;50;;§ 21 ods. 1 písm. h)
+26;30.09.2025;IÚD06;Tvorba opravnej položky k pohľadávke splatnej 1. 4. 2022 (100 %) - znižuje hodnotu pohľadávky;10000;N;OM;;;§ 20 ods. 14 písm. c)
+27;15.10.2025;IÚD07;Tvorba rezervy na audit účtovnej závierky (náklad, budúci záväzok);2000;N;KZ;2000;;§ 21 ods. 2 písm. j)
+28;30.10.2025;DFA03;Faktúra za nájom priestorov - základ dane (do konca roka nezaplatená);5000;N;KZ;5000;;§ 17 ods. 19 písm. b)
+29;30.10.2025;DFA03;Faktúra za nájom priestorov - DPH 23 % (pohľadávka voči štátu);1150;OM;KZ;;;
+30;15.11.2025;VBÚ06;Preddavok na daň z príjmov zaplatený daňovému úradu;5000;DU;OM;;;
+31;31.12.2025;IÚD08;Splatná daň z príjmov za rok 2025 (podľa kalkulácie dane);47586;ND;DU;;;
