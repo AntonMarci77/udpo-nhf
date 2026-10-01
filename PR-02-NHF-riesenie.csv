@@ -1,0 +1,50 @@
+﻿poradie;datum;doklad;popis;suma;md;dal;pripocitatelna;odpocitatelna;paragraf
+1;01.01.2025;PS;Začiatočný stav: stroje v zostatkovej cene (OC 300 000 - doterajšie odpisy 120 000);180000;NM;VI;;;
+2;01.01.2025;PS;Začiatočný stav: pôžička poskytnutá v roku 2023 spoločnosti Gama s. r. o. (dlhodobý finančný majetok);6000;NM;VI;;;
+3;01.01.2025;PS;Začiatočný stav: materiál na sklade;40000;OM;VI;;;
+4;01.01.2025;PS;Začiatočný stav: tovar na sklade (obstarávacia cena);10000;OM;VI;;;
+5;01.01.2025;PS;Začiatočný stav: opravná položka k tovaru vytvorená v roku 2024 (nedaňová, PP 2024 = 3 000) - znižuje hodnotu tovaru;3000;VI;OM;;;
+6;01.01.2025;PS;Začiatočný stav: pohľadávky voči odberateľom A 8 000, B 12 000, C 5 000, D 4 000 a ostatné;89000;OM;VI;;;
+7;01.01.2025;PS;Začiatočný stav: opravné položky k pohľadávkam (B 6 000, C 5 000, D 4 000) - znižujú hodnotu pohľadávok;15000;VI;OM;;;
+8;01.01.2025;PS;Začiatočný stav: peniaze na bankovom účte;95000;OM;VI;;;
+9;01.01.2025;PS;Začiatočný stav: záväzky voči dodávateľom, zamestnancom, poisťovniam a DPH;67000;VI;KZ;;;
+10;01.01.2025;PS;Začiatočný stav: rezervy (dovolenky 5 500 daňová, audit 2 200 nedaňová, súdny spor 5 000 nedaňová);12700;VI;KZ;;;
+11;31.12.2025;SÚH01;Tržby za vlastné výrobky za rok 2025 - základ dane;950000;OM;V;;;
+12;31.12.2025;SÚH01;DPH 23 % k tržbám (dlžíme štátu);218500;OM;KZ;;;
+13;31.12.2025;SÚH02;Inkasá pohľadávok od odberateľov;1150000;OM;OM;;;
+14;31.12.2025;SÚH03;Nákup materiálu na sklad - základ dane;425000;OM;KZ;;;
+15;31.12.2025;SÚH03;DPH 23 % k nákupu materiálu (nárok na odpočítanie);97750;OM;KZ;;;
+16;31.12.2025;SÚH04;Spotreba materiálu vo výrobe;430000;N;OM;;;
+17;31.12.2025;SÚH05;Ostatné služby (uhradené v roku 2025) - základ dane;52000;N;KZ;;;
+18;31.12.2025;SÚH05;DPH 23 % k službám (nárok na odpočítanie);11960;OM;KZ;;;
+19;31.12.2025;SÚH06;Hrubé mzdy zamestnancov;190000;N;KZ;;;
+20;31.12.2025;SÚH06;Poistné zamestnávateľa (35,2 %);66880;N;KZ;;;
+21;31.12.2025;SÚH07;Odpisy strojov (účtovné = daňové);45000;N;NM;;;
+22;31.12.2025;SÚH08;Úhrady dodávateľom;600000;KZ;OM;;;
+23;31.12.2025;SÚH09;Výplaty miezd;195000;KZ;OM;;;
+24;31.12.2025;SÚH09;Odvody poistného;70000;KZ;OM;;;
+25;31.12.2025;SÚH10;Úhrady DPH daňovému úradu;100000;KZ;OM;;;
+26;31.12.2025;SÚH11;Štvrťročné preddavky na daň z príjmov 2025 (4 x 2 800);11200;DU;OM;;;
+27;20.01.2025;VBÚ01;01a Pohľadávka C (5 000, splatná 2. 1. 2022) bola zaplatená - opravná položka 100 % (v roku 2024 daňová) sa ruší, náklady sa znížia;5000;OM;N;;;§ 20 ods. 14
+28;20.01.2025;VBÚ01;01b Inkaso pohľadávky C na bankový účet;5000;OM;OM;;;
+29;15.02.2025;IÚD01;02 Súdny spor vyhratý - nedaňová rezerva na trovy konania 5 000 sa ruší (zníženie nákladov);5000;KZ;N;;5000;§ 17 ods. 23
+30;28.02.2025;DFA01;03a Faktúra za audit 2024 (2 200) - použitie nedaňovej rezervy, rezerva sa mení na skutočný záväzok;2200;KZ;KZ;;2200;§ 17 ods. 23
+31;28.02.2025;DFA01;03b DPH 23 % z faktúry za audit (nárok na odpočítanie);506;OM;KZ;;;
+32;15.04.2025;VFA01;04a Predaj tovaru (OC 10 000) - nedaňová opravná položka 3 000 sa zúčtuje spolu s tovarom;3000;OM;OM;;3000;§ 17 ods. 23
+33;15.04.2025;VFA01;04b Predaný tovar v účtovnej hodnote (10 000 - 3 000) ide do nákladov;7000;N;OM;;;
+34;15.04.2025;VFA01;04c Tržba za predaný tovar - základ dane;8000;OM;V;;;
+35;15.04.2025;VFA01;04d DPH 23 % k tržbe za tovar;1840;OM;KZ;;;
+36;30.06.2025;IÚD02;05a Vyčerpané dovolenky 2024 - použitie daňovej rezervy na mzdy;3700;KZ;KZ;;;§ 20 ods. 20
+37;30.06.2025;IÚD02;05b Vyčerpané dovolenky 2024 - použitie daňovej rezervy na poistné;1300;KZ;KZ;;;§ 20 ods. 20
+38;30.06.2025;IÚD02;05c Zrušenie nepotrebnej časti daňovej rezervy na dovolenky (5 500 - 5 000);500;KZ;N;;;§ 20 ods. 20
+39;15.09.2025;IÚD03;06 Konkurz na dlžníka D zrušený pre nedostatok majetku - pohľadávka 4 000 sa odpisuje proti opravnej položke 100 % (daňovo uznaných v roku 2024 len 800);4000;OM;OM;800;4000;§ 17 ods. 28 písm. b), § 19 ods. 2 písm. h)
+40;05.11.2025;IÚD04;07 Odberateľ E v konkurze, pohľadávka 9 000 prihlásená včas - opravná položka 100 %;9000;N;OM;;;§ 20 ods. 10
+41;31.12.2025;IÚD05;08 Opravná položka 100 % k pohľadávke A (8 000, splatná 15. 10. 2024, k 31. 12. 2025 442 dní po splatnosti);8000;N;OM;6400;;§ 20 ods. 14, § 21 ods. 2 písm. j)
+42;31.12.2025;IÚD06;09 Zvýšenie opravnej položky k pohľadávke B (12 000, splatná 31. 3. 2023, 1 006 dní po splatnosti) z 50 % na 100 %; v roku 2024 uznaných 2 400;6000;N;OM;2400;;§ 20 ods. 14, § 21 ods. 2 písm. j)
+43;31.12.2025;IÚD07;10 Opravná položka 100 % k pôžičke Gama s. r. o. 6 000 (dlžník nespláca);6000;N;NM;6000;;§ 21 ods. 2 písm. j)
+44;31.12.2025;IÚD08;11a Rezerva na nevyčerpané dovolenky 2025 - mzdy;5000;N;KZ;;;§ 20 ods. 9 písm. a)
+45;31.12.2025;IÚD08;11b Rezerva na nevyčerpané dovolenky 2025 - poistné;1760;N;KZ;;;§ 20 ods. 9 písm. a)
+46;31.12.2025;IÚD09;12 Rezerva na audit účtovnej závierky 2025;2500;N;KZ;2500;;§ 21 ods. 2 písm. j)
+47;31.12.2025;IÚD10;13 Rezerva na reklamácie a záručné opravy výrobkov predaných v roku 2025;3000;N;KZ;3000;;§ 21 ods. 2 písm. j)
+48;31.12.2025;IÚD11;14 Materiál prijatý na sklad 29. 12. 2025, faktúra nedošla, cena len odhadom 6 000 (rezerva súvisiaca s obstaraním majetku - nie je náklad);6000;OM;KZ;;;
+49;31.12.2025;IÚD12;15 Splatná daň z príjmov za rok 2025 (podľa kalkulácie dane);30084,6;ND;DU;;;

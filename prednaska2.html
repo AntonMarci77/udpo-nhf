@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prednáška 2 - ÚDPO II NHF</title>
+<style>
+:root{--ink:#2d2a26;--muted:#7a7468;--paper:#f8f7f4;--line:#e0ddd6;--moss:#4a6741;--mossd:#3a5233;--mossl:#e8efe6;--gold:#9a7b2f;--goldl:#faf5e8;--navy:#3d5a80;--navyl:#e3edf7;--brick:#b34040;--brickl:#fce8e8;--white:#fff}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.5;font-size:16px}
+a{color:var(--moss)}
+header.top{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+header.top .in{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.logo b{width:34px;height:34px;border-radius:9px;background:var(--moss);color:#fff;display:grid;place-items:center;font-size:13px}
+.logo span{line-height:1.15}
+.logo small{display:block;color:var(--muted);font-size:11px}
+nav.main{display:flex;gap:2px;flex-wrap:wrap;margin-left:auto}
+nav.main a{padding:6px 11px;border-radius:7px;text-decoration:none;color:var(--ink);font-size:14px}
+nav.main a:hover{background:var(--paper)}
+nav.main a.on{background:var(--mossl);color:var(--moss);font-weight:600}
+main.wrap{max-width:1100px;margin:0 auto;padding:22px 16px 60px}
+h1{font-size:1.75rem;line-height:1.2;margin:0 0 6px}
+h2{font-size:1.25rem;margin:34px 0 10px;color:var(--mossd)}
+h3{font-size:1.05rem;margin:22px 0 6px}
+p.lead{font-size:1.08rem;color:#4a463f;margin:0 0 18px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:0 1px 3px rgba(45,42,38,.06)}
+.grid{display:grid;gap:14px}
+@media(min-width:700px){.grid.c2{grid-template-columns:1fr 1fr}.grid.c3{grid-template-columns:repeat(3,1fr)}.grid.c4{grid-template-columns:repeat(4,1fr)}}
+.tile{display:block;text-decoration:none;color:inherit;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px;transition:border-color .15s}
+.tile:hover{border-color:var(--moss)}
+.tile h3{margin:0 0 4px;color:var(--moss)}
+.tile p{margin:0;color:var(--muted);font-size:14px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;background:var(--white)}
+th,td{border:1px solid var(--line);padding:7px 9px;vertical-align:top;text-align:left}
+th{background:var(--mossl);color:var(--mossd);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+.pp{background:var(--brickl);color:var(--brick)}
+.op{background:var(--navyl);color:var(--navy)}
+.ok{background:var(--mossl);color:var(--moss)}
+.note{background:var(--goldl);border-left:4px solid var(--gold);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+.warn{background:var(--brickl);border-left:4px solid var(--brick);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+.small{font-size:13px;color:var(--muted)}
+code,kbd{font-family:"Cascadia Mono",Consolas,ui-monospace,monospace;font-size:.92em;background:#f1efe9;padding:1px 5px;border-radius:4px}
+.btn{display:inline-block;background:var(--moss);color:#fff;text-decoration:none;padding:9px 16px;border-radius:8px;font-weight:600}
+.btn.sec{background:var(--white);color:var(--moss);border:1px solid var(--moss)}
+footer.bot{border-top:1px solid var(--line);color:var(--muted);font-size:12px;background:var(--white)}
+footer.bot .in{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;gap:16px;flex-wrap:wrap}
+.eq{font-size:1.25rem;text-align:center;padding:14px;background:var(--white);border:1px dashed var(--moss);border-radius:10px;margin:12px 0;font-weight:600;color:var(--mossd)}
+ul,ol{padding-left:22px}
+li{margin:3px 0}
+.toc a{display:block;padding:4px 0;text-decoration:none}
+
+main.wrap{max-width:none;padding:0}
+.deck{position:relative}
+.slide{display:none;min-height:calc(100vh - 58px);padding:38px 7vw 70px;background:var(--paper)}
+.slide.on{display:block}
+.slide h2{font-size:2rem;margin:0 0 18px;color:var(--mossd);border-bottom:3px solid var(--moss);padding-bottom:8px;display:inline-block}
+.slide h1{font-size:2.6rem;margin:60px 0 10px}
+.slide p,.slide li{font-size:1.25rem}
+.slide table{font-size:1.1rem}
+.slide .eq{font-size:1.6rem}
+.slide .k{font-size:1.5rem;font-weight:700;color:var(--mossd);background:var(--white);border:2px solid var(--moss);border-radius:12px;padding:16px 22px;text-align:center;margin:20px 0}
+.cols{display:grid;gap:24px}
+@media(min-width:800px){.cols{grid-template-columns:1fr 1fr}.cols.c3{grid-template-columns:1fr 1fr 1fr}}
+.box{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+.box h3{margin:0 0 8px;color:var(--moss);font-size:1.15rem}
+.ctl{position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--line);display:flex;align-items:center;gap:12px;padding:8px 16px;font-size:14px;z-index:20}
+.ctl button{background:var(--moss);color:#fff;border:0;border-radius:7px;padding:6px 14px;font-size:14px;cursor:pointer}
+.ctl .n{font-variant-numeric:tabular-nums;color:var(--muted)}
+.ctl .bar{flex:1;height:5px;background:var(--line);border-radius:3px;overflow:hidden}
+.ctl .bar i{display:block;height:100%;background:var(--moss)}
+.sec-label{font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px}
+.big{font-size:3rem;font-weight:800;color:var(--moss);line-height:1.1}
+.q{background:var(--goldl);border-left:5px solid var(--gold);padding:12px 18px;border-radius:0 10px 10px 0;font-size:1.25rem;margin:16px 0}
+.hint{color:var(--muted);font-size:1rem}
+.tbl2 td.num{font-weight:600}
+.strike{text-decoration:line-through;color:var(--muted)}
+@media print{header.top,.ctl{display:none}.slide{display:block;page-break-after:always;min-height:0;padding:20px}.slide h1{margin-top:0}}
+</style>
+
+</head>
+<body>
+<header class="top"><div class="in">
+<a class="logo" href="index.html"><b>ÚD</b><span>Účtovníctvo a dane právnických osôb II<small>študenti NHF - zimný semester 2026/2027</small></span></a>
+<nav class="main"><a href="index.html">Úvod</a><a href="prednaska.html">Prednáška 1</a><a href="prednaska2.html" class=on>Prednáška 2</a><a href="tahak.html">Ťahák PP a OP</a><a href="zadania.html">Zadania</a><a href="app.html">Aplikácia IUP 2 NHF</a></nav>
+</div></header>
+<main class="wrap">
+<div class="deck"><style>
+.flow{display:flex;flex-direction:column;gap:6px;max-width:760px;margin:10px auto}
+.st{display:grid;grid-template-columns:70px 1fr auto;gap:10px;align-items:center;background:#fff;border:1px solid #e0ddd6;border-radius:10px;padding:8px 12px}
+.st .op{font-size:1.3rem;font-weight:700;text-align:center;color:#4a6741}
+.st .r{font-size:12px;color:#7a7468;white-space:nowrap}
+.st.tot{background:#e8efe6;border-color:#4a6741;font-weight:600}
+.st.plus{border-left:5px solid #b34040}.st.minus{border-left:5px solid #3d5a80}
+.map{display:grid;gap:10px;grid-template-columns:1fr}
+@media(min-width:800px){.map{grid-template-columns:1fr 1fr 1fr}}
+.mb{background:#fff;border:1px solid #e0ddd6;border-radius:10px;padding:10px 12px;font-size:14.5px}
+.mb h4{margin:0 0 4px;color:#3a5233}
+.mb.d{border-top:5px solid #4a6741}.mb.n{border-top:5px solid #b34040}.mb.z{border-top:5px solid #3d5a80}
+.tl{display:grid;grid-template-columns:160px 1fr 30px 1fr;gap:6px;align-items:stretch;margin:6px 0;font-size:14px}
+.tl .lab{font-weight:600;align-self:center}
+.tl .y{background:#fff;border:1px solid #e0ddd6;border-radius:8px;padding:6px 9px}
+.tl .ar{align-self:center;text-align:center;font-size:1.3rem;color:#7a7468}
+.tlh{display:grid;grid-template-columns:160px 1fr 30px 1fr;gap:6px;font-size:12px;color:#7a7468;text-transform:uppercase;letter-spacing:.04em}
+.tg{display:inline-block;padding:1px 7px;border-radius:999px;font-size:12px;font-weight:700}
+.tg.pp{background:#fce8e8;color:#b34040}.tg.op{background:#e3edf7;color:#3d5a80}.tg.ok{background:#e8efe6;color:#4a6741}
+.bar{display:flex;height:34px;border-radius:8px;overflow:hidden;margin:8px 0;font-size:13px;color:#fff;font-weight:600}
+.bar div{display:grid;place-items:center}
+@media(max-width:640px){.tl,.tlh{grid-template-columns:1fr}.tl .ar{transform:rotate(90deg)}.st{grid-template-columns:44px 1fr}.st .r{grid-column:2}}
+</style>
+<section class="slide">
+<div class="sec-label">Prednáška 2 · 1. 10. 2026</div>
+<h1>Opravné položky a rezervy</h1>
+<p class="lead">Keď účtovníctvo predpovedá stratu skôr, ako nastane, a zákon o dani z príjmov hovorí „počkajte“.</p>
+<ol><li>Opakovanie: ako sa zisťuje základ dane (§ 17 ZDP)</li><li>Čo je opravná položka a čo rezerva</li><li>Mapa paragrafov: kde zákon hovorí, čo je daňové</li><li>Časová os: tvorba, použitie, zrušenie</li><li>Situácie v praxi - KORUND s. r. o.</li></ol>
+</section>
+
+<section class="slide"><div class="sec-label">Opakovanie · § 17 ZDP</div>
+<h2>Od výnosov k dani na úhradu</h2>
+<div class="flow">
+<div class="st"><div class="op">V - N</div><div>Výnosy mínus náklady z účtovníctva</div><div class="r">výkaz ziskov a strát</div></div>
+<div class="st tot"><div class="op">=</div><div>Výsledok hospodárenia pred zdanením (VH)</div><div class="r">r. 100 · § 17 ods. 1 písm. b)</div></div>
+<div class="st plus"><div class="op">+</div><div>Položky zvyšujúce VH (PP): náklady, ktoré nie sú daňovými výdavkami, neuhradené náklady, nedaňové OP a rezervy</div><div class="r">r. 130 (tab. A), 180 · § 21, § 17 ods. 19</div></div>
+<div class="st minus"><div class="op">-</div><div>Položky znižujúce VH (OP): výnosy, ktoré sa nezdaňujú, zúčtovanie a použitie nedaňových OP a rezerv</div><div class="r">r. 290 · § 17 ods. 23, 28</div></div>
+<div class="st tot"><div class="op">=</div><div>Základ dane</div><div class="r">r. 400</div></div>
+<div class="st minus"><div class="op">-</div><div>Odpočet daňovej straty z minulých rokov</div><div class="r">r. 410 · § 30</div></div>
+<div class="st"><div class="op">×</div><div>Sadzba dane podľa výšky zdaniteľných výnosov</div><div class="r">r. 550 · § 15</div></div>
+<div class="st tot"><div class="op">=</div><div>Daň (najmenej minimálna daň)</div><div class="r">r. 600, 810 · § 46b</div></div>
+<div class="st minus"><div class="op">-</div><div>Zaplatené preddavky</div><div class="r">r. 1010 · § 42</div></div>
+<div class="st tot"><div class="op">=</div><div>Daň na úhradu (alebo preplatok)</div><div class="r">r. 1100</div></div>
+</div>
+<p class="hint">Dnes nás zaujímajú červené a modré riadky: opravné položky a rezervy sa objavujú v oboch, len v rôznych rokoch. <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-17" target="_blank">§ 17 ZDP na slov-lex.sk</a></p>
+</section>
+
+<section class="slide"><div class="sec-label">Opatrnosť v účtovníctve</div>
+<h2>Opravná položka a rezerva - čo to je</h2>
+<div class="cols">
+<div class="box"><h3>Opravná položka</h3><p>Majetok má <b>dočasne menšiu hodnotu</b>, ako je v účtovníctve: odberateľ neplatí, tovar zastaral, dlžník pôžičky je v problémoch.</p><p>V kategóriách: <b>N / OM</b> (pri pôžičke N / NM). Náklad stúpne, hodnota majetku klesne. Pohľadávka sama ostáva, vymáhame ju ďalej.</p></div>
+<div class="box"><h3>Rezerva</h3><p><b>Záväzok, o ktorom vieme, ale nepoznáme presne sumu alebo čas</b>: nevyčerpané dovolenky, audit, súdny spor, záručné opravy.</p><p>V kategóriách: <b>N / KZ</b>. Náklad patrí do roku, v ktorom vznikol, aj keď faktúra príde až o rok.</p></div>
+</div>
+<table class="tbl2"><tr><th></th><th>Odpis</th><th>Opravná položka</th><th>Rezerva</th><th>Záväzok</th></tr>
+<tr><td>Prečo</td><td>trvalé opotrebenie</td><td>dočasné zníženie hodnoty</td><td>neistá suma alebo čas</td><td>istá suma aj čas</td></tr>
+<tr><td>Dá sa vrátiť?</td><td>nie</td><td>áno (zúčtovanie)</td><td>áno (zrušenie)</td><td>nie</td></tr>
+<tr><td>Daňovo</td><td>podľa § 22 - 29</td><td>len vybrané (§ 20)</td><td>len vybrané (§ 20)</td><td>podľa § 19, § 21</td></tr></table>
+</section>
+
+<section class="slide"><div class="sec-label">Mapa paragrafov</div>
+<h2>Kde zákon hovorí, čo je daňové</h2>
+<div class="map">
+<div class="mb d"><h4>Vstupná brána</h4><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-19.odsek-3.pismeno-f" target="_blank">§ 19 ods. 3 písm. f)</a>: daňovým výdavkom sú opravné položky a rezervy <b>len v rozsahu § 20</b>.</div>
+<div class="mb d"><h4>Daňové opravné položky</h4><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-20.odsek-2" target="_blank">§ 20 ods. 2</a> zoznam; <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-20.odsek-14" target="_blank">ods. 14</a> pohľadávky po splatnosti 20 / 50 / 100 %; <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-20.odsek-10" target="_blank">ods. 10</a> dlžník v konkurze.</div>
+<div class="mb d"><h4>Daňové rezervy</h4><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-20.odsek-9" target="_blank">§ 20 ods. 9</a> zoznam (najmä nevyčerpané dovolenky vrátane poistného); <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-20.odsek-20" target="_blank">ods. 20</a> použitie a zrušenie.</div>
+<div class="mb n"><h4>Všetko ostatné je nedaňové</h4><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-21.odsek-2.pismeno-j" target="_blank">§ 21 ods. 2 písm. j)</a>: tvorba je <span class="tg pp">PP</span> (tab. A r. 9 a 10). Napr. OP k zásobám, pôžičkám, rezerva na audit, reklamácie, súdne spory.</div>
+<div class="mb z"><h4>Návrat v budúcnosti</h4><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-17.odsek-23" target="_blank">§ 17 ods. 23</a>: zúčtovanie, použitie alebo zrušenie nedaňovej OP a rezervy sa do základu dane nezahrnie - <span class="tg op">OP</span> (r. 290).</div>
+<div class="mb z"><h4>Odpis pohľadávky</h4><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-17.odsek-28" target="_blank">§ 17 ods. 28</a>: vráť daňovo uznanú OP (<span class="tg pp">PP</span> r. 180) a uplatni odpis, ak je daňový podľa <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-19.odsek-2.pismeno-h" target="_blank">§ 19 ods. 2 písm. h)</a> (<span class="tg op">OP</span> r. 290).</div>
+</div>
+<p class="hint">Zelené = čo je daňové, červené = čo zvyšuje základ dane v roku tvorby, modré = čo ho znižuje v roku použitia alebo zrušenia.</p>
+</section>
+
+<section class="slide"><div class="sec-label">§ 20 ods. 14</div>
+<h2>Opravná položka k pohľadávke po splatnosti</h2>
+<p>Pohľadávka musela byť zdaniteľným príjmom (vystavená faktúra za výrobky, tovar, služby) a nesmie byť premlčaná. Daňovo uznať možno <b>kumulatívne</b>:</p>
+<div class="bar"><div style="flex:360;background:#b9b4a9">0 - 360 dní: 0 %</div><div style="flex:360;background:#9a7b2f">nad 360: 20 %</div><div style="flex:360;background:#3d5a80">nad 720: 50 %</div><div style="flex:300;background:#4a6741">nad 1 080: 100 %</div></div>
+<ul><li>Dni sa počítajú od splatnosti do <b>posledného dňa zdaňovacieho obdobia</b>.</li><li>Limit je spolu za všetky roky: ak bolo minulý rok uznaných 20 %, tento rok pri 50 % uplatníme ďalších 30 %.</li><li>Dlžník v konkurze a pohľadávka prihlásená včas: 100 % hneď, dni sa neskúmajú (<a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-20.odsek-10" target="_blank">§ 20 ods. 10</a>).</li><li>Opravná položka k pôžičke nie je daňová nikdy (istina pôžičky nebola zdaniteľným príjmom), výnimka len pre banky.</li></ul>
+</section>
+
+<section class="slide"><div class="sec-label">Časová os</div>
+<h2>Opravná položka: rok tvorby → rok zúčtovania</h2>
+<div class="tlh"><div></div><div>Rok tvorby</div><div></div><div>Neskorší rok (zánik dôvodu, predaj, odpis)</div></div>
+<div class="tl"><div class="lab">Daňová OP<br><small>(napr. pohľadávka 1 080+ dní)</small></div><div class="y">Náklad znižuje VH aj základ dane. <span class="tg ok">bez úpravy</span></div><div class="ar">→</div><div class="y"><b>Inkaso:</b> zúčtovanie OP znižuje náklady, VH stúpne a zdaní sa. <span class="tg ok">bez úpravy</span><br><b>Odpis pohľadávky:</b> vrátiť uznanú OP <span class="tg pp">PP</span> a uplatniť odpis, ak je daňový <span class="tg op">OP</span> (§ 17 ods. 28).</div></div>
+<div class="tl"><div class="lab">Nedaňová OP<br><small>(napr. zásoby, pôžička, pohľadávka pod limitom)</small></div><div class="y">Náklad znižuje VH, ale nie základ dane. <span class="tg pp">PP</span> tab. A r. 9</div><div class="ar">→</div><div class="y"><b>Zánik dôvodu alebo predaj majetku:</b> zúčtovanie zvýši VH, ale zdaniť sa nesmie. <span class="tg op">OP</span> r. 290 (§ 17 ods. 23)<br><b>Odpis pohľadávky:</b> <span class="tg op">OP</span> do výšky daňového odpisu.</div></div>
+<div class="tl"><div class="lab">Čiastočne daňová OP</div><div class="y">Daňová časť bez úpravy, nad limit <span class="tg pp">PP</span></div><div class="ar">→</div><div class="y">Každá časť sa vráti „svojou“ cestou: daňová cez VH, nedaňová ako <span class="tg op">OP</span>.</div></div>
+<div class="k">Čo raz bolo PP, sa neskôr vráti ako OP. Za celý život majetku sa daň zaplatí presne raz.</div>
+</section>
+
+<section class="slide"><div class="sec-label">Časová os</div>
+<h2>Rezerva: rok tvorby → rok použitia alebo zrušenia</h2>
+<div class="tlh"><div></div><div>Rok tvorby</div><div></div><div>Neskorší rok</div></div>
+<div class="tl"><div class="lab">Daňová rezerva<br><small>(dovolenky vrátane poistného)</small></div><div class="y">Náklad znižuje VH aj základ dane. <span class="tg ok">bez úpravy</span></div><div class="ar">→</div><div class="y"><b>Použitie:</b> KZ / KZ, VH sa nemení. <span class="tg ok">bez úpravy</span><br><b>Zrušenie zvyšku:</b> zníži náklady, VH stúpne a zdaní sa. <span class="tg ok">bez úpravy</span> (§ 20 ods. 20)</div></div>
+<div class="tl"><div class="lab">Nedaňová rezerva<br><small>(audit, reklamácie, súdny spor)</small></div><div class="y">Náklad znižuje VH, ale nie základ dane. <span class="tg pp">PP</span> tab. A r. 10</div><div class="ar">→</div><div class="y"><b>Použitie:</b> skutočný náklad sa do VH už nedostane (KZ / KZ), daňový výdavok si uplatníme teraz. <span class="tg op">OP</span> r. 290<br><b>Zrušenie:</b> VH stúpne, ale zdaniť sa nesmie. <span class="tg op">OP</span> r. 290 (§ 17 ods. 23)</div></div>
+<div class="tl"><div class="lab">Rezerva pri obstaraní majetku<br><small>(nevyfakturovaný materiál)</small></div><div class="y">OM / KZ - nie je náklad. <span class="tg ok">bez úpravy</span></div><div class="ar">→</div><div class="y">Po prijatí faktúry sa mení na záväzok. <span class="tg ok">bez úpravy</span></div></div>
+<p class="hint">Rovnaká logika ako pri OP: pri nedaňovej položke vzniká v roku tvorby PP a v roku použitia alebo zrušenia zrkadlová OP.</p>
+</section>
+
+<section class="slide"><div class="sec-label">Situácie v praxi · KORUND s. r. o. 2025</div>
+<h2>Čo sa stane v jednotlivých situáciách</h2>
+<table class="tbl2">
+<tr><th>#</th><th>Situácia</th><th>Kategórie</th><th>Úprava</th><th>Prečo</th></tr>
+<tr><td>01</td><td>Zaplatená pohľadávka C, OP 100 % bola daňová</td><td>OM / N</td><td><span class="tg ok">-</span></td><td>tvorba znížila základ dane, zúčtovanie ho zvýši cez VH</td></tr>
+<tr><td>02</td><td>Zrušenie nedaňovej rezervy na súdny spor 5 000</td><td>KZ / N</td><td><span class="tg op">OP 5 000</span></td><td>§ 17 ods. 23, v 2024 bola PP</td></tr>
+<tr><td>03</td><td>Použitie nedaňovej rezervy na audit 2 200</td><td>KZ / KZ</td><td><span class="tg op">OP 2 200</span></td><td>audit je daňový výdavok, uplatní sa v roku použitia</td></tr>
+<tr><td>04</td><td>Predaj tovaru s nedaňovou OP 3 000</td><td>OM / OM</td><td><span class="tg op">OP 3 000</span></td><td>daňovým výdavkom je celá obstarávacia cena 10 000</td></tr>
+<tr><td>05</td><td>Použitie a zrušenie daňovej rezervy na dovolenky</td><td>KZ / KZ, KZ / N</td><td><span class="tg ok">-</span></td><td>§ 20 ods. 20, rozdiel ide cez VH</td></tr>
+<tr><td>06</td><td>Odpis pohľadávky D po zrušení konkurzu (OP 4 000, uznaných 800)</td><td>OM / OM</td><td><span class="tg pp">PP 800</span> <span class="tg op">OP 4 000</span></td><td>§ 17 ods. 28, § 19 ods. 2 písm. h)</td></tr>
+<tr><td>07</td><td>OP 100 % k pohľadávke E v konkurze</td><td>N / OM</td><td><span class="tg ok">-</span></td><td>§ 20 ods. 10</td></tr>
+<tr><td>08</td><td>OP 100 % k pohľadávke A, 442 dní po splatnosti</td><td>N / OM</td><td><span class="tg pp">PP 6 400</span></td><td>daňovo len 20 % = 1 600</td></tr>
+<tr><td>09</td><td>Zvýšenie OP k B z 50 na 100 %, 1 006 dní</td><td>N / OM</td><td><span class="tg pp">PP 2 400</span></td><td>limit 50 % = 6 000 spolu, uplatnené 2 400 + 3 600</td></tr>
+<tr><td>10</td><td>OP k pôžičke 6 000</td><td>N / NM</td><td><span class="tg pp">PP 6 000</span></td><td>§ 21 ods. 2 písm. j)</td></tr>
+<tr><td>11</td><td>Rezerva na dovolenky 6 760</td><td>N / KZ</td><td><span class="tg ok">-</span></td><td>§ 20 ods. 9 písm. a)</td></tr>
+<tr><td>12, 13</td><td>Rezerva na audit 2 500, na reklamácie 3 000</td><td>N / KZ</td><td><span class="tg pp">PP 5 500</span></td><td>nie sú v § 20 ods. 9</td></tr>
+<tr><td>14</td><td>Nevyfakturovaný materiál 6 000</td><td>OM / KZ</td><td><span class="tg ok">-</span></td><td>nie je náklad</td></tr>
+</table>
+</section>
+
+<section class="slide"><div class="sec-label">Situácie v praxi · prípad 06</div>
+<h2>Odpis pohľadávky D krok za krokom</h2>
+<table class="tbl2"><tr><th>Rok</th><th>Čo sa stalo</th><th>VH</th><th class="num">Úprava</th></tr>
+<tr><td>2024</td><td>OP 100 % = 4 000, daňovo uznaných 20 % = 800</td><td>-4 000</td><td class="num"><span class="tg pp">PP 3 200</span></td></tr>
+<tr><td>2025</td><td>Konkurz zrušený pre nedostatok majetku, pohľadávka sa odpíše proti OP</td><td>0</td><td class="num"><span class="tg pp">PP 800</span> <span class="tg op">OP 4 000</span></td></tr>
+<tr><td>Spolu</td><td>Za dva roky do základu dane vstúpilo</td><td>-4 000</td><td class="num">-4 000</td></tr></table>
+<p>Pohľadávka 4 000 je nakoniec daňovým výdavkom celá, len sa „presunula“ do roku, keď bola strata istá. Čistý efekt 2025 = -3 200 = vrátenie PP z roku 2024.</p>
+</section>
+
+<section class="slide"><div class="sec-label">KORUND s. r. o. · výpočet dane 2025</div>
+<h2>Celý výpočet</h2>
+<table class="tbl2">
+<tr><td>r. 100</td><td>VH pred zdanením (958 000 - 821 640)</td><td class="num">136 360,00</td></tr>
+<tr><td>r. 130</td><td>tab. A: nedaňové OP 14 800 + nedaňové rezervy 5 500</td><td class="num">20 300,00</td></tr>
+<tr><td>r. 180</td><td>vrátenie uznanej OP pri odpise D</td><td class="num">800,00</td></tr>
+<tr><td>r. 290</td><td>5 000 + 2 200 + 3 000 + 4 000</td><td class="num">14 200,00</td></tr>
+<tr><td>r. 400</td><td>Základ dane</td><td class="num">143 260,00</td></tr>
+<tr><td>r. 600</td><td>Daň 21 % (výnosy nad 100 000 €)</td><td class="num">30 084,60</td></tr>
+<tr><td>r. 810</td><td>Minimálna daň - neuplatní sa, daň je vyššia</td><td class="num">3 840,00</td></tr>
+<tr><td>r. 1010</td><td>Preddavky 4 × 2 800</td><td class="num">11 200,00</td></tr>
+<tr><td>r. 1100</td><td>Daň na úhradu do 31. 3. 2026</td><td class="num">18 884,60</td></tr></table>
+<p class="hint">Daň nad 16 600 € znamená od apríla 2026 mesačné preddavky 1/12 = 2 507,05 € (§ 42).</p>
+</section>
+
+<section class="slide"><div class="sec-label">Zhrnutie</div>
+<h2>Tri pravidlá na zapamätanie</h2>
+<div class="k">1. Daňové sú len opravné položky a rezervy vymenované v § 20.<br>2. Nedaňová tvorba = PP dnes, použitie alebo zrušenie = OP neskôr.<br>3. Daňová tvorba = žiadna úprava ani dnes, ani neskôr (okrem odpisu pohľadávky).</div>
+<p>Na cvičení: <a href="zadania.html#korund">Zadanie 3 - KORUND s. r. o.</a> v aplikácii <a href="app.html">IUP 2 NHF</a>. Pravidlá s odkazmi sú aj v <a href="tahak.html">ťaháku</a>.</p>
+</section>
+
+</div><div class="ctl"><button id="prev">◀</button><button id="next">▶</button><span class="n" id="n"></span><div class="bar"><i id="bar"></i></div><button id="all" style="background:var(--white);color:var(--moss);border:1px solid var(--moss)">Všetky slidy</button></div>
+<script>
+(function(){
+  const s=[...document.querySelectorAll('.slide')];let i=0;
+  const n=document.getElementById('n'),bar=document.getElementById('bar');
+  function show(k){i=Math.max(0,Math.min(s.length-1,k));s.forEach((x,j)=>x.classList.toggle('on',j===i));n.textContent=(i+1)+' / '+s.length;bar.style.width=((i+1)/s.length*100)+'%';history.replaceState(null,'','#'+(i+1));window.scrollTo(0,0);}
+  const h=parseInt((location.hash||'').slice(1),10);show(isNaN(h)?0:h-1);
+  document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();show(i+1);}else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();show(i-1);}else if(e.key==='Home')show(0);else if(e.key==='End')show(s.length-1);});
+  document.getElementById('prev').onclick=()=>show(i-1);document.getElementById('next').onclick=()=>show(i+1);
+  document.getElementById('all').onclick=()=>{document.body.classList.toggle('all');s.forEach(x=>x.style.display=document.body.classList.contains('all')?'block':'');if(!document.body.classList.contains('all'))show(i);};
+  let tx=null;document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);document.addEventListener('touchend',e=>{if(tx===null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60)show(d<0?i+1:i-1);tx=null;});
+})();
+</script>
+
+</main>
+<footer class="bot"><div class="in"><span>Ing. Anton Marci, PhD. - Katedra účtovníctva a audítorstva FHI EU v Bratislave - anton.marci@euba.sk</span><span>Zákony: <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101">ZDP</a> · <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2004/222/20260101">ZDPH</a> · <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2002/431/20260101">zákon o účtovníctve</a> (slov-lex.sk, znenie od 1. 1. 2026)</span></div></footer>
+</body>
+</html>
