@@ -1,0 +1,30 @@
+﻿poradie;datum;doklad;popis;suma;md;dal;pripocitatelna;odpocitatelna;paragraf
+1;01.01.2025;PS;Začiatočný stav: pozemok 30 000 a stroje, vozíky, regály v zostatkovej cene (150 000 - oprávky 45 000);135000;NM;VI;;;
+2;01.01.2025;PS;Začiatočný stav: tovar na sklade;85000;OM;VI;;;
+3;01.01.2025;PS;Začiatočný stav: pohľadávky voči odberateľom;64000;OM;VI;;;
+4;01.01.2025;PS;Začiatočný stav: peniaze na bankovom účte;90000;OM;VI;;;
+5;01.01.2025;PS;Začiatočný stav: pôžička od BETA FINANCE s. r. o. - istina (záväzok Z4);10000;VI;KZ;;;
+6;01.01.2025;PS;Začiatočný stav: záväzky voči dodávateľom (Z1, Z2, Z5 až Z8 spolu 113 010 a záväzky v lehote splatnosti 30 000);143010;VI;KZ;;;
+7;01.01.2025;PS;Začiatočný stav: ostatné záväzky - kúpna cena pozemku Z3 30 000 a úrok z pôžičky Z4 800;30800;VI;KZ;;;
+8;01.01.2025;PS;Začiatočný stav: záväzky voči zamestnancom, poisťovniam a DPH (8 000 + 3 000 + 5 000);16000;VI;KZ;;;
+9;31.12.2025;SÚH01;Tržby za predaný tovar za rok 2025 - základ dane;1450000;OM;V;;;
+10;31.12.2025;SÚH01;DPH 23 % k tržbám za tovar (dlžíme štátu);333500;OM;KZ;;;
+11;31.12.2025;SÚH02;Inkasá pohľadávok od odberateľov;1760000;OM;OM;;;
+12;31.12.2025;SÚH03;Nákup tovaru na sklad - základ dane;1050000;OM;KZ;;;
+13;31.12.2025;SÚH03;DPH 23 % k nákupu tovaru (nárok na odpočítanie);241500;OM;KZ;;;
+14;31.12.2025;SÚH04;Úbytok predaného tovaru;1060000;N;OM;;;
+15;31.12.2025;SÚH05;Ostatné služby vrátane nájomného za sklad za rok 2025 (uhradené v roku 2025) - základ dane;60000;N;KZ;;;
+16;31.12.2025;SÚH05;DPH 23 % k službám (nárok na odpočítanie);13800;OM;KZ;;;
+17;31.12.2025;SÚH06;Hrubé mzdy zamestnancov;180000;N;KZ;;;
+18;31.12.2025;SÚH06;Poistné zamestnávateľa (35,2 %);63360;N;KZ;;;
+19;31.12.2025;SÚH07;Odpisy hmotného majetku (účtovné = daňové);26000;N;NM;;;
+20;31.12.2025;SÚH08;Úhrady dodávateľom za nákupy roku 2025 a za záväzky v lehote splatnosti k 1. 1. 2025;1350000;KZ;OM;;;
+21;31.12.2025;SÚH09;Výplaty miezd;182000;KZ;OM;;;
+22;31.12.2025;SÚH09;Odvody poistného;64360;KZ;OM;;;
+23;31.12.2025;SÚH10;Úhrady DPH daňovému úradu;77000;KZ;OM;;;
+24;31.12.2025;SÚH11;Štvrťročné preddavky na daň z príjmov 2025 (4 x 2 400);9600;DU;OM;;;
+25;10.03.2025;VBÚ01;01 Úhrada záväzku Z5 (SERVIS TECH, oprava vozíka 4 920, splatný 20. 11. 2021, základ dane už zvýšený o 100 %);4920;KZ;OM;;4920;§ 17 ods. 32 písm. a)
+26;15.05.2025;VBÚ02;02 Čiastočná úhrada záväzku Z7 (DELTA KERAMIK, 22 140, splatný 3. 4. 2023) vo výške 9 840;9840;KZ;OM;;;úprava k 31. 12. (§ 17 ods. 27 z nesplatenej časti)
+27;16.06.2025;IÚD01;03 GAMA STAV odpustila záväzok Z6 za tovar 12 300 (v roku 2024 zvýšený základ dane o 2 460);12300;KZ;V;;2460;§ 17 ods. 32 písm. b)
+28;30.09.2025;VBÚ03;04 Úhrada nájomného za sklad za 4. štvrťrok 2023 (záväzok Z2 6 000, v DPPO 2023 bol PP podľa § 17 ods. 19);6000;KZ;OM;;6000;§ 17 ods. 19 písm. b) (r. 270)
+29;31.12.2025;IÚD02;05 Splatná daň z príjmov za rok 2025 (podľa kalkulácie dane);17520,72;ND;DU;;;§ 15, § 46b ZDP

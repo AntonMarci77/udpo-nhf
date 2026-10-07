@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MD a D - infografika - ÚDPO II NHF</title>
+<style>
+
+:root{--ink:#2d2a26;--muted:#7a7468;--paper:#f8f7f4;--line:#e0ddd6;--moss:#4a6741;--mossd:#3a5233;--mossl:#e8efe6;--gold:#9a7b2f;--goldl:#faf5e8;--navy:#3d5a80;--navyl:#e3edf7;--brick:#b34040;--brickl:#fce8e8;--white:#fff}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.5;font-size:16px}
+a{color:var(--moss)}
+header.top{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+header.top .in{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.logo b{width:34px;height:34px;border-radius:9px;background:var(--moss);color:#fff;display:grid;place-items:center;font-size:13px}
+.logo span{line-height:1.15}
+.logo small{display:block;color:var(--muted);font-size:11px}
+nav.main{display:flex;gap:2px;flex-wrap:wrap;margin-left:auto}
+nav.main a{padding:6px 11px;border-radius:7px;text-decoration:none;color:var(--ink);font-size:14px}
+nav.main a:hover{background:var(--paper)}
+nav.main a.on{background:var(--mossl);color:var(--moss);font-weight:600}
+main.wrap{max-width:1100px;margin:0 auto;padding:22px 16px 60px}
+h1{font-size:1.75rem;line-height:1.2;margin:0 0 6px}
+h2{font-size:1.25rem;margin:34px 0 10px;color:var(--mossd)}
+h3{font-size:1.05rem;margin:22px 0 6px}
+p.lead{font-size:1.08rem;color:#4a463f;margin:0 0 18px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:0 1px 3px rgba(45,42,38,.06)}
+.grid{display:grid;gap:14px}
+@media(min-width:700px){.grid.c2{grid-template-columns:1fr 1fr}.grid.c3{grid-template-columns:repeat(3,1fr)}.grid.c4{grid-template-columns:repeat(4,1fr)}}
+.tile{display:block;text-decoration:none;color:inherit;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px;transition:border-color .15s}
+.tile:hover{border-color:var(--moss)}
+.tile h3{margin:0 0 4px;color:var(--moss)}
+.tile p{margin:0;color:var(--muted);font-size:14px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;background:var(--white)}
+th,td{border:1px solid var(--line);padding:7px 9px;vertical-align:top;text-align:left}
+th{background:var(--mossl);color:var(--mossd);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+.pp{background:var(--brickl);color:var(--brick)}
+.op{background:var(--navyl);color:var(--navy)}
+.ok{background:var(--mossl);color:var(--moss)}
+.note{background:var(--goldl);border-left:4px solid var(--gold);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+.warn{background:var(--brickl);border-left:4px solid var(--brick);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+.small{font-size:13px;color:var(--muted)}
+code,kbd{font-family:"Cascadia Mono",Consolas,ui-monospace,monospace;font-size:.92em;background:#f1efe9;padding:1px 5px;border-radius:4px}
+.btn{display:inline-block;background:var(--moss);color:#fff;text-decoration:none;padding:9px 16px;border-radius:8px;font-weight:600}
+.btn.sec{background:var(--white);color:var(--moss);border:1px solid var(--moss)}
+footer.bot{border-top:1px solid var(--line);color:var(--muted);font-size:12px;background:var(--white)}
+footer.bot .in{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;gap:16px;flex-wrap:wrap}
+.eq{font-size:1.25rem;text-align:center;padding:14px;background:var(--white);border:1px dashed var(--moss);border-radius:10px;margin:12px 0;font-weight:600;color:var(--mossd)}
+ul,ol{padding-left:22px}
+li{margin:3px 0}
+.toc a{display:block;padding:4px 0;text-decoration:none}
+
+
+.hero{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:22px 22px 18px;margin-bottom:18px}
+.hero h1{font-size:2rem}
+.kicker{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px}
+.step{display:flex;gap:14px;align-items:flex-start;margin:34px 0 10px}
+.step .no{flex:none;width:38px;height:38px;border-radius:50%;background:var(--moss);color:#fff;display:grid;place-items:center;font-weight:800}
+.step h2{margin:4px 0 0}
+.scale{display:block;width:100%;max-width:820px;margin:0 auto}
+.eqbig{font-size:1.3rem;font-weight:800;text-align:center;padding:14px 10px;border-radius:12px;background:var(--white);border:2px solid var(--moss);color:var(--mossd);margin:14px 0}
+.eqbig .l{color:var(--navy)}.eqbig .r{color:var(--brick)}
+.sides{display:grid;gap:14px}
+@media(min-width:760px){.sides{grid-template-columns:1fr 1fr}}
+.side{border-radius:12px;padding:14px 16px;background:var(--white);border:1px solid var(--line)}
+.side.l{border-top:6px solid var(--navy)}.side.r{border-top:6px solid var(--brick)}
+.side h3{margin:0 0 6px}
+.side.l h3{color:var(--navy)}.side.r h3{color:var(--brick)}
+.cats{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));margin-top:10px}
+.t{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:8px 10px 10px;font-size:14px}
+.t .nm{font-weight:700;text-align:center;border-bottom:2px solid var(--ink);padding-bottom:4px;margin-bottom:0}
+.t .nm small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.t .tt{display:grid;grid-template-columns:1fr 1fr;min-height:46px}
+.t .tt div{padding:6px 4px;text-align:center;font-weight:800;font-size:1.25rem}
+.t .tt div:first-child{border-right:2px solid var(--ink)}
+.t .tt .up{color:var(--moss)}.t .tt .dn{color:var(--brick)}
+.t .home{font-size:12px;color:var(--muted);text-align:center}
+.arrowrow{display:grid;grid-template-columns:1fr 70px 1fr;gap:8px;align-items:center;margin:8px 0}
+.arrowrow .c{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:14.5px}
+.arrowrow .c b{display:block}
+.arrowrow .c.d{border-right:5px solid var(--brick);text-align:right}.arrowrow .c.md{border-left:5px solid var(--navy)}
+.arrowrow .ar{text-align:center;font-size:1.6rem;color:var(--gold);font-weight:800}
+.arrowhead div:last-child{text-align:right}
+.arrowhead{display:grid;grid-template-columns:1fr 70px 1fr;gap:8px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700}
+@media(max-width:600px){.arrowrow,.arrowhead{grid-template-columns:1fr 26px 1fr;gap:4px}.arrowrow .c{font-size:13px;padding:6px 8px}.arrowrow .ar{font-size:1.2rem}}
+.moves{display:grid;gap:12px}
+@media(min-width:760px){.moves{grid-template-columns:repeat(4,1fr)}}
+.mv{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:12px}
+.mv h4{margin:0 0 6px;font-size:15px;color:var(--mossd)}
+.mv svg{width:100%;height:auto;display:block;margin:4px 0 8px}
+.mv p{margin:0;font-size:13.5px}
+/* stepper */
+.sim{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:16px}
+.simtop{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.simtop button{background:var(--moss);color:#fff;border:0;border-radius:8px;padding:8px 14px;font-weight:600;cursor:pointer;font-size:14px}
+.simtop button.sec{background:var(--white);color:var(--moss);border:1px solid var(--moss)}
+.simtop .cnt{color:var(--muted);font-size:14px}
+.case{background:var(--goldl);border-left:5px solid var(--gold);border-radius:0 10px 10px 0;padding:10px 14px;min-height:66px;font-size:15.5px}
+.case b.amt{white-space:nowrap}
+.tgrid{display:grid;gap:10px;margin-top:12px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:760px){.tgrid{grid-template-columns:repeat(6,1fr)}}
+.ta{border:1px solid var(--line);border-radius:10px;padding:6px 8px;font-size:13px;background:#fff;transition:box-shadow .3s}
+.ta.hit{box-shadow:0 0 0 3px var(--gold)}
+.ta .h{font-weight:700;text-align:center;border-bottom:2px solid var(--ink);padding-bottom:3px}
+.ta .h small{display:block;font-weight:400;color:var(--muted);font-size:11px}
+.ta .b{display:grid;grid-template-columns:1fr 1fr;min-height:92px}
+.ta .b>div{padding:3px 4px;font-variant-numeric:tabular-nums}
+.ta .b>div:first-child{border-right:2px solid var(--ink);text-align:right}
+.ta .b>div:last-child{text-align:left}
+.ta .b span{display:block;line-height:1.35}
+.ta .b span.new{color:var(--gold);font-weight:800}
+.ta .z{border-top:1px dashed var(--line);margin-top:3px;padding-top:3px;text-align:center;font-weight:700}
+.ta.lft .h{color:var(--navy)}.ta.rgt .h{color:var(--brick)}
+.balance{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;margin-top:12px;font-variant-numeric:tabular-nums}
+.balance .pan{background:var(--paper);border-radius:10px;padding:8px 12px;text-align:center}
+.balance .pan b{font-size:1.35rem;display:block}
+.balance .pan.l b{color:var(--navy)}.balance .pan.r b{color:var(--brick)}
+.balance .eqs{font-size:1.6rem;font-weight:800;color:var(--moss)}
+.zero{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:14px}
+.zero .chip{background:var(--paper);border-radius:999px;padding:3px 10px;font-variant-numeric:tabular-nums}
+.zero .chip.ok{background:var(--mossl);color:var(--mossd);font-weight:700}
+.closing{display:none;margin-top:12px}
+.closing.on{display:block}
+.traps{display:grid;gap:10px}
+@media(min-width:760px){.traps{grid-template-columns:1fr 1fr 1fr}}
+.trap{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14.5px}
+.trap b{display:block;color:var(--brick);margin-bottom:3px}
+.trap .ok{display:inline-block;margin-top:5px}
+.pocket{background:var(--mossd);color:#fff;border-radius:16px;padding:18px 22px;margin-top:30px}
+.pocket h2{color:#fff;margin:0 0 8px}
+.pocket ol{margin:0;padding-left:22px}
+.pocket li{margin:6px 0;font-size:1.05rem}
+.vid{background:#000;border-radius:12px;width:100%;max-width:960px;display:block;margin:10px auto}
+.dance{display:flex;justify-content:center;align-items:center;gap:4px;margin:10px 0;flex-wrap:wrap}
+.dance .s{padding:6px 10px;border-radius:8px;font-weight:700;font-size:14px;font-variant-numeric:tabular-nums}
+.dance .s.p{background:var(--navyl);color:var(--navy)}.dance .s.m{background:var(--brickl);color:var(--brick)}
+.dance .s.eq{background:var(--mossl);color:var(--mossd)}
+
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+<a class="logo" href="index.html"><b>ÚD</b><span>Účtovníctvo a dane právnických osôb II<small>študenti NHF - zimný semester 2026/2027</small></span></a>
+<nav class="main"><a href="index.html">Úvod</a><a href="prednaska.html">Prednáška 1</a><a href="prednaska2.html">Prednáška 2</a><a href="prednaska3.html">Prednáška 3</a><a href="md-d.html" class=on>MD a D</a><a href="tahak.html">Ťahák PP a OP</a><a href="zadania.html">Zadania</a><a href="app.html">Aplikácia IUP 2 NHF</a></nav>
+</div></header>
+<main class="wrap">
+
+<div class="hero">
+<div class="kicker">Infografika · ľavá a pravá strana v účtovníctve</div>
+<h1>MD a D: tanec z jednej strany na druhú, ktorý sa vždy skončí na nule</h1>
+<p class="lead" style="margin:0">Strany „má dať“ (MD) a „dal“ (D) sa ťahajú celým účtovníctvom: od súvahy cez každý účtovný prípad až po kategórie (u kolegov z FHI účty). Celé to stojí na jednom obrázku a dvoch pravidlách. Keď ich pochopíte, nebudete sa ich musieť učiť naspamäť.</p>
+</div>
+
+<video class="vid" controls preload="metadata" src="md-d-video.mp4" poster="md-d-poster.png"></video>
+<p class="small" style="text-align:center">Video (asi 3 minúty, bez zvuku, s titulkami): to isté, čo je na tejto stránke, v pohybe na príklade pekárne KRAJEC s. r. o.</p>
+
+<div class="step"><div class="no">1</div><div><h2>Súvaha sú váhy, ktoré musia byť stále vyvážené</h2></div></div>
+<p>Vľavo je to, čo firma <b>má</b> (majetok), vpravo to, <b>odkiaľ to má</b> (od vlastníkov alebo požičané). Každé euro majetku má svoj zdroj, preto sa obe strany vždy rovnajú. To, že majetok je vľavo a zdroje vpravo, je dohoda starých talianskych obchodníkov. Dôležité nie je prečo, ale to, že sa nikdy nemení.</p>
+
+<svg class="scale" viewBox="0 0 820 300" role="img" aria-label="Váhy: ľavá misa majetok a náklady, pravá misa záväzky, vlastné imanie a výnosy">
+  <polygon points="410,92 380,270 440,270" fill="#d9d4c8"/>
+  <rect x="330" y="268" width="160" height="14" rx="6" fill="#b9b2a3"/>
+  <rect x="80" y="84" width="660" height="12" rx="6" fill="#7a7468"/>
+  <circle cx="410" cy="90" r="11" fill="#9a7b2f"/>
+  <line x1="120" y1="96" x2="120" y2="150" stroke="#7a7468" stroke-width="2"/>
+  <line x1="300" y1="96" x2="300" y2="150" stroke="#7a7468" stroke-width="2"/>
+  <line x1="520" y1="96" x2="520" y2="150" stroke="#7a7468" stroke-width="2"/>
+  <line x1="700" y1="96" x2="700" y2="150" stroke="#7a7468" stroke-width="2"/>
+  <path d="M90 150 H330 L310 236 H110 Z" fill="#e3edf7" stroke="#3d5a80" stroke-width="2"/>
+  <path d="M490 150 H730 L710 236 H510 Z" fill="#fce8e8" stroke="#b34040" stroke-width="2"/>
+  <text x="210" y="40" text-anchor="middle" font-size="22" font-weight="800" fill="#3d5a80">ĽAVÁ STRANA = MD</text>
+  <text x="210" y="64" text-anchor="middle" font-size="14" fill="#3d5a80">„má dať“ · aktíva · kam hodnota išla</text>
+  <text x="610" y="40" text-anchor="middle" font-size="22" font-weight="800" fill="#b34040">PRAVÁ STRANA = D</text>
+  <text x="610" y="64" text-anchor="middle" font-size="14" fill="#b34040">„dal“ · pasíva · odkiaľ hodnota prišla</text>
+  <text x="210" y="182" text-anchor="middle" font-size="20" font-weight="800" fill="#2d2a26">MAJETOK</text>
+  <text x="210" y="203" text-anchor="middle" font-size="14" fill="#2d2a26">NM, OM</text>
+  <text x="210" y="226" text-anchor="middle" font-size="17" font-weight="700" fill="#3d5a80">+ NÁKLADY (N)</text>
+  <text x="610" y="176" text-anchor="middle" font-size="18" font-weight="800" fill="#2d2a26">ZÁVÄZKY (DZ, KZ)</text>
+  <text x="610" y="200" text-anchor="middle" font-size="18" font-weight="800" fill="#2d2a26">+ VLASTNÉ IMANIE (VI)</text>
+  <text x="610" y="226" text-anchor="middle" font-size="17" font-weight="700" fill="#b34040">+ VÝNOSY (V)</text>
+</svg>
+<div class="eqbig"><span class="l">MAJETOK + NÁKLADY</span> = <span class="r">ZÁVÄZKY + VLASTNÉ IMANIE + VÝNOSY</span></div>
+<div class="sides">
+<div class="side l"><h3>Prečo sú náklady vľavo</h3><p style="margin:0">Náklad znižuje zisk, a tým aj vlastné imanie. Vlastné imanie je doma vpravo, jeho zníženie teda ide doľava. Náklady sú „mínus vlastné imanie“, preto sedia na ľavej mise spolu s majetkom.</p></div>
+<div class="side r"><h3>Prečo sú výnosy vpravo</h3><p style="margin:0">Výnos zvyšuje zisk, a tým aj vlastné imanie. Zisk patrí vlastníkovi, je to zdroj. Preto výnosy sedia na pravej mise spolu so záväzkami a vlastným imaním.</p></div>
+</div>
+
+<div class="step"><div class="no">2</div><div><h2>Pravidlo domova: každá kategória rastie na strane, kde býva</h2></div></div>
+<p>Každá kategória (každý účet) je malá súvaha v tvare písmena T. Na svojej domácej strane rastie (+), na opačnej klesá (-). To je celé tajomstvo, prečo „peniaze pribudli“ sa píše vľavo a „dlh pribudol“ vpravo.</p>
+<div class="cats">
+<div class="t"><div class="nm">NM<small>neobežný majetok</small></div><div class="tt"><div class="up">+</div><div class="dn">-</div></div><div class="home">doma vľavo (MD)</div></div>
+<div class="t"><div class="nm">OM<small>obežný majetok</small></div><div class="tt"><div class="up">+</div><div class="dn">-</div></div><div class="home">doma vľavo (MD)</div></div>
+<div class="t"><div class="nm">N<small>náklady</small></div><div class="tt"><div class="up">+</div><div class="dn">-</div></div><div class="home">doma vľavo (MD)</div></div>
+<div class="t"><div class="nm">VI<small>vlastné imanie</small></div><div class="tt"><div class="dn">-</div><div class="up">+</div></div><div class="home">doma vpravo (D)</div></div>
+<div class="t"><div class="nm">DZ, KZ<small>záväzky</small></div><div class="tt"><div class="dn">-</div><div class="up">+</div></div><div class="home">doma vpravo (D)</div></div>
+<div class="t"><div class="nm">V<small>výnosy</small></div><div class="tt"><div class="dn">-</div><div class="up">+</div></div><div class="home">doma vpravo (D)</div></div>
+</div>
+<p class="small">Zostatok (to, čo zostane po všetkých plusoch a mínusoch) je preto pri majetku a nákladoch vľavo, pri záväzkoch, vlastnom imaní a výnosoch vpravo. Zostatok na „cudzej“ strane (napríklad záporná pokladnica) je takmer vždy chyba.</p>
+
+<div class="step"><div class="no">3</div><div><h2>Kam a odkiaľ: šípka ide vždy z D do MD</h2></div></div>
+<p>Ak si nepamätáte, kde čo býva, stačí jedna otázka: <b>odkiaľ hodnota prišla</b> (to je D, pravá strana) a <b>kam išla</b> (to je MD, ľavá strana). Každý účtovný prípad je presun hodnoty z jedného miesta na druhé, šípka teda vždy mieri sprava doľava.</p>
+<div class="arrowhead"><div>MD · kam to išlo (ľavá strana)</div><div></div><div>D · odkiaľ to prišlo (pravá strana)</div></div>
+<div class="arrowrow"><div class="c md"><b>OM</b>peniaze na účte</div><div class="ar">←</div><div class="c d"><b>VI</b>vklad od spoločníka</div></div>
+<div class="arrowrow"><div class="c md"><b>NM</b>pec</div><div class="ar">←</div><div class="c d"><b>KZ</b>dodávateľ nám pec „požičal“ do zaplatenia</div></div>
+<div class="arrowrow"><div class="c md"><b>N</b>spotrebovaná pri pečení</div><div class="ar">←</div><div class="c d"><b>OM</b>múka zo skladu</div></div>
+<div class="arrowrow"><div class="c md"><b>OM</b>hotovosť v pokladnici</div><div class="ar">←</div><div class="c d"><b>V</b>predaj chleba</div></div>
+<div class="arrowrow"><div class="c md"><b>KZ</b>na zaplatenie dlhu (dlh zanikne)</div><div class="ar">←</div><div class="c d"><b>OM</b>peniaze z účtu</div></div>
+
+<div class="step"><div class="no">4</div><div><h2>Binárny systém: krok vľavo, krok vpravo, vždy rovnako dlhý</h2></div></div>
+<p>Berte MD ako <b>+</b> a D ako <b>-</b>. Každý účtovný prípad zapíše tú istú sumu raz s plusom a raz s mínusom. Súčet celého účtovníctva je preto po každom prípade presne nula. Tanečník urobí krok doľava a rovnako dlhý krok doprava, a hoci sa točí celý rok, nikdy neodíde z parketu.</p>
+<div class="dance"><span class="s p">+20 000</span><span class="s m">-20 000</span><span class="s p">+12 000</span><span class="s m">-12 000</span><span class="s p">+3 000</span><span class="s m">-3 000</span><span class="s p">…</span><span class="s m">…</span><span class="s eq">= 0</span></div>
+<p>Preto platí: súčet všetkých strán MD = súčet všetkých strán D (obratová predvaha), súčet zostatkov vľavo = súčet zostatkov vpravo, a na konci roka sa po uzavretí všetko vynuluje.</p>
+
+<div class="step"><div class="no">5</div><div><h2>Štyri pohyby váh</h2></div></div>
+<p>Iné prípady neexistujú. Buď sa niečo pridá na obe misy, alebo z oboch uberie, alebo sa niečo len presunie v rámci jednej misy. Váhy zostanú vyvážené vždy.</p>
+<div class="moves">
+<div class="mv"><h4>Obe misy hore</h4><svg viewBox="0 0 200 110"><g transform="translate(0,14)"><rect x="10" y="30" width="180" height="6" rx="3" fill="#7a7468"/><polygon points="100,34 88,90 112,90" fill="#d9d4c8"/><rect x="20" y="6" width="60" height="22" rx="4" fill="#3d5a80" opacity=".85"/><rect x="120" y="6" width="60" height="22" rx="4" fill="#b34040" opacity=".85"/><text x="50" y="0" dy="-2" text-anchor="middle" font-size="16" fill="#4a6741" font-weight="800">+</text><text x="150" y="0" dy="-2" text-anchor="middle" font-size="16" fill="#4a6741" font-weight="800">+</text></g></svg><p>Vklad (OM/VI), kúpa na faktúru (NM/KZ), tržba (OM/V), faktúra za elektrinu (N/KZ).</p></div>
+<div class="mv"><h4>Obe misy dole</h4><svg viewBox="0 0 200 110"><g transform="translate(0,14)"><rect x="10" y="30" width="180" height="6" rx="3" fill="#7a7468"/><polygon points="100,34 88,90 112,90" fill="#d9d4c8"/><rect x="20" y="20" width="60" height="8" rx="4" fill="#3d5a80" opacity=".85"/><rect x="120" y="20" width="60" height="8" rx="4" fill="#b34040" opacity=".85"/><text x="50" y="-2" text-anchor="middle" font-size="16" fill="#b34040" font-weight="800">−</text><text x="150" y="-2" text-anchor="middle" font-size="16" fill="#b34040" font-weight="800">−</text></g></svg><p>Zaplatenie faktúry (KZ/OM), splátka úveru (KZ/OM). Nie je to náklad, len zmizne dlh aj peniaze.</p></div>
+<div class="mv"><h4>Presun vľavo</h4><svg viewBox="0 0 200 110"><g transform="translate(0,14)"><rect x="10" y="30" width="180" height="6" rx="3" fill="#7a7468"/><polygon points="100,34 88,90 112,90" fill="#d9d4c8"/><rect x="20" y="10" width="28" height="18" rx="3" fill="#3d5a80"/><rect x="52" y="10" width="28" height="18" rx="3" fill="#9fb4cf"/><rect x="120" y="10" width="60" height="18" rx="4" fill="#b34040" opacity=".85"/><text x="50" y="4" text-anchor="middle" font-size="14" fill="#9a7b2f" font-weight="800">⇄</text></g></svg><p>Kúpa za hotové (NM/OM), spotreba materiálu (N/OM), odpis (N/NM), inkaso pohľadávky (OM/OM).</p></div>
+<div class="mv"><h4>Presun vpravo</h4><svg viewBox="0 0 200 110"><g transform="translate(0,14)"><rect x="10" y="30" width="180" height="6" rx="3" fill="#7a7468"/><polygon points="100,34 88,90 112,90" fill="#d9d4c8"/><rect x="20" y="10" width="60" height="18" rx="4" fill="#3d5a80" opacity=".85"/><rect x="120" y="10" width="28" height="18" rx="3" fill="#b34040"/><rect x="152" y="10" width="28" height="18" rx="3" fill="#e3a3a3"/><text x="150" y="4" text-anchor="middle" font-size="14" fill="#9a7b2f" font-weight="800">⇄</text></g></svg><p>Dodávateľ odpustí dlh (KZ/V), krátkodobý úver sa zmení na dlhodobý (KZ/DZ).</p></div>
+</div>
+
+<div class="step"><div class="no">6</div><div><h2>Vyskúšajte si to: pekáreň KRAJEC s. r. o. v prvom mesiaci</h2></div></div>
+<div class="sim">
+<div class="simtop"><button id="bPrev" class="sec">◀ späť</button><button id="bNext">ďalší prípad ▶</button><button id="bReset" class="sec">od začiatku</button><span class="cnt" id="cnt"></span></div>
+<div class="case" id="case"></div>
+<div class="tgrid" id="tgrid"></div>
+<div class="balance"><div class="pan l">ľavá misa (MD): majetok + náklady<b id="lsum">0</b></div><div class="eqs" id="eqs">=</div><div class="pan r">pravá misa (D): záväzky + VI + výnosy<b id="rsum">0</b></div></div>
+<div class="zero" id="zero"></div>
+<div class="closing" id="closing">
+<div class="note" style="margin:10px 0 0"><b>Uzávierka: všetko sa skončí na nule.</b> Výnosy 9 000 a náklady 3 000 sa uzavrú do výsledku hospodárenia: <b>zisk 6 000</b>. Zisk patrí vlastníkovi, preto sa v súvahe objaví vpravo pri vlastnom imaní. Súvaha: majetok 11 800 + 18 000 = <b>29 800</b> = vlastné imanie 20 000 + zisk 6 000 + záväzky 3 800. Potom sa uzavrú aj súvahové kategórie a každé T má zostatok 0.</div>
+</div>
+</div>
+
+<div class="step"><div class="no">7</div><div><h2>Šesť pascí, do ktorých padá každý začiatočník</h2></div></div>
+<div class="traps">
+<div class="trap"><b>„Zaplatil som faktúru, mám náklad.“</b>Nie. Náklad vznikol, keď prišla faktúra (N/KZ). Zaplatenie je len KZ/OM, obe misy dole, výsledok hospodárenia sa nemení. <span class="tag ok">kľúčové pre záväzky po splatnosti</span></div>
+<div class="trap"><b>„Dostali sme úver, máme výnos.“</b>Nie. Peniaze pribudli, ale rovnako pribudol dlh: OM/KZ alebo OM/DZ. Firma nič nezarobila.</div>
+<div class="trap"><b>„Spoločník vložil peniaze, je to výnos.“</b>Nie. Vklad je zdroj od vlastníka: OM/VI. Výnos je len to, čo firma sama zarobila.</div>
+<div class="trap"><b>„DPH z tržby je náš výnos.“</b>Nie. Výnosom je len základ dane (OM/V). DPH dlžíme štátu (OM/KZ).</div>
+<div class="trap"><b>„Kúpil som pec, je to náklad.“</b>Nie hneď. Pec je majetok (NM). Nákladom sa stáva postupne cez odpisy (N/NM).</div>
+<div class="trap"><b>„Preddavok na daň je náklad.“</b>Nie. Je to zálohová platba štátu (DU/OM). Nákladom je až splatná daň po výpočte (ND/DU).</div>
+</div>
+
+<div class="pocket">
+<h2>Do vrecka</h2>
+<ol>
+<li>MAJETOK + NÁKLADY = ZÁVÄZKY + VLASTNÉ IMANIE + VÝNOSY. Ľavá misa je MD, pravá je D.</li>
+<li>Každá kategória rastie doma: majetok a náklady vľavo, záväzky, vlastné imanie a výnosy vpravo. Zníženie ide na opačnú stranu.</li>
+<li>Keď neviete: D = odkiaľ to prišlo, MD = kam to išlo.</li>
+<li>Každý prípad je krok vľavo a rovnako dlhý krok vpravo. Súčet je vždy nula.</li>
+</ol>
+</div>
+
+</main>
+<script>
+(function(){
+const CATS=[["NM","neobežný majetok","L"],["OM","obežný majetok","L"],["N","náklady","L"],["VI","vlastné imanie","R"],["KZ","krátkodobé záväzky","R"],["V","výnosy","R"]];
+const CASES=[
+ ["Spoločník vložil do firmy 20 000 € na bankový účet.","OM","VI",20000,"Peniaze prišli od vlastníka (VI, D) a išli na účet (OM, MD). Obe misy hore."],
+ ["Kúpa pece na faktúru za 12 000 €.","NM","KZ",12000,"Pec je u nás (NM, MD), zatiaľ ju „financuje“ dodávateľ (KZ, D). Obe misy hore."],
+ ["Nákup múky na sklad na faktúru za 3 000 €.","OM","KZ",3000,"Múka na sklade (OM, MD), dlh voči dodávateľovi (KZ, D)."],
+ ["Spotreba múky pri pečení za 2 000 €.","N","OM",2000,"Múka zo skladu (OM, D) sa spotrebovala (N, MD). Presun na ľavej mise, žiadne peniaze sa nehli."],
+ ["Tržby za chlieb v hotovosti 9 000 €.","OM","V",9000,"Hodnota prišla z predaja (V, D) a išla do pokladnice (OM, MD)."],
+ ["Úhrada faktúry za pec 12 000 € z bankového účtu.","KZ","OM",12000,"Peniaze z účtu (OM, D) išli na zaplatenie dlhu (KZ, MD). Obe misy dole. Nie je to náklad!"],
+ ["Faktúra za elektrinu 800 €, zatiaľ nezaplatená.","N","KZ",800,"Elektrina sa spotrebovala (N, MD), zaplatíme neskôr (KZ, D). Náklad vzniká už teraz, nie pri platbe."],
+ ["Odpis pece za prvý mesiac 200 €.","N","NM",200,"Pec stratila časť hodnoty (NM, D), opotrebenie je náklad (N, MD)."]
+];
+const fmt=n=>n.toLocaleString('sk-SK').replace(/ /g,' ');
+const grid=document.getElementById('tgrid');
+CATS.forEach(([c,n,s])=>{const d=document.createElement('div');d.className='ta '+(s==='L'?'lft':'rgt');d.id='ta-'+c;d.innerHTML='<div class="h">'+c+'<small>'+n+'</small></div><div class="b"><div></div><div></div></div><div class="z"></div>';grid.appendChild(d);});
+let k=0;
+function render(){
+  const md={},d={};CATS.forEach(([c])=>{md[c]=[];d[c]=[];});
+  for(let i=0;i<k;i++){const [t,a,b,x]=CASES[i];md[a].push([i,x]);d[b].push([i,x]);}
+  let L=0,R=0,sumMD=0,sumD=0;
+  CATS.forEach(([c,n,s])=>{
+    const el=document.getElementById('ta-'+c);const cols=el.querySelectorAll('.b>div');
+    cols[0].innerHTML=md[c].map(([i,x])=>'<span class="'+(i===k-1?'new':'')+'">'+(i+1)+') '+fmt(x)+'</span>').join('');
+    cols[1].innerHTML=d[c].map(([i,x])=>'<span class="'+(i===k-1?'new':'')+'">'+(i+1)+') '+fmt(x)+'</span>').join('');
+    const a=md[c].reduce((p,[,x])=>p+x,0),b=d[c].reduce((p,[,x])=>p+x,0);sumMD+=a;sumD+=b;
+    const z=s==='L'?a-b:b-a;if(s==='L')L+=z;else R+=z;
+    el.querySelector('.z').textContent=(md[c].length||d[c].length)?'zostatok '+fmt(z)+(s==='L'?' (MD)':' (D)'):'';
+    el.classList.toggle('hit',k>0&&(CASES[k-1][1]===c||CASES[k-1][2]===c));
+  });
+  document.getElementById('lsum').textContent=fmt(L);document.getElementById('rsum').textContent=fmt(R);
+  const c=document.getElementById('case');
+  if(k===0)c.innerHTML='Kliknite na „ďalší prípad“. Sledujte, že každý prípad zapíše jednu sumu raz vľavo (MD) a raz vpravo (D), a misy zostanú vyvážené.';
+  else{const [t,a,b,x,e]=CASES[k-1];c.innerHTML='<b>'+k+'.</b> '+t+'<br><b>MD '+a+' / D '+b+' &nbsp; <b class="amt">'+fmt(x)+' €</b></b> - '+e;}
+  document.getElementById('zero').innerHTML='<span class="chip">súčet MD (+): '+fmt(sumMD)+'</span><span class="chip">súčet D (-): '+fmt(sumD)+'</span><span class="chip ok">MD - D = '+fmt(sumMD-sumD)+'</span>';
+  document.getElementById('cnt').textContent=k+' / '+CASES.length;
+  document.getElementById('closing').classList.toggle('on',k===CASES.length);
+}
+document.getElementById('bNext').onclick=()=>{if(k<CASES.length){k++;render();}};
+document.getElementById('bPrev').onclick=()=>{if(k>0){k--;render();}};
+document.getElementById('bReset').onclick=()=>{k=0;render();};
+render();
+})();
+</script>
+<footer class="bot"><div class="in"><span>Ing. Anton Marci, PhD. - Katedra účtovníctva a audítorstva FHI EU v Bratislave - anton.marci@euba.sk</span><span>Zákony: <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101">ZDP</a> · <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2004/222/20260101">ZDPH</a> · <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2002/431/20260101">zákon o účtovníctve</a> (slov-lex.sk, znenie od 1. 1. 2026)</span></div></footer>
+</body>
+</html>

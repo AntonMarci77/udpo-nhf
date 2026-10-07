@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prednáška 3 - ÚDPO II NHF</title>
+<style>
+:root{--ink:#2d2a26;--muted:#7a7468;--paper:#f8f7f4;--line:#e0ddd6;--moss:#4a6741;--mossd:#3a5233;--mossl:#e8efe6;--gold:#9a7b2f;--goldl:#faf5e8;--navy:#3d5a80;--navyl:#e3edf7;--brick:#b34040;--brickl:#fce8e8;--white:#fff}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.5;font-size:16px}
+a{color:var(--moss)}
+header.top{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+header.top .in{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.logo b{width:34px;height:34px;border-radius:9px;background:var(--moss);color:#fff;display:grid;place-items:center;font-size:13px}
+.logo span{line-height:1.15}
+.logo small{display:block;color:var(--muted);font-size:11px}
+nav.main{display:flex;gap:2px;flex-wrap:wrap;margin-left:auto}
+nav.main a{padding:6px 11px;border-radius:7px;text-decoration:none;color:var(--ink);font-size:14px}
+nav.main a:hover{background:var(--paper)}
+nav.main a.on{background:var(--mossl);color:var(--moss);font-weight:600}
+main.wrap{max-width:1100px;margin:0 auto;padding:22px 16px 60px}
+h1{font-size:1.75rem;line-height:1.2;margin:0 0 6px}
+h2{font-size:1.25rem;margin:34px 0 10px;color:var(--mossd)}
+h3{font-size:1.05rem;margin:22px 0 6px}
+p.lead{font-size:1.08rem;color:#4a463f;margin:0 0 18px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:0 1px 3px rgba(45,42,38,.06)}
+.grid{display:grid;gap:14px}
+@media(min-width:700px){.grid.c2{grid-template-columns:1fr 1fr}.grid.c3{grid-template-columns:repeat(3,1fr)}.grid.c4{grid-template-columns:repeat(4,1fr)}}
+.tile{display:block;text-decoration:none;color:inherit;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px;transition:border-color .15s}
+.tile:hover{border-color:var(--moss)}
+.tile h3{margin:0 0 4px;color:var(--moss)}
+.tile p{margin:0;color:var(--muted);font-size:14px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;background:var(--white)}
+th,td{border:1px solid var(--line);padding:7px 9px;vertical-align:top;text-align:left}
+th{background:var(--mossl);color:var(--mossd);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+.pp{background:var(--brickl);color:var(--brick)}
+.op{background:var(--navyl);color:var(--navy)}
+.ok{background:var(--mossl);color:var(--moss)}
+.note{background:var(--goldl);border-left:4px solid var(--gold);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+.warn{background:var(--brickl);border-left:4px solid var(--brick);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+.small{font-size:13px;color:var(--muted)}
+code,kbd{font-family:"Cascadia Mono",Consolas,ui-monospace,monospace;font-size:.92em;background:#f1efe9;padding:1px 5px;border-radius:4px}
+.btn{display:inline-block;background:var(--moss);color:#fff;text-decoration:none;padding:9px 16px;border-radius:8px;font-weight:600}
+.btn.sec{background:var(--white);color:var(--moss);border:1px solid var(--moss)}
+footer.bot{border-top:1px solid var(--line);color:var(--muted);font-size:12px;background:var(--white)}
+footer.bot .in{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;gap:16px;flex-wrap:wrap}
+.eq{font-size:1.25rem;text-align:center;padding:14px;background:var(--white);border:1px dashed var(--moss);border-radius:10px;margin:12px 0;font-weight:600;color:var(--mossd)}
+ul,ol{padding-left:22px}
+li{margin:3px 0}
+.toc a{display:block;padding:4px 0;text-decoration:none}
+
+main.wrap{max-width:none;padding:0}
+.deck{position:relative}
+.slide{display:none;min-height:calc(100vh - 58px);padding:38px 7vw 70px;background:var(--paper)}
+.slide.on{display:block}
+.slide h2{font-size:2rem;margin:0 0 18px;color:var(--mossd);border-bottom:3px solid var(--moss);padding-bottom:8px;display:inline-block}
+.slide h1{font-size:2.6rem;margin:60px 0 10px}
+.slide p,.slide li{font-size:1.25rem}
+.slide table{font-size:1.1rem}
+.slide .eq{font-size:1.6rem}
+.slide .k{font-size:1.5rem;font-weight:700;color:var(--mossd);background:var(--white);border:2px solid var(--moss);border-radius:12px;padding:16px 22px;text-align:center;margin:20px 0}
+.cols{display:grid;gap:24px}
+@media(min-width:800px){.cols{grid-template-columns:1fr 1fr}.cols.c3{grid-template-columns:1fr 1fr 1fr}}
+.box{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+.box h3{margin:0 0 8px;color:var(--moss);font-size:1.15rem}
+.ctl{position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--line);display:flex;align-items:center;gap:12px;padding:8px 16px;font-size:14px;z-index:20}
+.ctl button{background:var(--moss);color:#fff;border:0;border-radius:7px;padding:6px 14px;font-size:14px;cursor:pointer}
+.ctl .n{font-variant-numeric:tabular-nums;color:var(--muted)}
+.ctl .bar{flex:1;height:5px;background:var(--line);border-radius:3px;overflow:hidden}
+.ctl .bar i{display:block;height:100%;background:var(--moss)}
+.sec-label{font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px}
+.big{font-size:3rem;font-weight:800;color:var(--moss);line-height:1.1}
+.q{background:var(--goldl);border-left:5px solid var(--gold);padding:12px 18px;border-radius:0 10px 10px 0;font-size:1.25rem;margin:16px 0}
+.hint{color:var(--muted);font-size:1rem}
+.tbl2 td.num{font-weight:600}
+.strike{text-decoration:line-through;color:var(--muted)}
+@media print{header.top,.ctl{display:none}.slide{display:block;page-break-after:always;min-height:0;padding:20px}.slide h1{margin-top:0}}
+</style>
+
+</head>
+<body>
+<header class="top"><div class="in">
+<a class="logo" href="index.html"><b>ÚD</b><span>Účtovníctvo a dane právnických osôb II<small>študenti NHF - zimný semester 2026/2027</small></span></a>
+<nav class="main"><a href="index.html">Úvod</a><a href="prednaska.html">Prednáška 1</a><a href="prednaska2.html">Prednáška 2</a><a href="prednaska3.html" class=on>Prednáška 3</a><a href="md-d.html">MD a D</a><a href="tahak.html">Ťahák PP a OP</a><a href="zadania.html">Zadania</a><a href="app.html">Aplikácia IUP 2 NHF</a></nav>
+</div></header>
+<main class="wrap">
+<div class="deck"><style>
+.flow{display:flex;flex-direction:column;gap:6px;max-width:760px;margin:10px auto}
+.st{display:grid;grid-template-columns:70px 1fr auto;gap:10px;align-items:center;background:#fff;border:1px solid #e0ddd6;border-radius:10px;padding:8px 12px}
+.st .op{font-size:1.3rem;font-weight:700;text-align:center;color:#4a6741}
+.st .r{font-size:12px;color:#7a7468;white-space:nowrap}
+.st.tot{background:#e8efe6;border-color:#4a6741;font-weight:600}
+.st.plus{border-left:5px solid #b34040}.st.minus{border-left:5px solid #3d5a80}
+.map{display:grid;gap:10px;grid-template-columns:1fr}
+@media(min-width:800px){.map{grid-template-columns:1fr 1fr 1fr}}
+.mb{background:#fff;border:1px solid #e0ddd6;border-radius:10px;padding:10px 12px;font-size:14.5px}
+.mb h4{margin:0 0 4px;color:#3a5233}
+.mb.d{border-top:5px solid #4a6741}.mb.n{border-top:5px solid #b34040}.mb.z{border-top:5px solid #3d5a80}
+.tl{display:grid;grid-template-columns:160px 1fr 30px 1fr;gap:6px;align-items:stretch;margin:6px 0;font-size:14px}
+.tl .lab{font-weight:600;align-self:center}
+.tl .y{background:#fff;border:1px solid #e0ddd6;border-radius:8px;padding:6px 9px}
+.tl .ar{align-self:center;text-align:center;font-size:1.3rem;color:#7a7468}
+.tlh{display:grid;grid-template-columns:160px 1fr 30px 1fr;gap:6px;font-size:12px;color:#7a7468;text-transform:uppercase;letter-spacing:.04em}
+.tg{display:inline-block;padding:1px 7px;border-radius:999px;font-size:12px;font-weight:700}
+.tg.pp{background:#fce8e8;color:#b34040}.tg.op{background:#e3edf7;color:#3d5a80}.tg.ok{background:#e8efe6;color:#4a6741}
+.bar{display:flex;height:34px;border-radius:8px;overflow:hidden;margin:8px 0;font-size:13px;color:#fff;font-weight:600}
+.bar div{display:grid;place-items:center}
+@media(max-width:640px){.tl,.tlh{grid-template-columns:1fr}.tl .ar{transform:rotate(90deg)}.st{grid-template-columns:44px 1fr}.st .r{grid-column:2}}
+</style><style>
+.eqbig{font-size:1.5rem;font-weight:800;text-align:center;padding:14px 10px;border-radius:12px;background:#fff;border:2px solid #4a6741;color:#3a5233;margin:14px 0}
+.eqbig .l{color:#3d5a80}.eqbig .r{color:#b34040}
+.cats{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));margin-top:10px}
+.t{background:#fff;border:1px solid #e0ddd6;border-radius:10px;padding:8px 10px 10px;font-size:15px}
+.t .nm{font-weight:700;text-align:center;border-bottom:2px solid #2d2a26;padding-bottom:4px}
+.t .nm small{display:block;font-weight:400;color:#7a7468;font-size:12px}
+.t .tt{display:grid;grid-template-columns:1fr 1fr;min-height:56px}
+.t .tt div{padding:6px 4px;text-align:center;font-weight:800;font-size:1.6rem}
+.t .tt div:first-child{border-right:2px solid #2d2a26}
+.t .tt .up{color:#4a6741}.t .tt .dn{color:#b34040}
+.t .home{font-size:12px;color:#7a7468;text-align:center}
+.arrowrow{display:grid;grid-template-columns:1fr 60px 1fr;gap:8px;align-items:center;margin:8px 0}
+.arrowrow .c{background:#fff;border:1px solid #e0ddd6;border-radius:10px;padding:8px 12px;font-size:1.05rem}
+.arrowrow .c b{display:block}
+.arrowrow .c.md{border-left:6px solid #3d5a80}.arrowrow .c.d{border-right:6px solid #b34040;text-align:right}
+.arrowrow .ar{text-align:center;font-size:1.8rem;color:#9a7b2f;font-weight:800}
+.arrowhead{display:grid;grid-template-columns:1fr 60px 1fr;gap:8px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#7a7468;font-weight:700}
+.arrowhead div:last-child{text-align:right}
+.moves{display:grid;gap:12px}
+@media(min-width:800px){.moves{grid-template-columns:repeat(4,1fr)}}
+.mv{background:#fff;border:1px solid #e0ddd6;border-radius:12px;padding:12px}
+.mv h4{margin:0 0 6px;color:#3a5233}
+.mv svg{width:100%;height:auto;display:block;margin:4px 0 8px}
+.mv p{margin:0;font-size:15px}
+.dance{display:flex;justify-content:center;align-items:center;gap:5px;margin:14px 0;flex-wrap:wrap}
+.dance .s{padding:8px 12px;border-radius:8px;font-weight:700;font-size:1.1rem;font-variant-numeric:tabular-nums}
+.dance .s.p{background:#e3edf7;color:#3d5a80}.dance .s.m{background:#fce8e8;color:#b34040}.dance .s.eq{background:#e8efe6;color:#3a5233}
+.chain{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;margin:22px 0}
+.chain span{background:#fff;border:1px solid #e0ddd6;border-radius:10px;padding:10px 14px;font-weight:600;font-size:1.1rem}
+.chain i{font-style:normal;color:#9a7b2f;font-weight:800;font-size:1.4rem}
+details.ans{background:#fff;border:1px solid #e0ddd6;border-radius:10px;padding:8px 14px;margin:6px 0;font-size:1.1rem}
+details.ans summary{cursor:pointer}
+details.ans div{margin-top:6px;color:#3a5233;font-weight:600}
+.ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:18px 0 8px}
+.ladder div{border-radius:8px;padding:12px 8px;text-align:center;font-weight:700;color:#fff}
+.ladder div b{display:block;font-size:1.8rem}
+.ladder .l0{background:#c9c3b6;color:#2d2a26}.ladder .l1{background:#d99a9a}.ladder .l2{background:#c46a6a}.ladder .l3{background:#b34040}
+.mirror{display:grid;gap:16px}
+@media(min-width:800px){.mirror{grid-template-columns:1fr 1fr}}
+.mirror .box h3{font-size:1.2rem}
+
+.slide .scale{max-width:640px}
+td.pp{color:#b34040;font-weight:700}td.op{color:#3d5a80;font-weight:700}
+</style>
+<section class="slide"><div class="sec-label">Prednáška 3 · 8. 10. 2026</div>
+<h1>Ľavá a pravá strana. A čo s faktúrami, ktoré nikto neplatí</h1>
+
+<p class="lead">Najprv sa vrátime k základu, na ktorom stojí všetko ostatné. Potom ho hneď použijeme na novú daňovú tému.</p>
+<ol><li><b>Časť A:</b> MD a D od začiatku - súvaha ako váhy, pravidlo domova, kam a odkiaľ, binárny systém</li>
+<li><b>Časť B:</b> Neuhradené záväzky po lehote splatnosti (§ 17 ods. 27 a 32 ZDP)</li></ol>
+<p class="hint">Na doma: <a href="md-d.html">infografika a video MD a D</a> s interaktívnym príkladom pekárne KRAJEC.</p>
+</section>
+<section class="slide"><div class="sec-label">Časť A · MD a D od začiatku</div>
+<h2>Prečo sa ešte raz vraciame na začiatok</h2>
+
+<p>Na cvičení zaznelo, že nie je jasné, čo vlastne robíme. Je to fér otázka. Celý predmet je jedna reťaz a keď vypadne prvé ohnivko, nedrží nič:</p>
+<div class="chain"><span>účtovný prípad</span><i>→</i><span>MD / D v kategóriách</span><i>→</i><span>náklady a výnosy</span><i>→</i><span>výsledok hospodárenia</span><i>→</i><span>+ PP - OP</span><i>→</i><span>základ dane</span><i>→</i><span>daň</span></div>
+<p>Opravné položky, rezervy aj dnešné záväzky po splatnosti sú len otázka: <b>dostal sa náklad do výsledku hospodárenia v správnom roku a v správnej výške?</b> Na to treba vedieť čítať MD a D.</p>
+<div class="q">Dnes nič nebiflujeme. Jeden obrázok, dve pravidlá, zvyšok si odvodíte.</div>
+</section>
+<section class="slide"><div class="sec-label">Časť A · MD a D od začiatku</div>
+<h2>Súvaha sú váhy</h2>
+
+<svg class="scale" viewBox="0 0 820 300" role="img" aria-label="Váhy: ľavá misa majetok a náklady, pravá misa záväzky, vlastné imanie a výnosy">
+  <polygon points="410,92 380,270 440,270" fill="#d9d4c8"/>
+  <rect x="330" y="268" width="160" height="14" rx="6" fill="#b9b2a3"/>
+  <rect x="80" y="84" width="660" height="12" rx="6" fill="#7a7468"/>
+  <circle cx="410" cy="90" r="11" fill="#9a7b2f"/>
+  <line x1="120" y1="96" x2="120" y2="150" stroke="#7a7468" stroke-width="2"/>
+  <line x1="300" y1="96" x2="300" y2="150" stroke="#7a7468" stroke-width="2"/>
+  <line x1="520" y1="96" x2="520" y2="150" stroke="#7a7468" stroke-width="2"/>
+  <line x1="700" y1="96" x2="700" y2="150" stroke="#7a7468" stroke-width="2"/>
+  <path d="M90 150 H330 L310 236 H110 Z" fill="#e3edf7" stroke="#3d5a80" stroke-width="2"/>
+  <path d="M490 150 H730 L710 236 H510 Z" fill="#fce8e8" stroke="#b34040" stroke-width="2"/>
+  <text x="210" y="40" text-anchor="middle" font-size="22" font-weight="800" fill="#3d5a80">ĽAVÁ STRANA = MD</text>
+  <text x="210" y="64" text-anchor="middle" font-size="14" fill="#3d5a80">„má dať“ · aktíva · kam hodnota išla</text>
+  <text x="610" y="40" text-anchor="middle" font-size="22" font-weight="800" fill="#b34040">PRAVÁ STRANA = D</text>
+  <text x="610" y="64" text-anchor="middle" font-size="14" fill="#b34040">„dal“ · pasíva · odkiaľ hodnota prišla</text>
+  <text x="210" y="182" text-anchor="middle" font-size="20" font-weight="800" fill="#2d2a26">MAJETOK</text>
+  <text x="210" y="203" text-anchor="middle" font-size="14" fill="#2d2a26">NM, OM</text>
+  <text x="210" y="226" text-anchor="middle" font-size="17" font-weight="700" fill="#3d5a80">+ NÁKLADY (N)</text>
+  <text x="610" y="176" text-anchor="middle" font-size="18" font-weight="800" fill="#2d2a26">ZÁVÄZKY (DZ, KZ)</text>
+  <text x="610" y="200" text-anchor="middle" font-size="18" font-weight="800" fill="#2d2a26">+ VLASTNÉ IMANIE (VI)</text>
+  <text x="610" y="226" text-anchor="middle" font-size="17" font-weight="700" fill="#b34040">+ VÝNOSY (V)</text>
+</svg>
+<p>Vľavo je to, čo firma <b>má</b> (majetok). Vpravo to, <b>odkiaľ to má</b> (od vlastníkov alebo požičané). Každé euro majetku má zdroj, preto sú misy vždy vyvážené. To, že majetok je vľavo, je dohoda benátskych obchodníkov spred 500 rokov. Nie je to logika, je to konvencia, ale nikdy sa nemení.</p>
+</section>
+<section class="slide"><div class="sec-label">Časť A · MD a D od začiatku</div>
+<h2>Kam patria náklady a výnosy</h2>
+
+<div class="eqbig"><span class="l">MAJETOK + NÁKLADY</span> = <span class="r">ZÁVÄZKY + VLASTNÉ IMANIE + VÝNOSY</span></div>
+<div class="cols"><div class="box"><h3 style="color:#b34040">Výnos je vpravo</h3><p>Výnos zvyšuje zisk. Zisk patrí vlastníkovi, je to súčasť vlastného imania, a to je vpravo.</p></div>
+<div class="box"><h3 style="color:#3d5a80">Náklad je vľavo</h3><p>Náklad zisk znižuje. Zníženie vlastného imania (ktoré je doma vpravo) ide doľava. Náklady sú „mínus vlastné imanie“.</p></div></div>
+<p class="hint">Túto jednu rovnicu stačí vedieť. Všetko ostatné je z nej odvodené.</p>
+</section>
+<section class="slide"><div class="sec-label">Časť A · MD a D od začiatku</div>
+<h2>Pravidlo domova</h2>
+
+<p>Každá kategória je malá súvaha v tvare T. <b>Doma rastie, na opačnej strane klesá.</b></p>
+<div class="cats"><div class="t"><div class="nm">NM<small>neobežný majetok</small></div><div class="tt"><div class="up">+</div><div class="dn">-</div></div><div class="home">doma vľavo (MD)</div></div><div class="t"><div class="nm">OM<small>obežný majetok</small></div><div class="tt"><div class="up">+</div><div class="dn">-</div></div><div class="home">doma vľavo (MD)</div></div><div class="t"><div class="nm">N<small>náklady</small></div><div class="tt"><div class="up">+</div><div class="dn">-</div></div><div class="home">doma vľavo (MD)</div></div><div class="t"><div class="nm">VI<small>vlastné imanie</small></div><div class="tt"><div class="dn">-</div><div class="up">+</div></div><div class="home">doma vpravo (D)</div></div><div class="t"><div class="nm">DZ, KZ<small>záväzky</small></div><div class="tt"><div class="dn">-</div><div class="up">+</div></div><div class="home">doma vpravo (D)</div></div><div class="t"><div class="nm">V<small>výnosy</small></div><div class="tt"><div class="dn">-</div><div class="up">+</div></div><div class="home">doma vpravo (D)</div></div></div>
+<p>Pribudli peniaze: OM rastie, zapíšem vľavo. Pribudol dlh: KZ rastie, zapíšem vpravo. Ubudli peniaze: OM klesá, zapíšem vpravo. Zostatok je preto pri majetku a nákladoch vľavo, pri ostatných vpravo.</p>
+</section>
+<section class="slide"><div class="sec-label">Časť A · MD a D od začiatku</div>
+<h2>Kam a odkiaľ: šípka ide vždy z D do MD</h2>
+
+<p>Keď neviete, kde čo býva: <b>odkiaľ hodnota prišla?</b> To je D. <b>Kam išla?</b> To je MD.</p>
+<div class="arrowhead"><div>MD · kam to išlo</div><div></div><div>D · odkiaľ to prišlo</div></div>
+<div class="arrowrow"><div class="c md"><b>OM</b>peniaze na účte</div><div class="ar">←</div><div class="c d"><b>VI</b>vklad od spoločníka</div></div>
+<div class="arrowrow"><div class="c md"><b>NM</b>pec</div><div class="ar">←</div><div class="c d"><b>KZ</b>dodávateľ nám ju „požičal“ do zaplatenia</div></div>
+<div class="arrowrow"><div class="c md"><b>N</b>spotrebovaná pri pečení</div><div class="ar">←</div><div class="c d"><b>OM</b>múka zo skladu</div></div>
+<div class="arrowrow"><div class="c md"><b>OM</b>hotovosť v pokladnici</div><div class="ar">←</div><div class="c d"><b>V</b>predaj chleba</div></div>
+<div class="arrowrow"><div class="c md"><b>KZ</b>zaplatenie dlhu (dlh zanikne)</div><div class="ar">←</div><div class="c d"><b>OM</b>peniaze z účtu</div></div>
+</section>
+<section class="slide"><div class="sec-label">Časť A · MD a D od začiatku</div>
+<h2>Binárny systém: tanec, ktorý sa skončí na nule</h2>
+
+<p>MD berte ako <b>+</b>, D ako <b>-</b>. Každý prípad je krok vľavo a rovnako dlhý krok vpravo.</p>
+<div class="dance"><span class="s p">+20 000</span><span class="s m">-20 000</span><span class="s p">+12 000</span><span class="s m">-12 000</span><span class="s p">+3 000</span><span class="s m">-3 000</span><span class="s p">+2 000</span><span class="s m">-2 000</span><span class="s eq">= 0</span></div>
+<div class="cols c3"><div class="box"><h3>Po každom prípade</h3><p>súčet všetkých MD = súčet všetkých D (obratová predvaha)</p></div>
+<div class="box"><h3>Kedykoľvek počas roka</h3><p>ľavá misa (majetok + náklady) = pravá misa (záväzky + VI + výnosy)</p></div>
+<div class="box"><h3>Na konci roka</h3><p>výnosy - náklady = VH, VH ide do vlastného imania, súvaha sa uzavrie a všetko je na nule</p></div></div>
+</section>
+<section class="slide"><div class="sec-label">Časť A · MD a D od začiatku</div>
+<h2>Štyri pohyby váh - iné neexistujú</h2>
+
+<div class="moves">
+<div class="mv"><h4>Obe misy hore</h4><svg viewBox="0 0 200 110"><g transform="translate(0,14)"><rect x="10" y="30" width="180" height="6" rx="3" fill="#7a7468"/><polygon points="100,34 88,90 112,90" fill="#d9d4c8"/><rect x="20" y="6" width="60" height="22" rx="4" fill="#3d5a80" opacity=".85"/><rect x="120" y="6" width="60" height="22" rx="4" fill="#b34040" opacity=".85"/><text x="50" y="0" dy="-2" text-anchor="middle" font-size="16" fill="#4a6741" font-weight="800">+</text><text x="150" y="0" dy="-2" text-anchor="middle" font-size="16" fill="#4a6741" font-weight="800">+</text></g></svg><p>vklad OM/VI, kúpa na faktúru NM/KZ, tržba OM/V, faktúra za elektrinu N/KZ</p></div>
+<div class="mv"><h4>Obe misy dole</h4><svg viewBox="0 0 200 110"><g transform="translate(0,14)"><rect x="10" y="30" width="180" height="6" rx="3" fill="#7a7468"/><polygon points="100,34 88,90 112,90" fill="#d9d4c8"/><rect x="20" y="20" width="60" height="8" rx="4" fill="#3d5a80" opacity=".85"/><rect x="120" y="20" width="60" height="8" rx="4" fill="#b34040" opacity=".85"/><text x="50" y="-2" text-anchor="middle" font-size="16" fill="#b34040" font-weight="800">−</text><text x="150" y="-2" text-anchor="middle" font-size="16" fill="#b34040" font-weight="800">−</text></g></svg><p>zaplatenie faktúry KZ/OM, splátka úveru KZ/OM</p></div>
+<div class="mv"><h4>Presun vľavo</h4><svg viewBox="0 0 200 110"><g transform="translate(0,14)"><rect x="10" y="30" width="180" height="6" rx="3" fill="#7a7468"/><polygon points="100,34 88,90 112,90" fill="#d9d4c8"/><rect x="20" y="10" width="28" height="18" rx="3" fill="#3d5a80"/><rect x="52" y="10" width="28" height="18" rx="3" fill="#9fb4cf"/><rect x="120" y="10" width="60" height="18" rx="4" fill="#b34040" opacity=".85"/><text x="50" y="4" text-anchor="middle" font-size="14" fill="#9a7b2f" font-weight="800">⇄</text></g></svg><p>spotreba N/OM, odpis N/NM, kúpa za hotové NM/OM, inkaso OM/OM</p></div>
+<div class="mv"><h4>Presun vpravo</h4><svg viewBox="0 0 200 110"><g transform="translate(0,14)"><rect x="10" y="30" width="180" height="6" rx="3" fill="#7a7468"/><polygon points="100,34 88,90 112,90" fill="#d9d4c8"/><rect x="20" y="10" width="60" height="18" rx="4" fill="#3d5a80" opacity=".85"/><rect x="120" y="10" width="28" height="18" rx="3" fill="#b34040"/><rect x="152" y="10" width="28" height="18" rx="3" fill="#e3a3a3"/><text x="150" y="4" text-anchor="middle" font-size="14" fill="#9a7b2f" font-weight="800">⇄</text></g></svg><p>odpustenie dlhu KZ/V, úver z krátkodobého na dlhodobý KZ/DZ</p></div></div>
+<p class="hint">Výsledok hospodárenia sa mení len vtedy, keď sa v zápise objaví N alebo V.</p>
+</section>
+<section class="slide"><div class="sec-label">Časť A · MD a D od začiatku</div>
+<h2>Pekáreň KRAJEC s. r. o. - prvý mesiac</h2>
+
+<table><tr><th>#</th><th>Účtovný prípad</th><th>MD</th><th>D</th><th>Váhy</th><th>Mení VH?</th></tr><tr><td>1</td><td>Spoločník vložil 20 000 € na účet</td><td><b>OM</b></td><td><b>VI</b></td><td>obe hore</td><td>nie</td></tr><tr><td>2</td><td>Kúpa pece na faktúru 12 000 €</td><td><b>NM</b></td><td><b>KZ</b></td><td>obe hore</td><td>nie</td></tr><tr><td>3</td><td>Nákup múky na faktúru 3 000 €</td><td><b>OM</b></td><td><b>KZ</b></td><td>obe hore</td><td>nie</td></tr><tr><td>4</td><td>Spotreba múky 2 000 €</td><td><b>N</b></td><td><b>OM</b></td><td>presun vľavo</td><td>áno, -2 000</td></tr><tr><td>5</td><td>Tržby za chlieb v hotovosti 9 000 €</td><td><b>OM</b></td><td><b>V</b></td><td>obe hore</td><td>áno, +9 000</td></tr><tr><td>6</td><td>Úhrada faktúry za pec 12 000 €</td><td><b>KZ</b></td><td><b>OM</b></td><td>obe dole</td><td>nie</td></tr><tr><td>7</td><td>Faktúra za elektrinu 800 €, nezaplatená</td><td><b>N</b></td><td><b>KZ</b></td><td>obe hore</td><td>áno, -800</td></tr><tr><td>8</td><td>Odpis pece 200 €</td><td><b>N</b></td><td><b>NM</b></td><td>presun vľavo</td><td>áno, -200</td></tr></table>
+<p>Výnosy 9 000 - náklady 3 000 = <b>zisk 6 000</b>. Súvaha: majetok 29 800 = vlastné imanie 20 000 + zisk 6 000 + záväzky 3 800. Na účte nie je 6 000, ale 18 000 vrátane hotovosti a múky: <b>zisk nie sú peniaze</b>.</p>
+<p class="hint">Krok za krokom s T-účtami si to prejdite v <a href="md-d.html">interaktívnej infografike</a> alebo vo videu.</p>
+</section>
+<section class="slide"><div class="sec-label">Časť A · MD a D od začiatku</div>
+<h2>Skúste sami: MD, D a mení sa výsledok?</h2>
+<details class="ans"><summary>1. Firma dostala úver 5 000 € na účet.</summary><div>OM / KZ - VH sa nemení (úver nie je výnos)</div></details><details class="ans"><summary>2. Prišla faktúra za nájom 1 000 €, zatiaľ nezaplatená.</summary><div>N / KZ - VH klesne o 1 000 už teraz</div></details><details class="ans"><summary>3. Firma tú faktúru za nájom zaplatila.</summary><div>KZ / OM - VH sa nemení, obe misy dole</div></details><details class="ans"><summary>4. Dodávateľ odpustil dlh 500 €.</summary><div>KZ / V - VH stúpne o 500</div></details><details class="ans"><summary>5. Firma zaplatila preddavok na daň z príjmov 1 200 €.</summary><div>DU / OM - VH sa nemení, preddavok nie je náklad</div></details><details class="ans"><summary>6. Vytvorila rezervu na audit 2 000 €.</summary><div>N / KZ - VH klesne (v daňovom priznaní PP, poznáte z prednášky 2)</div></details><p class="hint">Kliknutím sa ukáže odpoveď. Najprv nahlas: odkiaľ to prišlo, kam to išlo.</p>
+</section>
+<section class="slide"><div class="sec-label">Časť A · MD a D od začiatku → Časť B</div>
+<h2>Most k dani: zaplatenie faktúry nie je náklad</h2>
+
+<div class="cols"><div class="box"><h3>Čo sa deje v účtovníctve</h3><p><b>Príde faktúra</b> za opravu 3 000 €: N / KZ. Náklad je tu, VH klesol, <b>základ dane klesol</b>.</p><p><b>Zaplatíme</b> o rok: KZ / OM. VH sa nemení.</p><p><b>Nezaplatíme nikdy</b>: náklad v účtovníctve zostane, daň sme si znížili, dodávateľ nedostal nič.</p></div>
+<div class="box"><h3>Čo na to štát</h3><p>Firma si znížila daň o náklad, za ktorý nezaplatila. Ak to trvá dlho, zákon povie: <b>vráťte si ten náklad do základu dane</b>, postupne 20 %, 50 % a 100 %.</p><p>Keď neskôr zaplatíte, náklad vám vráti späť.</p></div></div>
+<div class="k">To je celá téma § 17 ods. 27 a 32 ZDP.</div>
+</section>
+<section class="slide"><div class="sec-label">Časť B · Záväzky po lehote splatnosti</div>
+<h2>Zrkadlo k prednáške 2: pohľadávka u veriteľa, záväzok u dlžníka</h2>
+
+<div class="mirror"><div class="box"><h3 style="color:#3d5a80">Veriteľ (má pohľadávku)</h3><p>Odberateľ neplatí. Veriteľ si smie postupne uznať opravnú položku ako daňový výdavok (§ 20 ods. 14):</p><p><b>nad 360 dní 20 %, nad 720 dní 50 %, nad 1 080 dní 100 %</b></p><p>Daň sa mu znižuje.</p></div>
+<div class="box"><h3 style="color:#b34040">Dlžník (má záväzok)</h3><p>Dlžník neplatí. Musí si postupne zvýšiť základ dane o neuhradený záväzok (§ 17 ods. 27):</p><p><b>nad 360 dní 20 %, nad 720 dní 50 %, nad 1 080 dní 100 %</b></p><p>Daň sa mu zvyšuje.</p></div></div>
+<p>Rovnaké hranice na oboch stranách. Štát tak neprichádza o daň, keď jeden neplatí druhému, a dlžník nemá výhodu z toho, že neplatí.</p>
+</section>
+<section class="slide"><div class="sec-label">Časť B · Záväzky po lehote splatnosti</div>
+<h2>Pravidlo § 17 ods. 27 ZDP</h2>
+
+<table><tr><th style="width:24%">Otázka</th><th>Odpoveď</th></tr>
+<tr><td>Ktoré záväzky</td><td>K výdavku, ktorý je (alebo raz bude) daňovým výdavkom: tovar, služby, opravy, stroje, aj pozemok a zásoby. <b>Pomôcka: ak by zaplatenie niekedy znížilo základ dane, dodaňuje sa.</b></td></tr>
+<tr><td>Ktoré nie</td><td>Istina pôžičky (nikdy nebola nákladom: OM / KZ). Náklady podľa § 17 ods. 19 (nájom, poradenstvo), ktoré sú do zaplatenia pripočítané už v r. 140. Nedaňové výdavky.</td></tr>
+<tr><td>Kto neupravuje</td><td>Daňovník, na ktorého bol vyhlásený konkurz, neziskové organizácie poskytujúce všeobecne prospešné služby (zákon č. 213/1997 Z. z.) a subjekty verejnej správy (zákon č. 523/2004 Z. z.).</td></tr>
+<tr><td>Z akej sumy</td><td>Z menovitej hodnoty <b>vrátane DPH</b>, pri čiastočnej úhrade z nesplatenej časti.</td></tr>
+<tr><td>Od kedy</td><td>Od <b>pôvodne dohodnutej</b> splatnosti, dodatok o predĺžení sa neberie do úvahy. Dni sa počítajú k 31. 12.</td></tr>
+<tr><td>Ako</td><td><b>Neúčtuje sa.</b> Len úprava v daňovom priznaní: r. 180, vecná náplň vo VIII. časti.</td></tr></table>
+<p class="hint"><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20250101#paragraf-17.odsek-27">§ 17 ods. 27 ZDP na slov-lex.sk</a> · <a href="https://podpora.financnasprava.sk/732319-Aké-záväzky-sa-zdaňujú">FS SR: Aké záväzky sa zdaňujú</a></p>
+</section>
+<section class="slide"><div class="sec-label">Časť B · Záväzky po lehote splatnosti</div>
+<h2>Rebrík 20 / 50 / 100 % a postup v troch krokoch</h2>
+
+<div class="ladder"><div class="l0">0 - 360 dní<b>0 %</b></div><div class="l1">viac ako 360<b>20 %</b></div><div class="l2">viac ako 720<b>50 %</b></div><div class="l3">viac ako 1 080<b>100 %</b></div></div>
+<p class="hint" style="text-align:center">percentá sú úhrnné za všetky roky, nie za každý rok znova</p>
+<ol><li><b>Dni:</b> od pôvodnej splatnosti do 31. 12. → percento z rebríka.</li>
+<li><b>Požadovaný úhrn:</b> percento × nesplatená menovitá hodnota (s DPH).</li>
+<li><b>PP tohto roka:</b> požadovaný úhrn - to, čo už bolo pripočítané v minulých rokoch.</li></ol>
+<div class="q">Prečo rozdiel? Lebo minulé priznania už podané sú. Čo ste pripočítali vlani, sa druhýkrát nepripočítava.</div>
+</section>
+<section class="slide"><div class="sec-label">Časť B · Záväzky po lehote splatnosti</div>
+<h2>Príklad KRAJEC: jedna faktúra, ktorú nikto neplatí</h2>
+
+<p>Faktúra za opravu pece <b>3 690 €</b> (3 000 € + DPH 23 %), splatná <b>30. 6. 2021</b>. Oprava bola v roku 2021 nákladom (N / KZ) a daňovým výdavkom.</p>
+<table><tr><th>K 31. 12.</th><th class="num">Dni po splatnosti</th><th class="num">Úhrn</th><th class="num">Požadovaný úhrn €</th><th class="num">Už pripočítané €</th><th class="num">Úprava v roku</th></tr>
+<tr><td>2021</td><td class="num">184</td><td class="num">0 %</td><td class="num">0</td><td class="num">0</td><td class="num">-</td></tr>
+<tr><td>2022</td><td class="num">549</td><td class="num">20 %</td><td class="num">738</td><td class="num">0</td><td class="num pp">PP 738</td></tr>
+<tr><td>2023</td><td class="num">914</td><td class="num">50 %</td><td class="num">1 845</td><td class="num">738</td><td class="num pp">PP 1 107</td></tr>
+<tr><td>2024</td><td class="num">1 280</td><td class="num">100 %</td><td class="num">3 690</td><td class="num">1 845</td><td class="num pp">PP 1 845</td></tr>
+<tr><td>2025 - zaplatené</td><td class="num">-</td><td class="num">-</td><td class="num">-</td><td class="num">3 690</td><td class="num op">OP 3 690</td></tr></table>
+<p>Súčet úprav: 738 + 1 107 + 1 845 - 3 690 = <b>0</b>. Náklad bol nakoniec daňovým výdavkom presne raz, len v čase sa posunul. Aj tu sa všetko skončí na nule.</p>
+</section>
+<section class="slide"><div class="sec-label">Časť B · Záväzky po lehote splatnosti</div>
+<h2>Kedy sa základ dane znova zníži (§ 17 ods. 32 a § 17 ods. 19)</h2>
+
+<table><tr><th>Situácia</th><th>Zápis</th><th>Úprava</th><th>Riadok</th></tr>
+<tr><td>Zaplatenie záväzku, ktorý už bol pripočítaný na 100 % (ods. 32 písm. a))</td><td>KZ / OM</td><td class="op">OP o zaplatenú sumu</td><td>r. 290</td></tr>
+<tr><td>Čiastočné zaplatenie skôr, ako sa dosiahne 100 %</td><td>KZ / OM</td><td>pri platbe nič, k 31. 12. sa úhrn prepočíta z nesplatenej časti</td><td>r. 180</td></tr>
+<tr><td>Veriteľ dlh odpustí, dlh sa premlčí (ods. 32 písm. b))</td><td>KZ / V</td><td class="op">OP o už pripočítanú sumu, najviac do výšky výnosu</td><td>r. 290</td></tr>
+<tr><td>Zaplatenie nájomného, poradenstva z minulých rokov (§ 17 ods. 19)</td><td>KZ / OM</td><td class="op">OP o zaplatenú sumu (podľa ods. 27 sa tieto nikdy neupravovali)</td><td>r. 270</td></tr>
+<tr><td>Konkurz na dlžníka (ods. 32 písm. d))</td><td>-</td><td class="op">doterajšie zvýšenia sa vrátia</td><td>r. 290</td></tr></table>
+<p class="hint">Prečo pri odpustení len už pripočítanú sumu? Výnos KZ / V zvýši VH o celý dlh. Časť z neho sme už zdanili cez PP, druhýkrát ju zdaniť nemožno. <a href="https://podpora.financnasprava.sk/344516-Splatenie-a-odpis-záväzku">FS SR: Splatenie a odpis záväzku</a></p>
+</section>
+<section class="slide"><div class="sec-label">Časť B · Záväzky po lehote splatnosti</div>
+<h2>Príklad KRAJEC k 31. 12. 2025: päť záväzkov, päť otázok</h2>
+
+<table><tr><th>Záväzok</th><th class="num">Suma €</th><th>Splatnosť</th><th class="num">Dni</th><th>Úvaha</th><th class="num">Úprava 2025</th></tr>
+<tr><td>a) múka (5 000 + DPH)</td><td class="num">6 150</td><td>15. 9. 2024</td><td class="num">472</td><td>20 % z 6 150 = 1 230, doteraz 0</td><td class="num pp">PP 1 230</td></tr>
+<tr><td>b) chladiaci box, NM (4 000 + DPH), splatnosť dodatkom predĺžená do 2026</td><td class="num">4 920</td><td>31. 3. 2023</td><td class="num">1 006</td><td>rozhoduje pôvodná splatnosť: 50 % = 2 460, v roku 2024 už 984</td><td class="num pp">PP 1 476</td></tr>
+<tr><td>c) pôžička od spoločníka - istina</td><td class="num">10 000</td><td>30. 6. 2023</td><td class="num">915</td><td>istina nikdy nebola nákladom (OM / KZ)</td><td class="num">-</td></tr>
+<tr><td>d) nájom predajne za 12/2023, nezaplatený</td><td class="num">2 000</td><td>31. 12. 2023</td><td class="num">731</td><td>§ 17 ods. 19: pripočítaný už v roku 2023 (r. 140), ods. 27 sa neuplatní</td><td class="num">-</td></tr>
+<tr><td>e) obaly (1 000 + DPH), v roku 2025 dodávateľ dlh odpustil: KZ / V 1 230</td><td class="num">1 230</td><td>31. 1. 2023</td><td class="num">-</td><td>v roku 2024 pripočítaných 20 % = 246, odpustenie</td><td class="num op">OP 246</td></tr></table>
+<p><b>Spolu: r. 180 = 2 706 €, r. 290 = 246 €.</b> Pri výsledku hospodárenia 40 000 € je základ dane 40 000 + 2 706 - 246 = <b>42 460 €</b>.</p>
+</section>
+<section class="slide"><div class="sec-label">Časť B · Záväzky po lehote splatnosti</div>
+<h2>Najčastejšie chyby</h2>
+
+<div class="cols"><div><ol>
+<li>Počítať dni od <b>predĺženej</b> splatnosti namiesto pôvodnej.</li>
+<li>Počítať zo sumy <b>bez DPH</b>.</li>
+<li>Dodaňovať <b>istinu pôžičky</b>.</li></ol></div><div><ol start="4">
+<li>Dodaňovať druhýkrát <b>nájom alebo poradenstvo</b>, ktoré už sú v r. 140.</li>
+<li>Pripočítať každý rok <b>celé percento</b> namiesto rozdielu.</li>
+<li><b>Účtovať</b> zvýšenie základu dane. Neúčtuje sa, je len v priznaní.</li></ol></div></div>
+<div class="k">Pomôcka na všetko: ak úhrada niekedy zníži základ dane, neúhrada ho po čase zvýši.</div>
+</section>
+<section class="slide"><div class="sec-label">Zhrnutie</div>
+<h2>Čo si odniesť</h2>
+
+<div class="k">1. MAJETOK + NÁKLADY = ZÁVÄZKY + VLASTNÉ IMANIE + VÝNOSY. Doma rastie, na opačnej strane klesá.<br>2. D = odkiaľ, MD = kam. Každý prípad je krok vľavo a krok vpravo, súčet je nula.<br>3. Nezaplatený daňový náklad sa po 360 / 720 / 1 080 dňoch vracia do základu dane (20 / 50 / 100 %), po zaplatení alebo odpustení sa vráti späť.</div>
+<p>Na cvičení: <a href="zadania.html#opal">Zadanie 4 - OPÁL s. r. o.</a> v aplikácii <a href="app.html">IUP 2 NHF</a>. Na opakovanie: <a href="md-d.html">infografika a video MD a D</a>, <a href="tahak.html">ťahák PP a OP</a>.</p>
+</section>
+</div><div class="ctl"><button id="prev">◀</button><button id="next">▶</button><span class="n" id="n"></span><div class="bar"><i id="bar"></i></div><button id="all" style="background:var(--white);color:var(--moss);border:1px solid var(--moss)">Všetky slidy</button></div>
+<script>
+(function(){
+  const s=[...document.querySelectorAll('.slide')];let i=0;
+  const n=document.getElementById('n'),bar=document.getElementById('bar');
+  function show(k){i=Math.max(0,Math.min(s.length-1,k));s.forEach((x,j)=>x.classList.toggle('on',j===i));n.textContent=(i+1)+' / '+s.length;bar.style.width=((i+1)/s.length*100)+'%';history.replaceState(null,'','#'+(i+1));window.scrollTo(0,0);}
+  const h=parseInt((location.hash||'').slice(1),10);show(isNaN(h)?0:h-1);
+  document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();show(i+1);}else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();show(i-1);}else if(e.key==='Home')show(0);else if(e.key==='End')show(s.length-1);});
+  document.getElementById('prev').onclick=()=>show(i-1);document.getElementById('next').onclick=()=>show(i+1);
+  document.getElementById('all').onclick=()=>{document.body.classList.toggle('all');s.forEach(x=>x.style.display=document.body.classList.contains('all')?'block':'');if(!document.body.classList.contains('all'))show(i);};
+  let tx=null;document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);document.addEventListener('touchend',e=>{if(tx===null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60)show(d<0?i+1:i-1);tx=null;});
+})();
+</script>
+
+</main>
+<footer class="bot"><div class="in"><span>Ing. Anton Marci, PhD. - Katedra účtovníctva a audítorstva FHI EU v Bratislave - anton.marci@euba.sk</span><span>Zákony: <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101">ZDP</a> · <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2004/222/20260101">ZDPH</a> · <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2002/431/20260101">zákon o účtovníctve</a> (slov-lex.sk, znenie od 1. 1. 2026)</span></div></footer>
+</body>
+</html>
