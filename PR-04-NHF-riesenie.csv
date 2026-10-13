@@ -1,0 +1,36 @@
+﻿poradie;datum;doklad;popis;suma;md;dal;pripocitatelna;odpocitatelna;paragraf
+1;01.01.2025;PS;Začiatočný stav: softvér NEURO-Scan (120 000 - oprávky 40 000) a servery, počítače (90 000 - oprávky 30 000);140000;NM;VI;;;
+2;01.01.2025;PS;Začiatočný stav: pohľadávky voči odberateľom (z toho MEDIX 24 000);210000;OM;VI;;;
+3;01.01.2025;PS;Začiatočný stav: peniaze na bankovom účte;380000;OM;VI;;;
+4;01.01.2025;PS;Začiatočný stav: dodávatelia (TECHNO 6 000, SERVIS PLUS 1 800, LEX 1 200, v lehote splatnosti 40 200);49200;VI;KZ;;;
+5;01.01.2025;PS;Začiatočný stav: rezerva na audit za rok 2024 (nedaňová);2500;VI;KZ;;;
+6;01.01.2025;PS;Začiatočný stav: nájomné REALITY CENTRUM za 12/2024;2500;VI;KZ;;;
+7;01.01.2025;PS;Začiatočný stav: zamestnanci, poisťovne, DPH (45 000 + 32 000 + 18 000);95000;VI;KZ;;;
+8;01.01.2025;PS;Začiatočný stav: minimálna daň za rok 2024 (nezaplatená k 1. 1. 2025);960;VI;DU;;;
+9;31.12.2025;SÚH01;Tržby za licencie a implementácie softvéru za rok 2025 - základ dane;1686000;OM;V;;;
+10;31.12.2025;SÚH01;DPH 23 % k tržbám (dlžíme štátu);387780;OM;KZ;;;
+11;31.12.2025;SÚH02;Inkasá pohľadávok od odberateľov;1900000;OM;OM;;;
+12;31.12.2025;SÚH03;Cloudové služby, licencie a ostatné služby (uhradené);190460;N;KZ;;;
+13;31.12.2025;SÚH04;Nájomné za kanceláriu za rok 2025 (12 x 2 500 €, nájomné za 12/2025 nezaplatené k 31. 12. 2025);30000;N;KZ;2500;;§ 17 ods. 19 písm. b) - r. 140
+14;15.12.2025;SÚH05;Právne služby advokátskej kancelárie LEX - základ dane, nezaplatené k 31. 12. 2025;1500;N;KZ;1500;;§ 17 ods. 19 písm. f) - r. 140
+15;15.12.2025;SÚH05;DPH 23 % k právnym službám (nárok na odpočítanie);345;OM;KZ;;;
+16;31.12.2025;SÚH06;Spotreba materiálu - základ dane;13000;N;KZ;;;
+17;31.12.2025;SÚH06;DPH 23 % k materiálu (nárok na odpočítanie);2990;OM;KZ;;;
+18;31.12.2025;SÚH07;Reprezentácia - pohostenie klientov na Demo Day (vrátane DPH, ktorú nemožno odpočítať);3690;N;KZ;3690;;§ 21 ods. 1 písm. h) - tab. A r. 6
+19;31.12.2025;SÚH08;Hrubé mzdy zamestnancov;720000;N;KZ;;;
+20;31.12.2025;SÚH08;Poistné zamestnávateľa (35,2 %);253440;N;KZ;;;
+21;31.12.2025;SÚH09;Odpisy softvéru a serverov (účtovné = daňové);70000;N;NM;;;
+22;31.12.2025;IÚD01;Opravná položka 100 % k pohľadávke MEDIX 24 000 € (splatná 30. 11. 2024, 396 dní po splatnosti) - daňovo uznaná len 20 % = 4 800 €;24000;N;OM;19200;;§ 20 ods. 14, § 21 ods. 2 písm. j) - tab. A r. 9
+23;31.12.2025;IÚD02;Rezerva na audit závierky za rok 2025;3000;N;KZ;3000;;§ 20 ods. 9, § 21 ods. 2 písm. j) - tab. A r. 10
+24;28.02.2025;IÚD03;Faktúra audítora za audit 2024 - použitie rezervy (rezerva sa mení na skutočný záväzok);2500;KZ;KZ;;2500;§ 17 ods. 23 - r. 290
+25;28.02.2025;IÚD03;DPH 23 % k faktúre audítora (nárok na odpočítanie);575;OM;KZ;;;
+26;10.01.2025;VBÚ01;Úhrada nájomného za 12/2024 (v roku 2024 bolo pripočítateľnou položkou v r. 140);2500;KZ;OM;;2500;§ 17 ods. 19 písm. b) - r. 270
+27;20.01.2025;VBÚ02;Úhrada faktúry LEX za právne služby z roku 2024 (v roku 2024 pripočítateľná položka v r. 140);1200;KZ;OM;;1200;§ 17 ods. 19 písm. f) - r. 270
+28;14.03.2025;VBÚ03;Úhrada záväzku SERVIS PLUS 1 800 € (splatný 31. 8. 2021, základ dane už zvýšený o 100 %);1800;KZ;OM;;1800;§ 17 ods. 32 písm. a) - r. 290
+29;31.03.2025;VBÚ04;Úhrada minimálnej dane za rok 2024;960;DU;OM;;;
+30;31.12.2025;VBÚ05;Úhrady nájomného za 1 až 11/2025;27500;KZ;OM;;;
+31;31.12.2025;VBÚ06;Úhrady dodávateľom (súhrnne);223415;KZ;OM;;;
+32;31.12.2025;VBÚ07;Výplaty miezd (zjednodušene bez zrážok zamestnancov);720000;KZ;OM;;;
+33;31.12.2025;VBÚ08;Odvody poistného;253440;KZ;OM;;;
+34;31.12.2025;VBÚ09;Úhrady DPH daňovému úradu (zjednodušene);380000;KZ;OM;;;
+35;31.12.2025;IÚD04;Splatná daň z príjmov za rok 2025 (6 300 - zápočet minimálnej dane 2024 960);5340;ND;DU;;;§ 15, § 46b ods. 5 ZDP

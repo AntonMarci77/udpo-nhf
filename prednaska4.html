@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prednáška 4 - ÚDPO II NHF</title>
+<style>
+:root{--ink:#2d2a26;--muted:#7a7468;--paper:#f8f7f4;--line:#e0ddd6;--moss:#4a6741;--mossd:#3a5233;--mossl:#e8efe6;--gold:#9a7b2f;--goldl:#faf5e8;--navy:#3d5a80;--navyl:#e3edf7;--brick:#b34040;--brickl:#fce8e8;--white:#fff}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.5;font-size:16px}
+a{color:var(--moss)}
+header.top{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+header.top .in{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.logo b{width:34px;height:34px;border-radius:9px;background:var(--moss);color:#fff;display:grid;place-items:center;font-size:13px}
+.logo span{line-height:1.15}
+.logo small{display:block;color:var(--muted);font-size:11px}
+nav.main{display:flex;gap:2px;flex-wrap:wrap;margin-left:auto}
+nav.main a{padding:6px 11px;border-radius:7px;text-decoration:none;color:var(--ink);font-size:14px}
+nav.main a:hover{background:var(--paper)}
+nav.main a.on{background:var(--mossl);color:var(--moss);font-weight:600}
+main.wrap{max-width:1100px;margin:0 auto;padding:22px 16px 60px}
+h1{font-size:1.75rem;line-height:1.2;margin:0 0 6px}
+h2{font-size:1.25rem;margin:34px 0 10px;color:var(--mossd)}
+h3{font-size:1.05rem;margin:22px 0 6px}
+p.lead{font-size:1.08rem;color:#4a463f;margin:0 0 18px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:0 1px 3px rgba(45,42,38,.06)}
+.grid{display:grid;gap:14px}
+@media(min-width:700px){.grid.c2{grid-template-columns:1fr 1fr}.grid.c3{grid-template-columns:repeat(3,1fr)}.grid.c4{grid-template-columns:repeat(4,1fr)}}
+.tile{display:block;text-decoration:none;color:inherit;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px;transition:border-color .15s}
+.tile:hover{border-color:var(--moss)}
+.tile h3{margin:0 0 4px;color:var(--moss)}
+.tile p{margin:0;color:var(--muted);font-size:14px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;background:var(--white)}
+th,td{border:1px solid var(--line);padding:7px 9px;vertical-align:top;text-align:left}
+th{background:var(--mossl);color:var(--mossd);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+.pp{background:var(--brickl);color:var(--brick)}
+.op{background:var(--navyl);color:var(--navy)}
+.ok{background:var(--mossl);color:var(--moss)}
+.note{background:var(--goldl);border-left:4px solid var(--gold);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+.warn{background:var(--brickl);border-left:4px solid var(--brick);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+.small{font-size:13px;color:var(--muted)}
+code,kbd{font-family:"Cascadia Mono",Consolas,ui-monospace,monospace;font-size:.92em;background:#f1efe9;padding:1px 5px;border-radius:4px}
+.btn{display:inline-block;background:var(--moss);color:#fff;text-decoration:none;padding:9px 16px;border-radius:8px;font-weight:600}
+.btn.sec{background:var(--white);color:var(--moss);border:1px solid var(--moss)}
+footer.bot{border-top:1px solid var(--line);color:var(--muted);font-size:12px;background:var(--white)}
+footer.bot .in{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;gap:16px;flex-wrap:wrap}
+.eq{font-size:1.25rem;text-align:center;padding:14px;background:var(--white);border:1px dashed var(--moss);border-radius:10px;margin:12px 0;font-weight:600;color:var(--mossd)}
+ul,ol{padding-left:22px}
+li{margin:3px 0}
+.toc a{display:block;padding:4px 0;text-decoration:none}
+
+main.wrap{max-width:none;padding:0}
+.deck{position:relative}
+.slide{display:none;min-height:calc(100vh - 58px);padding:38px 7vw 70px;background:var(--paper)}
+.slide.on{display:block}
+.slide h2{font-size:2rem;margin:0 0 18px;color:var(--mossd);border-bottom:3px solid var(--moss);padding-bottom:8px;display:inline-block}
+.slide h1{font-size:2.6rem;margin:60px 0 10px}
+.slide p,.slide li{font-size:1.25rem}
+.slide table{font-size:1.1rem}
+.slide .eq{font-size:1.6rem}
+.slide .k{font-size:1.5rem;font-weight:700;color:var(--mossd);background:var(--white);border:2px solid var(--moss);border-radius:12px;padding:16px 22px;text-align:center;margin:20px 0}
+.cols{display:grid;gap:24px}
+@media(min-width:800px){.cols{grid-template-columns:1fr 1fr}.cols.c3{grid-template-columns:1fr 1fr 1fr}}
+.box{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+.box h3{margin:0 0 8px;color:var(--moss);font-size:1.15rem}
+.ctl{position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--line);display:flex;align-items:center;gap:12px;padding:8px 16px;font-size:14px;z-index:20}
+.ctl button{background:var(--moss);color:#fff;border:0;border-radius:7px;padding:6px 14px;font-size:14px;cursor:pointer}
+.ctl .n{font-variant-numeric:tabular-nums;color:var(--muted)}
+.ctl .bar{flex:1;height:5px;background:var(--line);border-radius:3px;overflow:hidden}
+.ctl .bar i{display:block;height:100%;background:var(--moss)}
+.sec-label{font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px}
+.big{font-size:3rem;font-weight:800;color:var(--moss);line-height:1.1}
+.q{background:var(--goldl);border-left:5px solid var(--gold);padding:12px 18px;border-radius:0 10px 10px 0;font-size:1.25rem;margin:16px 0}
+.hint{color:var(--muted);font-size:1rem}
+.tbl2 td.num{font-weight:600}
+.strike{text-decoration:line-through;color:var(--muted)}
+@media print{header.top,.ctl{display:none}.slide{display:block;page-break-after:always;min-height:0;padding:20px}.slide h1{margin-top:0}}
+</style>
+
+</head>
+<body>
+<header class="top"><div class="in">
+<a class="logo" href="index.html"><b>ÚD</b><span>Účtovníctvo a dane právnických osôb II<small>študenti NHF - zimný semester 2026/2027</small></span></a>
+<nav class="main"><a href="index.html">Úvod</a><a href="prednaska.html">Prednáška 1</a><a href="prednaska2.html">Prednáška 2</a><a href="prednaska3.html">Prednáška 3</a><a href="prednaska4.html" class=on>Prednáška 4</a><a href="md-d.html">MD a D</a><a href="tahak.html">Ťahák PP a OP</a><a href="zadania.html">Zadania</a><a href="app.html">Aplikácia IUP 2 NHF</a></nav>
+</div></header>
+<main class="wrap">
+<div class="deck"><style>
+.st{display:grid;grid-template-columns:70px 1fr auto;gap:10px;align-items:center;background:#fff;border:1px solid #e0ddd6;border-radius:10px;padding:8px 12px;margin:5px 0;font-size:1.15rem}
+.st .o{font-size:1.4rem;font-weight:700;text-align:center;color:#4a6741}
+.st .r{font-size:13px;color:#7a7468;white-space:nowrap}
+.st.tot{background:#e8efe6;border-color:#4a6741;font-weight:600}
+.st.neg{background:#fce8e8;border-color:#b34040;font-weight:700}
+.st.plus{border-left:5px solid #b34040}.st.minus{border-left:5px solid #3d5a80}
+.flow{max-width:760px}
+.cmp{display:grid;gap:14px}@media(min-width:800px){.cmp{grid-template-columns:1fr 1fr 1fr}}
+.cmp .box h3{font-size:1.25rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.chip{background:#fff;border:1px solid #e0ddd6;border-radius:999px;padding:3px 11px;font-size:15px}
+.chip.sk{background:#b34040;color:#fff;border-color:#b34040;font-weight:700}
+.chip.ee{background:#4a6741;color:#fff;border-color:#4a6741}
+.grp{background:#fff;border:1px solid #e0ddd6;border-radius:12px;padding:12px 16px}
+.grp h3{margin:0 0 4px;font-size:1.15rem}
+.grp .cnt{font-size:2.2rem;font-weight:800;line-height:1}
+.sim{background:#fff;border:1px solid #e0ddd6;border-radius:12px;padding:14px 18px}
+.sim label{font-size:1rem;margin-right:14px;white-space:nowrap}
+.sim input[type=range]{width:220px;vertical-align:middle}
+.sim .val{font-weight:700;color:#3a5233}
+.brow{display:grid;grid-template-columns:130px 1fr 110px 170px;gap:10px;align-items:center;margin:6px 0;font-size:15px}
+.brow .bw{background:#f1efe9;border-radius:6px;height:26px;position:relative;overflow:hidden}
+.brow .b{height:100%;border-radius:6px}
+.brow .f{color:#b34040;font-size:14px;font-weight:600}.brow.h{font-size:12px;color:#7a7468;text-transform:uppercase;letter-spacing:.04em}
+.brow .v{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.legend{font-size:13px;color:#7a7468;margin-top:8px}
+.legend i{display:inline-block;width:14px;height:10px;margin:0 4px 0 12px;vertical-align:middle;border-radius:2px}
+.tline{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+@media(max-width:700px){.tline{grid-template-columns:1fr 1fr}.brow{grid-template-columns:80px 1fr 80px 90px}}
+.tl{background:#fff;border:1px solid #e0ddd6;border-top:5px solid #9a7b2f;border-radius:10px;padding:10px 12px}
+.tl b{display:block;font-size:1.1rem;color:#3a5233}
+.yrs{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:10px 0}
+.yr{background:#fff;border:1px solid #e0ddd6;border-radius:10px;padding:8px;text-align:center;font-size:15px}
+.yr b{display:block;font-size:1.05rem}
+.yr.l{border-top:5px solid #b34040}.yr.p{border-top:5px solid #4a6741}
+</style>
+
+<section class="slide"><div class="sec-label">Prednáška 4 · 15. 10. 2026</div>
+<h1>Keď firma prerába. Daňová strata na Slovensku a v Európe</h1>
+<p class="lead">Startup prvé roky stráca, potom zarába. Koľko z tých strát mu štát „vráti“ cez nižšiu daň - a je to na Slovensku menej ako inde?</p>
+<ol><li><b>Časť A:</b> účtovná strata a daňová strata - nie je to to isté</li>
+<li><b>Časť B:</b> odpočet daňovej straty na Slovensku (§ 30 ZDP), tabuľka D a minimálna daň</li>
+<li><b>Časť C:</b> rovnaký startup v siedmich krajinách a čo hovoria dáta z 35 európskych štátov</li></ol>
+<p class="hint">Ak cvičenia študujete samostatne: prejdite si prednášku, potom <a href="zadania.html#neuron">Zadanie 5 - NEURÓN s. r. o.</a> v aplikácii <a href="app.html">IUP 2 NHF</a>.</p>
+</section>
+
+<section class="slide"><div class="sec-label">Najprv slovník</div>
+<h2>PP, OP a opravná položka - tri rôzne veci</h2>
+<div class="cols c3">
+<div class="box"><h3><span class="tag pp">PP</span> pripočítateľná položka</h3><p>Suma, o ktorú v daňovom priznaní <b>zvýšime</b> výsledok hospodárenia. Napr. reprezentácia, nezaplatené nájomné.</p></div>
+<div class="box"><h3><span class="tag op">OP</span> odpočítateľná položka</h3><p>Suma, o ktorú v daňovom priznaní <b>znížime</b> výsledok hospodárenia. Napr. zaplatené nájomné z minulého roka.</p></div>
+<div class="box"><h3>opravná položka</h3><p>Účtovný zápis <b>N / OM</b>, ktorým znížime hodnotu pochybnej pohľadávky. Ak je vyššia, ako dovoľuje zákon, vznikne z nej <b>PP</b>.</p></div>
+</div>
+<div class="warn">Na tomto predmete píšeme „opravná položka“ vždy celým slovom. Skratka OP znamená len odpočítateľnú položku v daňovom priznaní.</div>
+</section>
+
+<section class="slide"><div class="sec-label">Časť A · Účtovná a daňová strata</div>
+<h2>Pekáreň KRAJEC v roku 2024: účtovná strata</h2>
+<div class="flow">
+<div class="st"><span class="o">&nbsp;</span><span>Výnosy (tržby za pečivo)</span><span class="r">180 000 €</span></div>
+<div class="st"><span class="o">−</span><span>Náklady (múka, energie, mzdy, nájom, odpisy...)</span><span class="r">195 000 €</span></div>
+<div class="st neg"><span class="o">=</span><span>Výsledok hospodárenia (r. 100) - <b>účtovná strata</b></span><span class="r">−15 000 €</span></div>
+</div>
+<p>Účtovná strata je jednoduchá: firma minula viac, ako zarobila. Vidno ju vo výkaze ziskov a strát a v súvahe (vlastné imanie klesne).</p>
+<div class="q">Lenže daň sa nepočíta z výsledku hospodárenia. Počíta sa zo základu dane - a ten sa ešte upraví o PP a OP.</div>
+</section>
+
+<section class="slide"><div class="sec-label">Časť A · Účtovná a daňová strata</div>
+<h2>Z účtovnej straty 15 000 € je daňová strata len 6 000 €</h2>
+<div class="flow">
+<div class="st"><span class="o">&nbsp;</span><span>Výsledok hospodárenia (r. 100)</span><span class="r">−15 000 €</span></div>
+<div class="st plus"><span class="o">+</span><span>PP: reprezentácia 2 000 € (nikdy nie je daňová)</span><span class="r">r. 130</span></div>
+<div class="st plus"><span class="o">+</span><span>PP: rezerva na audit 3 000 € (nie je daňová)</span><span class="r">r. 130</span></div>
+<div class="st plus"><span class="o">+</span><span>PP: opravná položka k pohľadávke nad limit 4 000 €</span><span class="r">r. 130</span></div>
+<div class="st neg"><span class="o">=</span><span>Základ dane (r. 400) - <b>daňová strata</b></span><span class="r">−6 000 €</span></div>
+</div>
+<p>Štát hovorí: tieto náklady za 9 000 € ti do daňovej straty neuznám. Z účtovnej straty 15 000 € zostane daňová strata 6 000 € - a len túto si KRAJEC môže v ďalších rokoch odpočítať.</p>
+</section>
+
+<section class="slide"><div class="sec-label">Časť A · Účtovná a daňová strata</div>
+<h2>Funguje to aj naopak</h2>
+<div class="cols"><div>
+<div class="st"><span class="o">&nbsp;</span><span>Výsledok hospodárenia - <b>zisk</b></span><span class="r">+5 000 €</span></div>
+<div class="st minus"><span class="o">−</span><span>OP: zaplatené nájomné za december minulého roka</span><span class="r">r. 270</span></div>
+<div class="st minus"><span class="o">−</span><span>OP: zaplatené poradenstvo z minulého roka</span><span class="r">r. 270</span></div>
+<div class="st neg"><span class="o">=</span><span>Daňová strata (OP spolu 12 000 €)</span><span class="r">−7 000 €</span></div>
+</div><div>
+<div class="k">Odpočítať sa dá len <u>daňová</u> strata (r. 400 so znamienkom mínus).</div>
+<div class="k">Odpočet straty sa <u>neúčtuje</u>. Je len v daňovom priznaní - v tabuľke D a v r. 410.</div>
+</div></div>
+</section>
+
+<section class="slide"><div class="sec-label">Časť B · Odpočet straty na Slovensku</div>
+<h2>Prečo vôbec štát dovolí stratu odpočítať?</h2>
+<p>Firma za tri roky: rok 1 stratí 100 000 €, v roku 2 a 3 zarobí po 50 000 €. Spolu nezarobila nič.</p>
+<table><tr><th></th><th class="num">Rok 1</th><th class="num">Rok 2</th><th class="num">Rok 3</th><th class="num">Daň spolu</th></tr>
+<tr><td>Základ dane pred odpočtom</td><td class="num">−100 000</td><td class="num">50 000</td><td class="num">50 000</td><td class="num"></td></tr>
+<tr><td>Bez odpočtu straty (daň 21 %)</td><td class="num">0</td><td class="num">10 500</td><td class="num">10 500</td><td class="num"><b>21 000</b></td></tr>
+<tr><td>Odpočet bez limitu</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num"><b>0</b></td></tr>
+<tr><td>Slovensko: najviac 50 % základu dane</td><td class="num">0</td><td class="num">5 250</td><td class="num">5 250</td><td class="num"><b>10 500</b> (a 50 000 € straty čaká na rok 4)</td></tr></table>
+<p>Bez odpočtu by štát zdanil zisk, ktorý v súčte neexistuje. Limit 50 % daň neruší, ale <b>posúva ju skôr</b> - firma platí daň, hoci ešte nevyrovnala staré straty.</p>
+</section>
+
+<section class="slide"><div class="sec-label">Časť B · § 30 ZDP</div>
+<h2>Tri pravidlá odpočtu daňovej straty</h2>
+<div class="cols c3">
+<div class="box"><h3>1. Päť rokov</h3><p>Strata sa dá odpočítať najviac 5 rokov po roku, v ktorom vznikla. Čo sa nestihne, <b>prepadá</b>.</p></div>
+<div class="box"><h3>2. Najviac 50 %</h3><p>V jednom roku najviac 50 % základu dane - <b>pre každú stratu zvlášť</b> (finančná správa). Spolu nikdy viac ako celý základ dane. Mikrodaňovník (výnosy do 60 000 €) až 100 %.</p></div>
+<div class="box"><h3>3. Likvidácia a konkurz</h3><p>Dňom vstupu do likvidácie alebo vyhlásenia konkurzu nárok zaniká. Pri zlúčení pokračuje nástupca.</p></div>
+</div>
+<p class="hint">Zákon č. 595/2003 Z. z., <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-30">§ 30</a>; finančná správa: <a href="https://podpora.financnasprava.sk/376426-S%C3%BAbeh-odpo%C4%8Dtu-da%C5%88ov%C3%BDch-str%C3%A1t-za-rok-2020-a-2021">limit 50 % pre každú stratu samostatne</a>.</p>
+</section>
+
+<section class="slide"><div class="sec-label">Časť B · Príklad KRAJEC</div>
+<h2>KRAJEC 2021 až 2025: dve straty, zisk, strata, zisk</h2>
+<div class="yrs">
+<div class="yr l">2021<b>−20 000</b>strata</div>
+<div class="yr l">2022<b>−30 000</b>strata</div>
+<div class="yr p">2023<b>+10 000</b>odpočet 5 000 + 5 000</div>
+<div class="yr l">2024<b>−6 000</b>strata</div>
+<div class="yr p">2025<b>+50 000</b>odpočet ?</div>
+</div>
+<p>V roku 2023: limit 50 % z 10 000 = 5 000 € pre každú stratu. Odpočíta 5 000 € zo straty 2021 a 5 000 € zo straty 2022 - základ dane 0.</p>
+<p>V roku 2025: limit 50 % z 50 000 = <b>25 000 € pre každú stratu</b>.</p>
+<table><tr><th>Strata za rok</th><th class="num">Zostatok k 1. 1. 2025</th><th>Posledný rok odpočtu</th><th class="num">Odpočet 2025</th><th class="num">Zostáva</th></tr>
+<tr><td>2021</td><td class="num">15 000</td><td>2026</td><td class="num">15 000</td><td class="num">0</td></tr>
+<tr><td>2022</td><td class="num">25 000</td><td>2027</td><td class="num">25 000</td><td class="num">0</td></tr>
+<tr><td>2024</td><td class="num">6 000</td><td>2029</td><td class="num">6 000</td><td class="num">0</td></tr>
+<tr><td><b>Spolu (r. 410)</b></td><td class="num"></td><td></td><td class="num"><b>46 000</b></td><td class="num"></td></tr></table>
+<p>Spolu 46 000 € = 92 % základu dane. Viac ako 50 % - lebo limit platí pre každú stratu zvlášť. Základ dane po odpočte (r. 500) = <b>4 000 €</b>.</p>
+</section>
+
+<section class="slide"><div class="sec-label">Časť B · Tabuľka D</div>
+<h2>Ako to zapísať do daňového priznania</h2>
+<table><tr><th>Tabuľka D (§ 30)</th><th class="num">stĺpec 4</th><th class="num">stĺpec 5</th><th class="num">stĺpec 6</th><th class="num">stĺpec 9 spolu</th></tr>
+<tr><td>Zdaňovacie obdobie</td><td class="num">2021</td><td class="num">2022</td><td class="num">2024</td><td></td></tr>
+<tr><td>r. 1 - celková vykázaná strata</td><td class="num">20 000</td><td class="num">30 000</td><td class="num">6 000</td><td></td></tr>
+<tr><td>r. 2 - odpočet v tomto roku</td><td class="num">15 000</td><td class="num">25 000</td><td class="num">6 000</td><td class="num"><b>46 000 → r. 410</b></td></tr>
+<tr><td>r. 3 - zostáva na ďalšie roky</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr></table>
+<div class="note">V r. 1 je vždy <b>celá</b> pôvodná strata, nie zostatok. To, čo sa odpočítalo v rokoch 2023 a skôr, v tabuľke nevidno - firma si to musí evidovať sama. Strata za rok 2025 by sa do tabuľky D dostala až v priznaní za rok 2026.</div>
+</section>
+
+<section class="slide"><div class="sec-label">Časť B · Minimálna daň</div>
+<h2>Aj so ziskom zaplatí KRAJEC minimálnu daň</h2>
+<div class="cols"><div>
+<div class="st"><span class="o">&nbsp;</span><span>Základ dane po odpočte straty</span><span class="r">4 000 €</span></div>
+<div class="st"><span class="o">×</span><span>Sadzba (výnosy nad 100 000 €)</span><span class="r">21 %</span></div>
+<div class="st"><span class="o">=</span><span>Daň</span><span class="r">840 €</span></div>
+<div class="st neg"><span class="o">!</span><span>Minimálna daň (výnosy 50 000 až 250 000 €)</span><span class="r">960 €</span></div>
+</div><div>
+<p>Od roku 2024 platí každá s. r. o. aspoň <b>minimálnu daň</b> - aj pri strate, okrem prvého roka. Za rok 2025: 340 € / 960 € / 1 920 € / 3 840 € podľa výnosov.</p>
+<p>KRAJEC zaplatí 960 €. Rozdiel 120 € si môže započítať v nasledujúcich 3 rokoch, ale len z dane nad minimálnu daň.</p>
+<p class="hint"><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-46b">§ 46b ZDP</a> · v priznaní r. 810 až 1000 a tabuľka K</p>
+</div></div>
+</section>
+
+<section class="slide"><div class="sec-label">Časť C · Slovensko a Európa</div>
+<h2>Je Slovensko pre startupy horšie?</h2>
+<p>Startup typicky niekoľko rokov stráca (vývoj, prví zamestnanci, marketing) a až potom zarába. Pravidlá pre straty rozhodujú, koľko z tých rokov mu štát neskôr „vráti“ nižšou daňou.</p>
+<div class="cmp">
+<div class="box"><h3>Päť rokov</h3><p>Slovensko, Česko, Poľsko, Maďarsko. Ak startup stráca dlhšie, prvé straty prepadnú.</p></div>
+<div class="box"><h3>Bez časového limitu</h3><p>Rakúsko (75 % základu dane), Nemecko (1 mil. € + 70 %). Strata počká, kým firma začne zarábať.</p></div>
+<div class="box"><h3>Estónsko</h3><p>Zisk, ktorý firma nechá vo firme, sa nezdaňuje vôbec. Daň 22 % až pri výplate dividendy - strata sa tak „odpočíta“ sama.</p></div>
+</div>
+<div class="q">Vyskúšajme to na čísle: rovnaký startup, sedem krajín, mení sa len to, koľko rokov stráca.</div>
+</section>
+
+<section class="slide"><div class="sec-label">Časť C · Simulácia</div>
+<h2>Rovnaký startup v siedmich krajinách</h2>
+<div class="sim">
+<label>Stratové roky: <input type="range" id="sl" min="1" max="8" value="3"> <span class="val" id="slv">3</span></label>
+<label>Strata za rok: <select id="ls"><option value="100000">100 000 €</option><option value="150000" selected>150 000 €</option><option value="250000">250 000 €</option></select></label>
+<label>Zisk v ďalších rokoch: <select id="ps"><option value="200000">200 000 €</option><option value="400000" selected>400 000 €</option><option value="800000">800 000 €</option></select></label>
+<label><input type="checkbox" id="rt"> zákonné sadzby (inak všade 21 %)</label>
+<div id="bars" style="margin-top:12px"></div>
+<div class="legend">Startup stráca zvolený počet rokov, potom má každý rok rovnaký zisk; spolu 10 rokov. Prepadnutá strata je suma straty, nie dane.</div>
+<p id="msg" style="margin:10px 0 0;font-size:1.05rem"></p>
+</div>
+<p class="hint">Zjednodušenie: celý zisk jednou sadzbou, bez minimálnej dane, Estónsko - celý zisk sa každý rok vyplatí. Pravidlá podľa PwC Worldwide Tax Summaries (2026). Podrobný model pre FHI je v Exceli.</p>
+</section>
+
+<section class="slide"><div class="sec-label">Časť C · Výskum</div>
+<h2>Kde je Slovensko v Európe (35 krajín, 2026)</h2>
+<div class="cols c3">
+<div class="grp"><div class="cnt" style="color:#4a6741">19</div><h3>bez časového limitu</h3><div class="chips"><span class="chip">Rakúsko</span><span class="chip">Belgicko</span><span class="chip">Dánsko</span><span class="chip ee">Estónsko</span><span class="chip">Francúzsko</span><span class="chip">Nemecko</span><span class="chip">Gruzínsko</span><span class="chip">Írsko</span><span class="chip">Taliansko</span><span class="chip">Lotyšsko</span><span class="chip">Litva</span><span class="chip">Malta</span><span class="chip">Holandsko</span><span class="chip">Nórsko</span><span class="chip">Portugalsko</span><span class="chip">Španielsko</span><span class="chip">Švédsko</span><span class="chip">Ukrajina</span><span class="chip">Veľká Británia</span></div></div>
+<div class="grp"><div class="cnt" style="color:#9a7b2f">5</div><h3>7 až 17 rokov</h3><div class="chips"><span class="chip">Cyprus 7</span><span class="chip">Švajčiarsko 7</span><span class="chip">Fínsko 10</span><span class="chip">Island 10</span><span class="chip">Luxembursko 17</span></div></div>
+<div class="grp"><div class="cnt" style="color:#b34040">11</div><h3>len 5 rokov</h3><div class="chips"><span class="chip">Bulharsko</span><span class="chip">Chorvátsko</span><span class="chip">Česko</span><span class="chip">Grécko</span><span class="chip">Maďarsko</span><span class="chip">Moldavsko</span><span class="chip">Poľsko</span><span class="chip">Rumunsko</span><span class="chip sk">Slovensko</span><span class="chip">Slovinsko</span><span class="chip">Turecko</span></div></div>
+</div>
+<p>Slovensko patrí do skupiny s najkratšou lehotou a navyše má limit 50 %. Bez časového limitu prenášajú stratu aj veľké ekonomiky ako Nemecko či Francúzsko. Spätné uplatnenie straty (carryback) Slovensko nemá, Česko áno (2 roky).</p>
+<p class="hint">Zdroj: Tax Foundation, <a href="https://taxfoundation.org/data/all/eu/net-operating-loss-tax-europe/">Net Operating Loss Carryforward and Carryback Provisions in Europe, 2026</a> (18. 5. 2026).</p>
+</section>
+
+<section class="slide"><div class="sec-label">Časť C · Výskum</div>
+<h2>Slovensko pravidlá často mení</h2>
+<div class="tline">
+<div class="tl">straty za 2010 až 2013<b>7 rokov</b>v ľubovoľnej výške do základu dane</div>
+<div class="tl">straty za 2014 až 2019<b>4 roky</b>rovnomerne po 1/4, čo sa neodpočíta, prepadne</div>
+<div class="tl">straty od 2020<b>5 rokov</b>najviac 50 % základu dane (mikrodaňovník 100 %)</div>
+<div class="tl">od 2024<b>minimálna daň</b>340 až 3 840 € aj pri strate</div>
+</div>
+<p style="margin-top:16px">Pre investora do startupu je problém nielen prísne pravidlo, ale aj to, že sa môže zmeniť skôr, ako startup začne zarábať. Plán na 7 až 10 rokov stojí na zákone, ktorý sa za 15 rokov zmenil štyrikrát.</p>
+<div class="q">Na diskusiu: čo by ste zmenili v § 30, aby sa startupy oplatilo zakladať na Slovensku - a koľko by to stálo štátny rozpočet?</div>
+</section>
+
+<section class="slide"><div class="sec-label">Zhrnutie</div>
+<h2>Čo si odniesť</h2>
+<div class="k">1. Účtovná strata je záporný výsledok hospodárenia. Daňová strata je záporný základ dane (VH + PP − OP). Odpočítať sa dá len daňová strata, a to len v priznaní.<br>2. Slovensko: 5 rokov, najviac 50 % základu dane pre každú stratu, potom strata prepadá. Minimálna daň sa platí aj v strate.<br>3. Pri krátkom období strát sa Slovensko od iných krajín takmer nelíši. Pri dlhom (deep-tech, biotech) prepadnú straty, ktoré by v Rakúsku či Nemecku zostali.</div>
+<p>Na cvičení: <a href="zadania.html#neuron">Zadanie 5 - NEURÓN s. r. o.</a> v aplikácii <a href="app.html">IUP 2 NHF</a>. Na opakovanie: <a href="tahak.html">ťahák PP a OP</a>.</p>
+</section>
+</div>
+<script>
+(function(){
+ const C=[["Slovensko","SK",5,.5,0,1,.21],["Česko","CZ",5,1,0,1,.21],["Poľsko","PL",5,1,0,1,.19],["Maďarsko","HU",5,1,0,.5,.09],["Rakúsko","AT",99,1,0,.75,.23],["Nemecko","DE",99,1,1e6,.7,.30],["Estónsko","EE",0,0,0,0,.22]];
+ const col={SK:"#b34040",EE:"#4a6741"};
+ function calc(B,c,stat){
+  const [nm,code,W,pv,thr,agg,rate]=c; const r=stat?rate:.21; const n=B.length;
+  if(code==="EE"){let cum=0,dist=0,tax=0;for(const b of B){cum+=b;const d=Math.max(0,cum-dist);dist+=d;tax+=r*d;}return {tax,forf:0};}
+  const D=B.map(()=>B.map(()=>0)); let tax=0;
+  for(let t=0;t<n;t++){ if(B[t]<=0) continue; const A=Math.min(B[t],thr+agg*Math.max(0,B[t]-thr)); let used=0;
+    for(let v=0;v<t;v++){ if(B[v]<0&&t-v<=W){ const row=D[v].slice(0,t).reduce((a,b)=>a+b,0); const d=Math.max(0,Math.min(-B[v]-row,pv*B[t],A-used)); D[v][t]=d; used+=d; } }
+    tax+=r*Math.max(0,B[t]-used); }
+  let forf=0; for(let v=0;v<n;v++) if(B[v]<0&&v+1+W<=n) forf+=-B[v]-D[v].reduce((a,b)=>a+b,0);
+  return {tax,forf};
+ }
+ const fmt=x=>Math.round(x).toLocaleString('sk-SK').replace(/ /g,' ')+' €';
+ function draw(){
+  const k=+sl.value,L=+ls.value,P=+ps.value,stat=rt.checked; slv.textContent=k;
+  const B=[...Array(10)].map((_,i)=>i<k?-L:P); const res=C.map(c=>({c,...calc(B,c,stat)}));
+  const mx=Math.max(...res.map(r=>Math.max(r.tax,r.forf)),1);
+  const mt=Math.max(...res.map(r=>r.tax),1);
+  bars.innerHTML=`<div class="brow h"><span>krajina</span><span>daň spolu za 10 rokov</span><span class="v">daň</span><span class="v">prepadnutá strata</span></div>`+res.map(r=>`<div class="brow"><span>${r.c[0]}</span><span class="bw"><span class="b" style="display:block;width:${r.tax/mt*100}%;background:${col[r.c[1]]||'#3d5a80'}"></span></span><span class="v">${fmt(r.tax)}</span><span class="v f">${r.forf?fmt(r.forf):'-'}</span></div>`).join('');
+  const sk=res[0],at=res[4];
+  msg.innerHTML=sk.forf>0?`Pri ${k} stratových rokoch prepadne na Slovensku <b>${fmt(sk.forf)}</b> straty. Slovenský startup zaplatí o <b>${fmt(sk.tax-at.tax)}</b> ${sk.tax>at.tax?'viac':'menej'} ako rakúsky.`:`Pri ${k} stratových rokoch na Slovensku nič neprepadne - rozdiel oproti Rakúsku je ${fmt(Math.abs(sk.tax-at.tax))} (len iná sadzba alebo načasovanie).`;
+ }
+ const sl=document.getElementById('sl'),slv=document.getElementById('slv'),ls=document.getElementById('ls'),ps=document.getElementById('ps'),rt=document.getElementById('rt'),bars=document.getElementById('bars'),msg=document.getElementById('msg');
+ [sl,ls,ps,rt].forEach(x=>x.addEventListener('input',draw)); draw();
+})();
+</script>
+<div class="ctl"><button id="prev">◀</button><button id="next">▶</button><span class="n" id="n"></span><div class="bar"><i id="bar"></i></div><button id="all" style="background:var(--white);color:var(--moss);border:1px solid var(--moss)">Všetky slidy</button></div>
+<script>
+(function(){
+  const s=[...document.querySelectorAll('.slide')];let i=0;
+  const n=document.getElementById('n'),bar=document.getElementById('bar');
+  function show(k){i=Math.max(0,Math.min(s.length-1,k));s.forEach((x,j)=>x.classList.toggle('on',j===i));n.textContent=(i+1)+' / '+s.length;bar.style.width=((i+1)/s.length*100)+'%';history.replaceState(null,'','#'+(i+1));window.scrollTo(0,0);}
+  const h=parseInt((location.hash||'').slice(1),10);show(isNaN(h)?0:h-1);
+  document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();show(i+1);}else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();show(i-1);}else if(e.key==='Home')show(0);else if(e.key==='End')show(s.length-1);});
+  document.getElementById('prev').onclick=()=>show(i-1);document.getElementById('next').onclick=()=>show(i+1);
+  document.getElementById('all').onclick=()=>{document.body.classList.toggle('all');s.forEach(x=>x.style.display=document.body.classList.contains('all')?'block':'');if(!document.body.classList.contains('all'))show(i);};
+  let tx=null;document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);document.addEventListener('touchend',e=>{if(tx===null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60)show(d<0?i+1:i-1);tx=null;});
+})();
+</script>
+
+</main>
+<footer class="bot"><div class="in"><span>Ing. Anton Marci, PhD. - Katedra účtovníctva a audítorstva FHI EU v Bratislave - anton.marci@euba.sk</span><span>Zákony: <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101">ZDP</a> · <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2004/222/20260101">ZDPH</a> · <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2002/431/20260101">zákon o účtovníctve</a> (slov-lex.sk, znenie od 1. 1. 2026)</span></div></footer>
+</body>
+</html>
