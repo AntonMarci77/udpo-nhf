@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prednáška 5 - ÚDPO II NHF</title>
+<style>
+:root{--ink:#2d2a26;--muted:#7a7468;--paper:#f8f7f4;--line:#e0ddd6;--moss:#4a6741;--mossd:#3a5233;--mossl:#e8efe6;--gold:#9a7b2f;--goldl:#faf5e8;--navy:#3d5a80;--navyl:#e3edf7;--brick:#b34040;--brickl:#fce8e8;--white:#fff}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.5;font-size:16px}
+a{color:var(--moss)}
+header.top{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+header.top .in{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.logo b{width:34px;height:34px;border-radius:9px;background:var(--moss);color:#fff;display:grid;place-items:center;font-size:13px}
+.logo span{line-height:1.15}
+.logo small{display:block;color:var(--muted);font-size:11px}
+nav.main{display:flex;gap:2px;flex-wrap:wrap;margin-left:auto}
+nav.main a{padding:6px 11px;border-radius:7px;text-decoration:none;color:var(--ink);font-size:14px}
+nav.main a:hover{background:var(--paper)}
+nav.main a.on{background:var(--mossl);color:var(--moss);font-weight:600}
+main.wrap{max-width:1100px;margin:0 auto;padding:22px 16px 60px}
+h1{font-size:1.75rem;line-height:1.2;margin:0 0 6px}
+h2{font-size:1.25rem;margin:34px 0 10px;color:var(--mossd)}
+h3{font-size:1.05rem;margin:22px 0 6px}
+p.lead{font-size:1.08rem;color:#4a463f;margin:0 0 18px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:0 1px 3px rgba(45,42,38,.06)}
+.grid{display:grid;gap:14px}
+@media(min-width:700px){.grid.c2{grid-template-columns:1fr 1fr}.grid.c3{grid-template-columns:repeat(3,1fr)}.grid.c4{grid-template-columns:repeat(4,1fr)}}
+.tile{display:block;text-decoration:none;color:inherit;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px;transition:border-color .15s}
+.tile:hover{border-color:var(--moss)}
+.tile h3{margin:0 0 4px;color:var(--moss)}
+.tile p{margin:0;color:var(--muted);font-size:14px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;background:var(--white)}
+th,td{border:1px solid var(--line);padding:7px 9px;vertical-align:top;text-align:left}
+th{background:var(--mossl);color:var(--mossd);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+.pp{background:var(--brickl);color:var(--brick)}
+.op{background:var(--navyl);color:var(--navy)}
+.ok{background:var(--mossl);color:var(--moss)}
+.note{background:var(--goldl);border-left:4px solid var(--gold);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+.warn{background:var(--brickl);border-left:4px solid var(--brick);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+.small{font-size:13px;color:var(--muted)}
+code,kbd{font-family:"Cascadia Mono",Consolas,ui-monospace,monospace;font-size:.92em;background:#f1efe9;padding:1px 5px;border-radius:4px}
+.btn{display:inline-block;background:var(--moss);color:#fff;text-decoration:none;padding:9px 16px;border-radius:8px;font-weight:600}
+.btn.sec{background:var(--white);color:var(--moss);border:1px solid var(--moss)}
+footer.bot{border-top:1px solid var(--line);color:var(--muted);font-size:12px;background:var(--white)}
+footer.bot .in{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;gap:16px;flex-wrap:wrap}
+.eq{font-size:1.25rem;text-align:center;padding:14px;background:var(--white);border:1px dashed var(--moss);border-radius:10px;margin:12px 0;font-weight:600;color:var(--mossd)}
+ul,ol{padding-left:22px}
+li{margin:3px 0}
+.toc a{display:block;padding:4px 0;text-decoration:none}
+
+main.wrap{max-width:none;padding:0}
+.deck{position:relative}
+.slide{display:none;min-height:calc(100vh - 58px);padding:38px 7vw 70px;background:var(--paper)}
+.slide.on{display:block}
+.slide h2{font-size:2rem;margin:0 0 18px;color:var(--mossd);border-bottom:3px solid var(--moss);padding-bottom:8px;display:inline-block}
+.slide h1{font-size:2.6rem;margin:60px 0 10px}
+.slide p,.slide li{font-size:1.25rem}
+.slide table{font-size:1.1rem}
+.slide .eq{font-size:1.6rem}
+.slide .k{font-size:1.5rem;font-weight:700;color:var(--mossd);background:var(--white);border:2px solid var(--moss);border-radius:12px;padding:16px 22px;text-align:center;margin:20px 0}
+.cols{display:grid;gap:24px}
+@media(min-width:800px){.cols{grid-template-columns:1fr 1fr}.cols.c3{grid-template-columns:1fr 1fr 1fr}}
+.box{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+.box h3{margin:0 0 8px;color:var(--moss);font-size:1.15rem}
+.ctl{position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--line);display:flex;align-items:center;gap:12px;padding:8px 16px;font-size:14px;z-index:20}
+.ctl button{background:var(--moss);color:#fff;border:0;border-radius:7px;padding:6px 14px;font-size:14px;cursor:pointer}
+.ctl .n{font-variant-numeric:tabular-nums;color:var(--muted)}
+.ctl .bar{flex:1;height:5px;background:var(--line);border-radius:3px;overflow:hidden}
+.ctl .bar i{display:block;height:100%;background:var(--moss)}
+.sec-label{font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px}
+.big{font-size:3rem;font-weight:800;color:var(--moss);line-height:1.1}
+.q{background:var(--goldl);border-left:5px solid var(--gold);padding:12px 18px;border-radius:0 10px 10px 0;font-size:1.25rem;margin:16px 0}
+.hint{color:var(--muted);font-size:1rem}
+.tbl2 td.num{font-weight:600}
+.strike{text-decoration:line-through;color:var(--muted)}
+@media print{header.top,.ctl{display:none}.slide{display:block;page-break-after:always;min-height:0;padding:20px}.slide h1{margin-top:0}}
+</style>
+
+</head>
+<body>
+<header class="top"><div class="in">
+<a class="logo" href="index.html"><b>ÚD</b><span>Účtovníctvo a dane právnických osôb II<small>študenti NHF - zimný semester 2026/2027</small></span></a>
+<nav class="main"><a href="index.html">Úvod</a><a href="prednaska.html">Prednáška 1</a><a href="prednaska2.html">Prednáška 2</a><a href="prednaska3.html">Prednáška 3</a><a href="prednaska4.html">Prednáška 4</a><a href="prednaska5.html" class=on>Prednáška 5</a><a href="md-d.html">MD a D</a><a href="tahak.html">Ťahák PP a OP</a><a href="zadania.html">Zadania</a><a href="app.html">Aplikácia IUP 2 NHF</a></nav>
+</div></header>
+<main class="wrap">
+<div class="deck"><style>
+.st{display:grid;grid-template-columns:70px 1fr auto;gap:10px;align-items:center;background:#fff;border:1px solid #e0ddd6;border-radius:10px;padding:8px 12px;margin:5px 0;font-size:1.15rem}
+.st .o{font-size:1.4rem;font-weight:700;text-align:center;color:#4a6741}
+.st .r{font-size:15px;color:#2d2a26;white-space:nowrap;font-weight:600}
+.st.tot{background:#e8efe6;border-color:#4a6741;font-weight:600}
+.st.tax{border-left:5px solid #b34040}
+.st.own{background:#e8efe6;border-color:#4a6741;font-weight:700}
+.flow{max-width:780px}
+.yrs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+@media(max-width:700px){.yrs{grid-template-columns:1fr 1fr}}
+.yr{background:#fff;border:1px solid #e0ddd6;border-top:5px solid #9a7b2f;border-radius:10px;padding:10px 12px;text-align:center}
+.yr b{display:block;font-size:2rem;color:#3a5233;line-height:1.2}
+.yr.hi{border-top-color:#b34040}.yr.hi b{color:#b34040}
+.yr.no{border-top-color:#7a7468}.yr.no b{color:#7a7468}
+.dance{width:100%;border-collapse:collapse}
+.dance td,.dance th{font-size:1.05rem}
+.tag2{display:inline-block;padding:2px 9px;border-radius:999px;font-size:13px;font-weight:700}
+.t-no{background:#e8efe6;color:#4a6741}.t-yes{background:#fce8e8;color:#b34040}
+.floors{display:grid;gap:8px;max-width:760px}
+.fl{display:grid;grid-template-columns:200px 1fr 120px;gap:12px;align-items:center;background:#fff;border:1px solid #e0ddd6;border-radius:10px;padding:10px 14px;font-size:1.1rem}
+.fl .x{font-weight:700;text-align:right}
+.fl.bad{border-left:5px solid #b34040}.fl.ok{border-left:5px solid #4a6741}
+.map{display:grid;grid-template-columns:1fr 90px 1fr;gap:10px;align-items:center;max-width:860px}
+.map .box{text-align:center}
+.map .arr{font-size:2.2rem;text-align:center;color:#9a7b2f}
+.sim{background:#fff;border:1px solid #e0ddd6;border-radius:12px;padding:14px 18px}
+.sim label{font-size:1rem;margin-right:16px;white-space:nowrap}
+.sim input[type=range]{width:200px;vertical-align:middle}
+.sim .val{font-weight:700;color:#3a5233}
+.brow{display:grid;grid-template-columns:150px 1fr 120px 80px;gap:10px;align-items:center;margin:6px 0;font-size:15px}
+.brow .bw{background:#f1efe9;border-radius:6px;height:26px;position:relative;overflow:hidden;display:flex}
+.brow .bw i{display:block;height:100%}
+.brow .v{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.brow .p{text-align:right;font-variant-numeric:tabular-nums;color:#7a7468}
+.brow.h{font-size:12px;color:#7a7468;text-transform:uppercase;letter-spacing:.04em}
+@media(max-width:700px){.brow{grid-template-columns:90px 1fr 80px 56px}.fl{grid-template-columns:1fr 90px}.fl span:nth-child(2){display:none}}
+.legend{font-size:13px;color:#7a7468;margin-top:8px}
+.legend i{display:inline-block;width:14px;height:10px;margin:0 4px 0 12px;vertical-align:middle;border-radius:2px}
+.tf{display:grid;grid-template-columns:150px 1fr 70px;gap:10px;align-items:center;margin:5px 0;font-size:15px}
+.tf .bw{background:#f1efe9;border-radius:6px;height:22px;overflow:hidden}
+.tf .bw i{display:block;height:100%;background:#3d5a80;border-radius:6px}
+.tf.sk .bw i{background:#b34040}
+.tf .v{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+</style>
+
+<section class="slide"><div class="sec-label">Prednáška 5 · 22. 10. 2026</div>
+<h1>Zisk patrí majiteľom. Podiely na zisku doma a cez hranice</h1>
+<p class="lead">Firma zarobí, zaplatí daň a zvyšok môže rozdeliť vlastníkom. Koľko si štát zoberie druhýkrát - a čo keď vlastník alebo dcérska firma sú v inom štáte?</p>
+<ol><li><b>Časť A:</b> odkiaľ sa berie dividenda a prečo neznižuje základ dane</li>
+<li><b>Časť B:</b> kto koľko zaplatí na Slovensku - fyzická osoba, firma, „daňový raj“</li>
+<li><b>Časť C:</b> dva štáty, jeden príjem - zmluvy o zamedzení dvojitého zdanenia</li>
+<li><b>Časť D:</b> koľko zo zisku zostane majiteľovi v siedmich krajinách</li></ol>
+<p class="hint">Ak cvičenia študujete samostatne: prejdite si prednášku, potom <a href="zadania.html#malachit">Zadanie 6 - MALACHIT s. r. o.</a> v aplikácii <a href="app.html">IUP 2 NHF</a>. MD a D si precvičíte v aplikácii na karte <a href="app.html#test">Testovacia zóna</a>.</p>
+</section>
+
+<section class="slide"><div class="sec-label">Najprv slovník</div>
+<h2>Štyri pojmy na dnes</h2>
+<div class="cols">
+<div class="box"><h3>Podiel na zisku = dividenda</h3><p>Časť zisku <b>po zdanení</b>, ktorú firma vyplatí vlastníkom. V s. r. o. sa hovorí podiel na zisku, v akciovej spoločnosti dividenda - daňovo je to to isté.</p></div>
+<div class="box"><h3>Zrážková daň</h3><p>Firma daň spoločníkovi <b>strhne</b> pri výplate a sama ju pošle štátu. Spoločník dostane už len zvyšok a nič nepodáva.</p></div>
+<div class="box"><h3>Daňový rezident</h3><p>Štát, v ktorom má človek domov (trvalý pobyt, rodinu, záujmy) alebo firma sídlo či vedenie. Tento štát zdaňuje príjmy z celého sveta.</p></div>
+<div class="box"><h3>Zmluva o zamedzení dvojitého zdanenia</h3><p>Dohoda dvoch štátov, <b>kto smie zdaniť</b> ktorý príjem a koľko najviac. Slovensko ich má s desiatkami štátov.</p></div>
+</div>
+</section>
+
+<section class="slide"><div class="sec-label">Časť A · Odkiaľ sa berie dividenda</div>
+<h2>Cesta 100 000 € zisku pekárne KRAJEC k jej majiteľke</h2>
+<div class="flow">
+<div class="st"><span class="o">&nbsp;</span><span>Zisk pekárne KRAJEC s. r. o. za rok 2025 (základ dane)</span><span class="r">100 000 €</span></div>
+<div class="st tax"><span class="o">−</span><span>Daň z príjmov právnickej osoby 21 % - platí firma</span><span class="r">21 000 €</span></div>
+<div class="st tot"><span class="o">=</span><span>Zisk po zdanení - o ňom rozhodujú spoločníci na valnom zhromaždení</span><span class="r">79 000 €</span></div>
+<div class="st tax"><span class="o">−</span><span>Zrážková daň z dividendy 7 % - firma ju strhne a odvedie štátu</span><span class="r">5 530 €</span></div>
+<div class="st own"><span class="o">=</span><span>Majiteľke Eve príde na účet</span><span class="r">73 470 €</span></div>
+</div>
+<div class="q">Ten istý zisk sa zdanil dvakrát: raz u firmy (21 %), raz u majiteľky (7 %). Spolu štát dostal 26 530 € z každých 100 000 € - <b>26,5 %</b>.</div>
+</section>
+
+<section class="slide"><div class="sec-label">Časť A · V kategóriách</div>
+<h2>Dividenda je tanec cez súvahu - výsledok hospodárenia sa nepohne</h2>
+<table class="dance"><tr><th>Čo sa stalo</th><th>MD</th><th>D</th><th>Mení sa výsledok hospodárenia?</th></tr>
+<tr><td>Valné zhromaždenie rozhodne: 79 000 € pôjde Eve</td><td>VI</td><td>KZ</td><td><span class="tag2 t-no">nie</span> vlastné imanie klesne, vznikne dlh voči Eve</td></tr>
+<tr><td>Firma zrazí 7 % dane</td><td>KZ</td><td>KZ</td><td><span class="tag2 t-no">nie</span> časť dlhu voči Eve sa zmení na dlh voči štátu</td></tr>
+<tr><td>Firma pošle Eve 73 470 €</td><td>KZ</td><td>OM</td><td><span class="tag2 t-no">nie</span> dlh zanikne, peniaze odídu</td></tr>
+<tr><td>Firma odvedie 5 530 € štátu</td><td>KZ</td><td>OM</td><td><span class="tag2 t-no">nie</span></td></tr>
+</table>
+<div class="cols" style="margin-top:14px"><div class="k">Dividenda nie je náklad. Neznižuje výsledok hospodárenia ani základ dane - vypláca sa zo zisku, ktorý už bol zdanený.</div>
+<div class="k">Mzda konateľa je náklad (N / KZ) a základ dane znižuje. Preto si štát pri dividende berie „len“ 7 % - daň firmy už zaplatila.</div></div>
+</section>
+
+<section class="slide"><div class="sec-label">Časť B · Fyzická osoba na Slovensku</div>
+<h2>Sadzba závisí od roka, za ktorý je zisk - nie od dňa výplaty</h2>
+<div class="yrs">
+<div class="yr no">zisk 2004 až 2016<b>0 %</b>nezdaňuje sa</div>
+<div class="yr">zisk 2017 až 2023<b>7 %</b>zrážková daň</div>
+<div class="yr hi">zisk 2024<b>10 %</b>jediný rok s vyššou sadzbou</div>
+<div class="yr">zisk od 2025<b>7 %</b>opäť pôvodná sadzba</div>
+</div>
+<p>Pekáreň KRAJEC v roku 2026 vyplatí Eve zisk za rok 2024 aj za rok 2025. Z prvého zrazí 10 %, z druhého 7 % - preto musí firma vedieť, z ktorého roka je ktoré euro nerozdeleného zisku.</p>
+<div class="note">Kto je rezidentom štátu, ktorý nie je v zozname ministerstva financií (štáty bez zmluvy so SR a bez výmeny daňových informácií), zaplatí <b>35 %</b>. Tak štát odrádza od presúvania zisku do daňových rajov.</div>
+<p class="hint">Zákon č. 595/2003 Z. z., <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-43.odsek-1">§ 43 ods. 1</a>, prechodné ustanovenia <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-52zzz.odsek-4">§ 52zzz ods. 4</a> a <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-52zzzb.odsek-5">§ 52zzzb ods. 5</a>; <a href="https://www.mfsr.sk/files/archiv/39/Zoznam-spolupracujucich-statov-podla-2-pism-x-zakona-c-595_2003-Z-z_1.1.2026.pdf">zoznam spolupracujúcich štátov</a>.</p>
+</section>
+
+<section class="slide"><div class="sec-label">Časť B · Firma ako vlastník</div>
+<h2>Keď dividendu dostane firma, štát ju nezdaní</h2>
+<p>Pekáreň KRAJEC vlastní 100 % kaviarne <b>KRAJEC Café s. r. o.</b> Kaviareň mala zisk, zaplatila daň a 20 000 € pošle pekárni.</p>
+<div class="floors">
+<div class="fl ok"><b>Kaviareň</b><span>zaplatí daň z príjmov zo svojho zisku</span><span class="x">21 %</span></div>
+<div class="fl ok"><b>Pekáreň (matka)</b><span>dividenda 20 000 € nie je predmetom dane</span><span class="x">0 %</span></div>
+<div class="fl ok"><b>Eva (majiteľka pekárne)</b><span>až keď pekáreň zisk vyplatí jej</span><span class="x">7 %</span></div>
+<div class="fl bad"><b>Keby sa zdaňovalo</b><span>na každom poschodí skupiny znova - firmy by sa vyhýbali dcéram a holdingom</span><span class="x">21 + 21 + 7 %</span></div>
+</div>
+<div class="q">V kategóriách: OM / V - výnos zvýši výsledok hospodárenia o 20 000 €. V daňovom priznaní ho odpočítame (OP v r. 210) a nezapočítame ho ani do výnosov, od ktorých závisí sadzba a minimálna daň (r. 560).</div>
+<p class="hint"><a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101#paragraf-12.odsek-7.pismeno-c">§ 12 ods. 7 písm. c) ZDP</a> - platí aj pre dividendu od zahraničnej firmy, okrem firmy zo štátu mimo zoznamu.</p>
+</section>
+
+<section class="slide"><div class="sec-label">Časť B · Pekáreň KRAJEC v daňovom priznaní</div>
+<h2>Výsledok hospodárenia 120 000 €, základ dane 100 000 €</h2>
+<div class="flow">
+<div class="st"><span class="o">&nbsp;</span><span>Tržby za pečivo a ostatné výnosy</span><span class="r">880 000 €</span></div>
+<div class="st"><span class="o">+</span><span>Dividenda od KRAJEC Café (OM / V)</span><span class="r">20 000 €</span></div>
+<div class="st"><span class="o">−</span><span>Náklady</span><span class="r">780 000 €</span></div>
+<div class="st tot"><span class="o">=</span><span>Výsledok hospodárenia (r. 100)</span><span class="r">120 000 €</span></div>
+<div class="st" style="border-left:5px solid #3d5a80"><span class="o">−</span><span>OP: dividenda, ktorá nie je predmetom dane (r. 210)</span><span class="r">20 000 €</span></div>
+<div class="st own"><span class="o">=</span><span>Základ dane (r. 400) - daň 21 % = 21 000 €</span><span class="r">100 000 €</span></div>
+</div>
+<p>Do r. 560 (úhrn zdaniteľných výnosov) patrí len 880 000 €. Pri malej firme s tržbami 90 000 € a dividendou 20 000 € by to rozhodlo o sadzbe: <b>10 %</b>, nie 21 %.</p>
+</section>
+
+<section class="slide"><div class="sec-label">Časť C · Dva štáty, jeden príjem</div>
+<h2>Spolumajiteľka Jana býva v Brne. Kto zdaní jej dividendu?</h2>
+<div class="map">
+<div class="box"><h3>Slovensko - štát zdroja</h3><p>Tu vznikol zisk, tu sídli pekáreň. Podľa ZDP zrazí 7 %.</p></div>
+<div class="arr">⇄</div>
+<div class="box"><h3>Česko - štát rezidencie</h3><p>Jana tu žije. Česko zdaňuje jej príjmy z celého sveta - aj slovenskú dividendu.</p></div>
+</div>
+<p style="margin-top:16px">Bez dohody by Jana zaplatila daň v oboch štátoch naplno. Toto je <b>právne dvojité zdanenie</b>: ten istý príjem tej istej osoby zdania dva štáty.</p>
+<div class="cols c3">
+<div class="box"><h3>1. Zmluva SR - ČR, čl. 10</h3><p>Dividendu smú zdaniť oba štáty, ale štát zdroja najviac <b>15 %</b> (firma s podielom aspoň 10 %: 5 %).</p></div>
+<div class="box"><h3>2. Slovensko</h3><p>Zmluva daň neukladá, len ju obmedzuje. Slovenských 7 % je pod stropom 15 %, takže Slovensko zrazí 7 %.</p></div>
+<div class="box"><h3>3. Česko</h3><p>Dividendu zdaní podľa svojho zákona a slovenskú daň Jane započíta (čl. 22 zmluvy). Jana nezaplatí dvakrát.</p></div>
+</div>
+<p class="hint"><a href="https://static.slov-lex.sk/static/SK/ZZ/2003/238/20030714.html">Zmluva medzi SR a ČR o zamedzení dvojitého zdanenia (238/2003 Z. z.)</a>; <a href="https://www.mfsr.sk/sk/dane-cla-uctovnictvo/priame-dane/dane-z-prijmu/zmluvy-zamedzeni-dvojiteho-zdanenia/zmluvy-zamedzeni-dvojiteho-zdanenia/zoznam-platnych-ucinnych-zmluv-zamedzeni-dvojiteho-zdanenia/">zoznam zmlúv MF SR</a>.</p>
+</section>
+
+<section class="slide"><div class="sec-label">Časť C · Tri pravidlá pre zmluvy</div>
+<h2>Zmluva vie daň znížiť, nikdy zvýšiť</h2>
+<div class="cols c3">
+<div class="box"><h3>Nižšia z dvoch</h3><p>Slovensko uplatní nižšiu z dvoch sadzieb: podľa svojho zákona, alebo strop zo zmluvy. Pri dividendách pre ľudí je slovenských 7 % takmer vždy nižších.</p></div>
+<div class="box"><h3>Keď SR nezdaňuje, zmluva mlčí</h3><p>Dividendu pre firmu (českú, nemeckú...) Slovensko podľa svojho zákona nezdaňuje. Strop 5 % zo zmluvy sa vôbec nepoužije - niet čo obmedzovať.</p></div>
+<div class="box"><h3>Doklad o rezidencii</h3><p>Ak zmluva dáva nižšiu sadzbu ako zákon, firma potrebuje potvrdenie o daňovej rezidencii príjemcu. Inak zrazí sadzbu podľa zákona.</p></div>
+</div>
+<div class="note">V Európskej únii k tomu pribudla <b>smernica o materských a dcérskych spoločnostiach</b>: ak firma vlastní aspoň 10 % dcéry v inom štáte EÚ, štát dcéry z dividendy nezrazí nič (niektoré štáty chcú ešte aspoň rok vlastníctva). Pekáreň by tak z rakúskej dcéry dostala celú dividendu.</div>
+</section>
+
+<section class="slide"><div class="sec-label">Časť D · Výskum</div>
+<h2>Koľko zo 100 000 € zisku zostane majiteľovi?</h2>
+<div class="sim">
+<label>Zisk firmy: <select id="pz"><option value="50000">50 000 €</option><option value="100000" selected>100 000 €</option><option value="500000">500 000 €</option></select></label>
+<label>Firma vyplatí: <input type="range" id="pp" min="0" max="100" step="25" value="100"> <span class="val" id="ppv">100 %</span></label>
+<label>Slovensko: <select id="sk"><option value="2025" selected>zisk 2025 (7 %)</option><option value="2024">zisk 2024 (10 %)</option><option value="small">malá firma, výnosy do 100 000 € (10 % + 7 %)</option></select></label>
+<div id="bars" style="margin-top:12px"></div>
+<div class="legend"><i style="background:#9a7b2f"></i>daň firmy<i style="background:#b34040"></i>daň z dividendy a odvody<i style="background:#4a6741"></i>majiteľovi<i style="background:#c9d8c5"></i>zostáva vo firme</div>
+<p id="msg" style="margin:10px 0 0;font-size:1.05rem"></p>
+</div>
+<p class="hint">Sadzby 2026 podľa PwC Worldwide Tax Summaries (revidované máj až september 2026) a emta.ee. Zjednodušenie: základ dane = zisk; DE živnostenská daň pri koeficiente 400 %; HU sociálny príspevok 13 % so stropom cca 21 000 €; bez cirkevnej dane a nezdaniteľných súm.</p>
+</section>
+
+<section class="slide"><div class="sec-label">Časť D · Estónsko</div>
+<h2>Estónsko: zisk vo firme sa nezdaňuje, kým ho nevyplatíte</h2>
+<div class="cols"><div>
+<div class="st"><span class="o">&nbsp;</span><span>Zisk 100 000 €, firma kúpi nové stroje</span><span class="r">daň 0 €</span></div>
+<div class="st tax"><span class="o">&nbsp;</span><span>O rok vyplatí majiteľovi 78 000 €</span><span class="r">daň 22 000 €</span></div>
+<div class="st own"><span class="o">=</span><span>Daň sa platí až pri výplate (22 % z vyplatenej hrubej sumy)</span><span class="r">22 %</span></div>
+</div><div>
+<p>Na Slovensku firma platí 21 % zo zisku v každom prípade - aj keď všetko investuje. V Estónsku sa daň <b>odkladá</b>, kým peniaze neodídu k majiteľovi.</p>
+<p>Pre rastúcu firmu, ktorá zisk reinvestuje, je to veľká výhoda. Pre malú slovenskú firmu so sadzbou 10 % a dividendou 7 % je však Slovensko pri plnej výplate lacnejšie (16,3 % oproti 22 %).</p>
+</div></div>
+<p class="hint"><a href="https://emta.ee/en/business-client/taxes-and-payment/income-and-social-taxes/taxation-dividends">emta.ee - Taxation of dividends</a>. Plánované zvýšenie na 24 % od roku 2026 estónsky parlament zrušil.</p>
+</section>
+
+<section class="slide"><div class="sec-label">Časť D · Výskum</div>
+<h2>Nízka daň z dividend ešte neznamená nízke zdanenie</h2>
+<div class="cols"><div>
+<p style="font-size:1rem;margin-top:0">Sadzba dane z dividend u fyzickej osoby (Tax Foundation, 2026):</p>
+<div id="tf"></div>
+</div><div>
+<p>Slovensko má so 7 % jednu z najnižších sadzieb v Európe (priemer 35 krajín je 20,8 %). Celkovo však zo zisku zostane menej ako v Maďarsku - tam firma platí len 9 %.</p>
+<div class="k">Porovnávať treba súčet: daň firmy + daň z dividendy. Ten istý zisk sa zdaňuje dvakrát.</div>
+<p class="hint">Zdroj: Tax Foundation, <a href="https://taxfoundation.org/data/all/eu/dividend-tax-rates-europe/">Dividend Tax Rates in Europe, 2026</a> (23. 3. 2026). Česko uvádza 23 %, PwC 15 % konečnú zrážkovú daň - v grafe 15 %.</p>
+</div></div>
+</section>
+
+<section class="slide"><div class="sec-label">Zhrnutie</div>
+<h2>Čo si odniesť</h2>
+<div class="k">1. Dividenda sa vypláca zo zisku po zdanení. Nie je náklad - neznižuje výsledok hospodárenia ani základ dane (VI / KZ, KZ / OM).<br>2. Fyzická osoba: zrážková daň 7 %, zo zisku za rok 2024 10 %, štáty mimo zoznamu 35 %. Firma: dividenda nie je predmetom dane - v priznaní OP v r. 210.<br>3. Zmluva o zamedzení dvojitého zdanenia rozdeľuje právo zdaniť medzi štát zdroja a štát rezidencie a daň len znižuje. V EÚ dividendy medzi firmami chráni aj smernica.</div>
+<p>Na cvičení: <a href="zadania.html#malachit">Zadanie 6 - MALACHIT s. r. o.</a> v aplikácii <a href="app.html">IUP 2 NHF</a>. Na precvičenie MD a D: <a href="app.html#test">Testovacia zóna</a>.</p>
+<div class="q">Na diskusiu: spoločník a konateľ si môže zisk vybrať ako mzdu (náklad firmy, ale odvody a progresívna daň) alebo ako dividendu (bez odvodov, ale až po dani firmy). Od čoho bude závisieť, čo sa mu oplatí viac?</div>
+</section>
+</div>
+<script>
+(function(){
+ // [kód, názov, sadzba PO, sadzba div., odvody, strop odvodov]
+ const C=[["SK","Slovensko",.21,.07,0,0],["CZ","Česko",.21,.15,0,0],["PL","Poľsko",.19,.19,0,0],["HU","Maďarsko",.09,.15,.13,21085],["AT","Rakúsko",.23,.275,0,0],["DE","Nemecko",.29825,.26375,0,0],["EE","Estónsko",.22,0,0,0]];
+ const fmt=x=>Math.round(x).toLocaleString('sk-SK').replace(/ /g,' ')+' €';
+ const pz=document.getElementById('pz'),pp=document.getElementById('pp'),ppv=document.getElementById('ppv'),sk=document.getElementById('sk'),bars=document.getElementById('bars'),msg=document.getElementById('msg');
+ function calc(c,P,p){
+  let [k,n,cit,dv,od,cap]=c;
+  if(k==="SK"){ if(sk.value==="2024") dv=.10; if(sk.value==="small") cit=.10; }
+  if(k==="EE"){ const t=cit*P*p; return {firm:t,div:0,net:P*p-t,ret:P*(1-p)}; }
+  const firm=cit*P, d=(P-firm)*p, dtax=dv*d+od*(cap?Math.min(d,cap):d);
+  return {firm,div:dtax,net:d-dtax,ret:(P-firm)*(1-p)};
+ }
+ function draw(){
+  const P=+pz.value,p=+pp.value/100; ppv.textContent=pp.value+' %';
+  const res=C.map(c=>({c,...calc(c,P,p)}));
+  bars.innerHTML='<div class="brow h"><span>krajina</span><span>rozdelenie zisku</span><span class="v">majiteľovi</span><span class="p">dane</span></div>'+res.map(r=>{
+   const w=x=>(x/P*100).toFixed(2)+'%';
+   return `<div class="brow"><span>${r.c[0]==="Slovensko"?'<b>Slovensko</b>':r.c[1]}</span><span class="bw"><i style="width:${w(r.firm)};background:#9a7b2f"></i><i style="width:${w(r.div)};background:#b34040"></i><i style="width:${w(r.net)};background:#4a6741"></i><i style="width:${w(r.ret)};background:#c9d8c5"></i></span><span class="v">${fmt(r.net)}</span><span class="p">${((r.firm+r.div)/P*100).toFixed(1).replace('.',',')} %</span></div>`}).join('');
+  const sk0=res[0],ee=res[6];
+  if(p===0) msg.innerHTML=`Firma nič nevyplatí: v Estónsku zatiaľ nezaplatí žiadnu daň, na Slovensku ${fmt(sk0.firm)}. Celý zisk po zdanení zostáva vo firme na investície.`;
+  else { const best=[...res].sort((a,b)=>b.net-a.net)[0]; msg.innerHTML=`Najviac zostane majiteľovi v krajine ${best.c[1]} (${fmt(best.net)}). Slovenský majiteľ dostane ${fmt(sk0.net)}, estónsky ${fmt(ee.net)}.`; }
+ }
+ [pz,pp,sk].forEach(x=>x.addEventListener('input',draw)); draw();
+ const TF=[["Estónsko",0],["Slovensko",7],["Maďarsko",15],["Česko",15],["Poľsko",19],["Nemecko",26.38],["Rakúsko",27.5],["Priemer 35 krajín",20.82]];
+ document.getElementById('tf').innerHTML=TF.map(([n,v])=>`<div class="tf ${n==="Slovensko"?"sk":""}"><span>${n}</span><span class="bw"><i style="width:${v/30*100}%"></i></span><span class="v">${String(v).replace('.',',')} %</span></div>`).join('');
+})();
+</script>
+
+<div class="ctl"><button id="prev">◀</button><button id="next">▶</button><span class="n" id="n"></span><div class="bar"><i id="bar"></i></div><button id="all" style="background:var(--white);color:var(--moss);border:1px solid var(--moss)">Všetky slidy</button></div>
+<script>
+(function(){
+  const s=[...document.querySelectorAll('.slide')];let i=0;
+  const n=document.getElementById('n'),bar=document.getElementById('bar');
+  function show(k){i=Math.max(0,Math.min(s.length-1,k));s.forEach((x,j)=>x.classList.toggle('on',j===i));n.textContent=(i+1)+' / '+s.length;bar.style.width=((i+1)/s.length*100)+'%';history.replaceState(null,'','#'+(i+1));window.scrollTo(0,0);}
+  const h=parseInt((location.hash||'').slice(1),10);show(isNaN(h)?0:h-1);
+  document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();show(i+1);}else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();show(i-1);}else if(e.key==='Home')show(0);else if(e.key==='End')show(s.length-1);});
+  document.getElementById('prev').onclick=()=>show(i-1);document.getElementById('next').onclick=()=>show(i+1);
+  document.getElementById('all').onclick=()=>{document.body.classList.toggle('all');s.forEach(x=>x.style.display=document.body.classList.contains('all')?'block':'');if(!document.body.classList.contains('all'))show(i);};
+  let tx=null;document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);document.addEventListener('touchend',e=>{if(tx===null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60)show(d<0?i+1:i-1);tx=null;});
+})();
+</script>
+
+</main>
+<footer class="bot"><div class="in"><span>Ing. Anton Marci, PhD. - Katedra účtovníctva a audítorstva FHI EU v Bratislave - anton.marci@euba.sk</span><span>Zákony: <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101">ZDP</a> · <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2004/222/20260101">ZDPH</a> · <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2002/431/20260101">zákon o účtovníctve</a> (slov-lex.sk, znenie od 1. 1. 2026)</span></div></footer>
+</body>
+</html>
