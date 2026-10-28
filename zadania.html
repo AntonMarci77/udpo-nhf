@@ -58,7 +58,7 @@ li{margin:3px 0}
 <body>
 <header class="top"><div class="in">
 <a class="logo" href="index.html"><b>ÚD</b><span>Účtovníctvo a dane právnických osôb II<small>študenti NHF - zimný semester 2026/2027</small></span></a>
-<nav class="main"><a href="index.html">Úvod</a><a href="prednaska.html">Prednáška 1</a><a href="prednaska2.html">Prednáška 2</a><a href="prednaska3.html">Prednáška 3</a><a href="prednaska4.html">Prednáška 4</a><a href="prednaska5.html">Prednáška 5</a><a href="md-d.html">MD a D</a><a href="tahak.html">Ťahák PP a OP</a><a href="zadania.html" class=on>Zadania</a><a href="app.html">Aplikácia IUP 2 NHF</a></nav>
+<nav class="main"><a href="index.html">Úvod</a><a href="prednaska.html">Prednáška 1</a><a href="prednaska2.html">Prednáška 2</a><a href="prednaska3.html">Prednáška 3</a><a href="prednaska4.html">Prednáška 4</a><a href="prednaska5.html">Prednáška 5</a><a href="prednaska6.html">Prednáška 6</a><a href="md-d.html">MD a D</a><a href="tahak.html">Ťahák PP a OP</a><a href="zadania.html" class=on>Zadania</a><a href="dppo.html">Postup DPPO</a><a href="app.html">Aplikácia IUP 2 NHF</a></nav>
 </div></header>
 <main class="wrap">
 
@@ -174,6 +174,25 @@ li{margin:3px 0}
 <p><a class="btn" href="PR-05-NHF-zadanie.docx" download>Zadanie (Word)</a> &nbsp; <a class="btn sec" href="PR-05-NHF-zadanie.csv" download>Zadanie CSV</a> &nbsp; <a class="btn sec" href="PR-05-NHF-riesenie.csv" download>Riešenie CSV</a></p>
 </div>
 
+<h2 id="malachit-licencie">Zadanie 7 - MALACHIT s. r. o. (rok 2025): licencie cez hranice, zrážková daň a zápočet dane zaplatenej v zahraničí</h2>
+<div class="card">
+<p>Pokračujeme s MALACHIT. Firma predáva zahraničným výrobcom licencie na svoje návrhy nábytku (Nemecko, Česko) a sama platí licenčný poplatok českému dizajnérskemu štúdiu. Zahraniční platitelia jej z poplatkov zrazili daň - v slovenskom priznaní si ju započíta v tabuľke E. Priznanie DPPO je vyplnené po r. 700 v XML súbore.</p>
+<table><tr><th>Partner</th><th>Čo robí</th><th>Kde je doma</th></tr>
+<tr><td>DESIGNLAB Brno s.r.o.</td><td>MALACHIT mu platí za návrh kresla AURA</td><td>Česko</td></tr>
+<tr><td>Holzwerk Alpen GmbH</td><td>platí MALACHIT za návrhy kuchýň LINEA, zrazil 15,825 % (MALACHIT nemala nemecké potvrdenie o oslobodení)</td><td>Nemecko</td></tr>
+<tr><td>NÁBYTOK NOVA a.s.</td><td>platí MALACHIT za návrhy hotelového nábytku, zrazila 10 %</td><td>Česko</td></tr></table>
+<div class="warn">PP = pripočítateľná položka, OP = odpočítateľná položka (v daňovom priznaní). Zahraničná daň nie je náklad - ide na DU (zápočet) alebo je to pohľadávka (vrátenie).</div>
+<p><b>Úlohy</b></p>
+<ol>
+<li>Rozcvička: vysvetlite už zapísané prípady DF02, DF02 DPH a VBÚ17 - odkiaľ hodnota prišla, kam išla a či sa zmenil výsledok hospodárenia (<a href="md-d.html">MD a D</a>).</li>
+<li>Koľko dane zrazí MALACHIT z poplatku pre DESIGNLAB, koľko mu vyplatí a do kedy daň odvedie? Pomôže <a href="prednaska6.html">prednáška 6</a>.</li>
+<li>Pri prípadoch s licenciami doplňte MD a D a či sa mení výsledok hospodárenia. Koľko nemeckej a českej dane sa započíta a prečo nie celá nemecká?</li>
+<li>Načítajte <code>PR-06-DPPO-2025-import.xml</code> do <a href="https://pfseform.financnasprava.sk/Formulare/eFormVzor/DP/form.622.html">formulára DPPO 2025</a> a podľa <a href="dppo.html">postupu</a> doplňte tabuľku E, r. 710, 800, 1100 a 1110. V aplikácii zadajte ručnú PP 1 800 € (§ 17 ods. 27) a preddavky prepíšte na 40 500 € + váš zápočet z r. 710.</li>
+</ol>
+<p>Načítanie v aplikácii: <b>Zadania</b> → <b>CSV z internetu</b> → vložte adresu <code>https://udpo-nhf.vercel.app/PR-06-NHF-zadanie.csv</code> (alebo stiahnite súbor a načítajte ho z disku).</p>
+<p><a class="btn" href="PR-06-NHF-zadanie.docx" download>Zadanie (Word)</a> &nbsp; <a class="btn sec" href="PR-06-NHF-zadanie.csv" download>Zadanie CSV</a> &nbsp; <a class="btn sec" href="PR-06-DPPO-2025-import.xml" download>DPPO na import (XML)</a> &nbsp; <a class="btn sec" href="PR-06-NHF-riesenie.csv" download>Riešenie CSV</a></p>
+</div>
+
 <h2>Ako pracovať s aplikáciou</h2>
 <div class="card">
 <ul style="margin:0">
@@ -184,6 +203,7 @@ li{margin:3px 0}
 <li><b>Daň z príjmov</b>: výsledok hospodárenia pred zdanením, PP, OP, základ dane, odpočet straty, sadzba podľa výnosov, minimálna daň, preddavky, daň na úhradu. Tlačidlo <b>Zaúčtovať daň</b> zapíše ND / DU.</li>
 <li>Údaje sa ukladajú len vo vašom prehliadači. Ak chcete pokračovať na inom počítači, stiahnite si denník ako CSV a potom ho načítajte.</li>
 <li>Prepínač osnovy vpravo hore umožňuje pozrieť si to isté riešenie aj v 27 kategóriách, v účtových skupinách alebo na syntetických účtoch.</li>
+<li><b>Postup DPPO</b>: poradie vypĺňania daňového priznania riadok po riadku a odkaz na formulár finančnej správy (tlačidlo DPPO formulár je aj v hlavičke aplikácie).</li>
 <li><b>Testovacia zóna</b>: náhodné účtovné prípady - vyberiete MD a D, vplyv na výsledok hospodárenia a daňovú úpravu (PP / OP) a hneď dostanete vysvetlenie, čo sa stalo a prečo. V režime Pieskovisko si môžete vyskúšať ľubovoľnú dvojicu kategórií.</li>
 </ul>
 </div>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Postup DPPO - ÚDPO II NHF</title>
+<style>
+:root{--ink:#2d2a26;--muted:#7a7468;--paper:#f8f7f4;--line:#e0ddd6;--moss:#4a6741;--mossd:#3a5233;--mossl:#e8efe6;--gold:#9a7b2f;--goldl:#faf5e8;--navy:#3d5a80;--navyl:#e3edf7;--brick:#b34040;--brickl:#fce8e8;--white:#fff}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.5;font-size:16px}
+a{color:var(--moss)}
+header.top{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+header.top .in{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.logo b{width:34px;height:34px;border-radius:9px;background:var(--moss);color:#fff;display:grid;place-items:center;font-size:13px}
+.logo span{line-height:1.15}
+.logo small{display:block;color:var(--muted);font-size:11px}
+nav.main{display:flex;gap:2px;flex-wrap:wrap;margin-left:auto}
+nav.main a{padding:6px 11px;border-radius:7px;text-decoration:none;color:var(--ink);font-size:14px}
+nav.main a:hover{background:var(--paper)}
+nav.main a.on{background:var(--mossl);color:var(--moss);font-weight:600}
+main.wrap{max-width:1100px;margin:0 auto;padding:22px 16px 60px}
+h1{font-size:1.75rem;line-height:1.2;margin:0 0 6px}
+h2{font-size:1.25rem;margin:34px 0 10px;color:var(--mossd)}
+h3{font-size:1.05rem;margin:22px 0 6px}
+p.lead{font-size:1.08rem;color:#4a463f;margin:0 0 18px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:0 1px 3px rgba(45,42,38,.06)}
+.grid{display:grid;gap:14px}
+@media(min-width:700px){.grid.c2{grid-template-columns:1fr 1fr}.grid.c3{grid-template-columns:repeat(3,1fr)}.grid.c4{grid-template-columns:repeat(4,1fr)}}
+.tile{display:block;text-decoration:none;color:inherit;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px;transition:border-color .15s}
+.tile:hover{border-color:var(--moss)}
+.tile h3{margin:0 0 4px;color:var(--moss)}
+.tile p{margin:0;color:var(--muted);font-size:14px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;background:var(--white)}
+th,td{border:1px solid var(--line);padding:7px 9px;vertical-align:top;text-align:left}
+th{background:var(--mossl);color:var(--mossd);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+.pp{background:var(--brickl);color:var(--brick)}
+.op{background:var(--navyl);color:var(--navy)}
+.ok{background:var(--mossl);color:var(--moss)}
+.note{background:var(--goldl);border-left:4px solid var(--gold);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+.warn{background:var(--brickl);border-left:4px solid var(--brick);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+.small{font-size:13px;color:var(--muted)}
+code,kbd{font-family:"Cascadia Mono",Consolas,ui-monospace,monospace;font-size:.92em;background:#f1efe9;padding:1px 5px;border-radius:4px}
+.btn{display:inline-block;background:var(--moss);color:#fff;text-decoration:none;padding:9px 16px;border-radius:8px;font-weight:600}
+.btn.sec{background:var(--white);color:var(--moss);border:1px solid var(--moss)}
+footer.bot{border-top:1px solid var(--line);color:var(--muted);font-size:12px;background:var(--white)}
+footer.bot .in{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;gap:16px;flex-wrap:wrap}
+.eq{font-size:1.25rem;text-align:center;padding:14px;background:var(--white);border:1px dashed var(--moss);border-radius:10px;margin:12px 0;font-weight:600;color:var(--mossd)}
+ul,ol{padding-left:22px}
+li{margin:3px 0}
+.toc a{display:block;padding:4px 0;text-decoration:none}
+</style>
+
+</head>
+<body>
+<header class="top"><div class="in">
+<a class="logo" href="index.html"><b>ÚD</b><span>Účtovníctvo a dane právnických osôb II<small>študenti NHF - zimný semester 2026/2027</small></span></a>
+<nav class="main"><a href="index.html">Úvod</a><a href="prednaska.html">Prednáška 1</a><a href="prednaska2.html">Prednáška 2</a><a href="prednaska3.html">Prednáška 3</a><a href="prednaska4.html">Prednáška 4</a><a href="prednaska5.html">Prednáška 5</a><a href="prednaska6.html">Prednáška 6</a><a href="md-d.html">MD a D</a><a href="tahak.html">Ťahák PP a OP</a><a href="zadania.html">Zadania</a><a href="dppo.html" class=on>Postup DPPO</a><a href="app.html">Aplikácia IUP 2 NHF</a></nav>
+</div></header>
+<main class="wrap">
+
+<h1>Postup vyplnenia daňového priznania DPPO 2025</h1>
+<p class="lead">Poradie, v akom priznanie vypĺňame na cvičení - od tabuľky F po riadok 1110. Rovnaký postup je v aplikácii na karte <a href="app.html#dppo">Postup DPPO</a>.</p>
+<p><a class="btn" href="https://pfseform.financnasprava.sk/Formulare/eFormVzor/DP/form.622.html" target="_blank" rel="noopener">Otvoriť formulár DPPO 2025</a> &nbsp; <a class="btn sec" href="https://pfseform.financnasprava.sk/Formulare/Poucenia/DPPOv25-poucenie.pdf" target="_blank" rel="noopener">Poučenie k tlačivu (PDF)</a></p>
+<div class="note">Na cvičeniach často dostanete XML súbor s priznaním vyplneným po určitý riadok. Načítajte ho do formulára a pokračujte od kroku, ktorý je uvedený v zadaní. Zadanie 7 (MALACHIT - licencie): <a href="PR-06-DPPO-2025-import.xml" download>PR-06-DPPO-2025-import.xml</a> - doplníte tabuľku E a riadky 710 až 1110.</div>
+<div class="card" style="padding:0;overflow-x:auto">
+<table>
+<tr><th class="num">Krok</th><th>Čo a kde</th><th>Čo tam patrí</th></tr>
+<tr><td class="num"><b>1</b></td><td><b>Príprava</b><br><span class="small"></span></td><td>Otvorte formulár DPPO 2025 na portáli finančnej správy. Ak máte zo cvičenia XML súbor, načítajte ho - identifikačné údaje aj hotové riadky sa vyplnia samy. Pripravte si výkaz ziskov a strát (výnosy, náklady) a zoznam PP a OP z denníka (v aplikácii karta Daň z príjmov).<br><span class=small>Formulár sa dá vypĺňať aj bez prihlásenia; na cvičení ho na konci len skontrolujeme, nepodávame.</span></td></tr>
+<tr><td class="num"><b>2</b></td><td><b>Hlavička a I. časť</b><br><span class="small">01 až 12</span></td><td>Druh priznania (riadne), zdaňovacie obdobie 01.01.2025 až 31.12.2025, DIČ, IČO, právna forma, SK NACE, obchodné meno a sídlo. Zaškrtávacie políčka (napr. mikrodaňovník) podľa zadania.<br><span class=small>Údaje sú v zadaní. Pri importe XML túto časť preskočíme.</span></td></tr>
+<tr><td class="num"><b>3</b></td><td><b>Tabuľka F</b><br><span class="small">tab. F r. 1 až 3</span></td><td>Začíname tu: r. 1 výnosy spolu, r. 2 náklady spolu (bez splatnej dane z príjmov), r. 3 výsledok hospodárenia = r. 1 - r. 2.<br><span class=small>Z tabuľky F sa berie r. 100 aj r. 560.</span></td></tr>
+<tr><td class="num"><b>4</b></td><td><b>Výsledok hospodárenia</b><br><span class="small">r. 100</span></td><td>Výsledok hospodárenia pred zdanením - rovnaké číslo ako tab. F r. 3 (zisk so znamienkom +, strata so znamienkom -).</td></tr>
+<tr><td class="num"><b>5</b></td><td><b>Nedaňové náklady</b><br><span class="small">tab. A → r. 130</span></td><td>Náklady, ktoré nie sú daňovými výdavkami (§ 21 ZDP): reprezentácia, pokuty, opravná položka nad daňový limit, rezerva, ktorá nie je daňová, a pod. Každú na svoj riadok tabuľky A, súčet (r. 17) sa prenesie do r. 130.<br><span class=small>PP = pripočítateľná položka. Opravná položka k pohľadávke je účtovný zápis N / OM - nie to isté.</span></td></tr>
+<tr><td class="num"><b>6</b></td><td><b>Ďalšie PP</b><br><span class="small">r. 140 až 180, r. 200</span></td><td>r. 140: náklady, ktoré sú daňové až po zaplatení a do 31. 12. zaplatené neboli (§ 17 ods. 19 - nájomné, licencie, provízie, poradenstvo). r. 180: ostatné PP, napr. záväzok viac ako 360 dní po splatnosti (§ 17 ods. 27). r. 200 = súčet r. 130 až 180.<br><span class=small>Riadky s r. 180 vysvetlite vo VIII. časti.</span></td></tr>
+<tr><td class="num"><b>7</b></td><td><b>OP</b><br><span class="small">r. 210 až 290, r. 300</span></td><td>r. 210: výnosy, ktoré nie sú predmetom dane (napr. podiel na zisku od inej firmy). r. 270: zaplatené v tomto roku to, čo bolo minulý rok PP podľa § 17 ods. 19. r. 290: ostatné OP, napr. použitie alebo zrušenie nedaňovej rezervy (§ 17 ods. 23), zaplatený záväzok, o ktorý sa základ dane predtým zvýšil (§ 17 ods. 32). r. 300 = súčet.<br><span class=small>OP = odpočítateľná položka.</span></td></tr>
+<tr><td class="num"><b>8</b></td><td><b>Základ dane</b><br><span class="small">r. 301 až 400</span></td><td>r. 100 + r. 200 - r. 300. Ak firma nemá osobitné položky, r. 301, 310 a 400 sú rovnaké. Záporná suma v r. 400 je daňová strata.</td></tr>
+<tr><td class="num"><b>9</b></td><td><b>Odpočet straty</b><br><span class="small">tab. D → r. 410, r. 500, 510</span></td><td>Strata sa odpočíta najviac 5 rokov po roku vzniku, najviac 50 % základu dane z r. 400 pre každú stratu (mikrodaňovník 100 %). Tabuľka D: r. 1 vykázaná strata, r. 2 odpočet teraz, r. 3 zostatok. r. 500 = r. 400 - r. 410.<br><span class=small>Strata za bežný rok sa do tabuľky D píše až o rok.</span></td></tr>
+<tr><td class="num"><b>10</b></td><td><b>Zdaniteľné výnosy a sadzba</b><br><span class="small">r. 560, potom r. 550</span></td><td>r. 560: výnosy z tab. F r. 1 bez výnosov, ktoré nie sú predmetom dane alebo sú oslobodené (napr. bez podielov na zisku). Sadzba za rok 2025: do 100 000 € 10 %, nad 100 000 € 21 %, nad 5 000 000 € 24 %.<br><span class=small>Najprv r. 560, až potom sadzba - z r. 560 sa určuje.</span></td></tr>
+<tr><td class="num"><b>11</b></td><td><b>Daň</b><br><span class="small">r. 600, 610, 700</span></td><td>r. 600 = r. 510 x sadzba. r. 610 úľavy (na cvičeniach zvyčajne 0). r. 700 = r. 600 - r. 610.</td></tr>
+<tr><td class="num"><b>12</b></td><td><b>Daň zo zahraničia</b><br><span class="small">tab. E → r. 710</span></td><td>Len ak firma mala príjmy zo zahraničia, z ktorých jej v cudzine zrazili daň: r. 1 základ dane, r. 2 základ dane zo zahraničia (príjmy - súvisiace daňové výdavky), r. 3 podiel v %, r. 4 strop, r. 8 zahraničná daň podľa zmluvy, r. 10 nižšia suma → r. 710.<br><span class=small>Rozpis podľa štátov patrí do VIII. časti.</span></td></tr>
+<tr><td class="num"><b>13</b></td><td><b>Minimálna daň</b><br><span class="small">r. 800, 810 až 830</span></td><td>r. 800 = r. 700 - r. 710. r. 810 minimálna daň podľa zdaniteľných výnosov (do 50 000 € 340 €, do 250 000 € 960 €, do 500 000 € 1 920 €, nad 500 000 € 3 840 €). Ak r. 810 &gt; r. 800, vyplní sa r. 820 a r. 830 (rozdiel na zápočet v ďalších 3 rokoch).<br><span class=small>r. 910 až 1000 a tabuľka K len pri zápočte minimálnej dane z minulých rokov.</span></td></tr>
+<tr><td class="num"><b>14</b></td><td><b>Preddavky a daň na úhradu</b><br><span class="small">r. 1010, 1040, 1050, 1080, 1100 / 1101</span></td><td>r. 1010 a 1040 zaplatené preddavky za rok 2025, r. 1050 a 1080 daň (alebo minimálna daň), r. 1100 daň na úhradu (+), r. 1101 preplatok (-).<br><span class=small>Doplatok za minulý rok nie je preddavok.</span></td></tr>
+<tr><td class="num"><b>15</b></td><td><b>Preddavky na budúci rok</b><br><span class="small">r. 1110</span></td><td>r. 500 x sadzba - r. 610 (bez zápočtu zahraničnej dane a minimálnej dane). Nad 16 600 € mesačné preddavky 1/12, nad 5 000 € štvrťročné 1/4.</td></tr>
+<tr><td class="num"><b>16</b></td><td><b>Koniec priznania</b><br><span class="small">VIII. a VII. časť</span></td><td>VIII. časť: vysvetlenia (r. 180, r. 290, rozpis tabuľky E). VII. časť: 2 % (3 %) zaplatenej dane, ak ich firma chce poukázať. Oprávnená osoba, dátum, kontrola formulára (chyby sú označené pri riadkoch) a uloženie XML.</td></tr>
+</table>
+</div>
+<p class="small">PP = pripočítateľná položka (zvyšuje výsledok hospodárenia na základ dane), OP = odpočítateľná položka (znižuje ho). Podrobnosti ku každému riadku sú v poučení finančnej správy. Sadzby a sumy platia pre zdaňovacie obdobie 2025.</p>
+
+</main>
+<footer class="bot"><div class="in"><span>Ing. Anton Marci, PhD. - Katedra účtovníctva a audítorstva FHI EU v Bratislave - anton.marci@euba.sk</span><span>Zákony: <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101">ZDP</a> · <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2004/222/20260101">ZDPH</a> · <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2002/431/20260101">zákon o účtovníctve</a> (slov-lex.sk, znenie od 1. 1. 2026)</span></div></footer>
+</body>
+</html>

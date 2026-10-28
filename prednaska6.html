@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prednáška 6 - ÚDPO II NHF</title>
+<style>
+:root{--ink:#2d2a26;--muted:#7a7468;--paper:#f8f7f4;--line:#e0ddd6;--moss:#4a6741;--mossd:#3a5233;--mossl:#e8efe6;--gold:#9a7b2f;--goldl:#faf5e8;--navy:#3d5a80;--navyl:#e3edf7;--brick:#b34040;--brickl:#fce8e8;--white:#fff}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.5;font-size:16px}
+a{color:var(--moss)}
+header.top{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+header.top .in{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.logo b{width:34px;height:34px;border-radius:9px;background:var(--moss);color:#fff;display:grid;place-items:center;font-size:13px}
+.logo span{line-height:1.15}
+.logo small{display:block;color:var(--muted);font-size:11px}
+nav.main{display:flex;gap:2px;flex-wrap:wrap;margin-left:auto}
+nav.main a{padding:6px 11px;border-radius:7px;text-decoration:none;color:var(--ink);font-size:14px}
+nav.main a:hover{background:var(--paper)}
+nav.main a.on{background:var(--mossl);color:var(--moss);font-weight:600}
+main.wrap{max-width:1100px;margin:0 auto;padding:22px 16px 60px}
+h1{font-size:1.75rem;line-height:1.2;margin:0 0 6px}
+h2{font-size:1.25rem;margin:34px 0 10px;color:var(--mossd)}
+h3{font-size:1.05rem;margin:22px 0 6px}
+p.lead{font-size:1.08rem;color:#4a463f;margin:0 0 18px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:0 1px 3px rgba(45,42,38,.06)}
+.grid{display:grid;gap:14px}
+@media(min-width:700px){.grid.c2{grid-template-columns:1fr 1fr}.grid.c3{grid-template-columns:repeat(3,1fr)}.grid.c4{grid-template-columns:repeat(4,1fr)}}
+.tile{display:block;text-decoration:none;color:inherit;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px 18px;transition:border-color .15s}
+.tile:hover{border-color:var(--moss)}
+.tile h3{margin:0 0 4px;color:var(--moss)}
+.tile p{margin:0;color:var(--muted);font-size:14px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;background:var(--white)}
+th,td{border:1px solid var(--line);padding:7px 9px;vertical-align:top;text-align:left}
+th{background:var(--mossl);color:var(--mossd);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+.pp{background:var(--brickl);color:var(--brick)}
+.op{background:var(--navyl);color:var(--navy)}
+.ok{background:var(--mossl);color:var(--moss)}
+.note{background:var(--goldl);border-left:4px solid var(--gold);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+.warn{background:var(--brickl);border-left:4px solid var(--brick);padding:10px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+.small{font-size:13px;color:var(--muted)}
+code,kbd{font-family:"Cascadia Mono",Consolas,ui-monospace,monospace;font-size:.92em;background:#f1efe9;padding:1px 5px;border-radius:4px}
+.btn{display:inline-block;background:var(--moss);color:#fff;text-decoration:none;padding:9px 16px;border-radius:8px;font-weight:600}
+.btn.sec{background:var(--white);color:var(--moss);border:1px solid var(--moss)}
+footer.bot{border-top:1px solid var(--line);color:var(--muted);font-size:12px;background:var(--white)}
+footer.bot .in{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;gap:16px;flex-wrap:wrap}
+.eq{font-size:1.25rem;text-align:center;padding:14px;background:var(--white);border:1px dashed var(--moss);border-radius:10px;margin:12px 0;font-weight:600;color:var(--mossd)}
+ul,ol{padding-left:22px}
+li{margin:3px 0}
+.toc a{display:block;padding:4px 0;text-decoration:none}
+
+main.wrap{max-width:none;padding:0}
+.deck{position:relative}
+.slide{display:none;min-height:calc(100vh - 58px);padding:38px 7vw 70px;background:var(--paper)}
+.slide.on{display:block}
+.slide h2{font-size:2rem;margin:0 0 18px;color:var(--mossd);border-bottom:3px solid var(--moss);padding-bottom:8px;display:inline-block}
+.slide h1{font-size:2.6rem;margin:60px 0 10px}
+.slide p,.slide li{font-size:1.25rem}
+.slide table{font-size:1.1rem}
+.slide .eq{font-size:1.6rem}
+.slide .k{font-size:1.5rem;font-weight:700;color:var(--mossd);background:var(--white);border:2px solid var(--moss);border-radius:12px;padding:16px 22px;text-align:center;margin:20px 0}
+.cols{display:grid;gap:24px}
+@media(min-width:800px){.cols{grid-template-columns:1fr 1fr}.cols.c3{grid-template-columns:1fr 1fr 1fr}}
+.box{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+.box h3{margin:0 0 8px;color:var(--moss);font-size:1.15rem}
+.ctl{position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--line);display:flex;align-items:center;gap:12px;padding:8px 16px;font-size:14px;z-index:20}
+.ctl button{background:var(--moss);color:#fff;border:0;border-radius:7px;padding:6px 14px;font-size:14px;cursor:pointer}
+.ctl .n{font-variant-numeric:tabular-nums;color:var(--muted)}
+.ctl .bar{flex:1;height:5px;background:var(--line);border-radius:3px;overflow:hidden}
+.ctl .bar i{display:block;height:100%;background:var(--moss)}
+.sec-label{font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px}
+.big{font-size:3rem;font-weight:800;color:var(--moss);line-height:1.1}
+.q{background:var(--goldl);border-left:5px solid var(--gold);padding:12px 18px;border-radius:0 10px 10px 0;font-size:1.25rem;margin:16px 0}
+.hint{color:var(--muted);font-size:1rem}
+.tbl2 td.num{font-weight:600}
+.strike{text-decoration:line-through;color:var(--muted)}
+@media print{header.top,.ctl{display:none}.slide{display:block;page-break-after:always;min-height:0;padding:20px}.slide h1{margin-top:0}}
+</style>
+
+</head>
+<body>
+<header class="top"><div class="in">
+<a class="logo" href="index.html"><b>ÚD</b><span>Účtovníctvo a dane právnických osôb II<small>študenti NHF - zimný semester 2026/2027</small></span></a>
+<nav class="main"><a href="index.html">Úvod</a><a href="prednaska.html">Prednáška 1</a><a href="prednaska2.html">Prednáška 2</a><a href="prednaska3.html">Prednáška 3</a><a href="prednaska4.html">Prednáška 4</a><a href="prednaska5.html">Prednáška 5</a><a href="prednaska6.html" class=on>Prednáška 6</a><a href="md-d.html">MD a D</a><a href="tahak.html">Ťahák PP a OP</a><a href="zadania.html">Zadania</a><a href="dppo.html">Postup DPPO</a><a href="app.html">Aplikácia IUP 2 NHF</a></nav>
+</div></header>
+<main class="wrap">
+<div class="deck"><style>
+.st{display:grid;grid-template-columns:70px 1fr auto;gap:10px;align-items:center;background:#fff;border:1px solid #e0ddd6;border-radius:10px;padding:8px 12px;margin:5px 0;font-size:1.15rem}
+.st .o{font-size:1.4rem;font-weight:700;text-align:center;color:#4a6741}
+.st .r{font-size:15px;color:#2d2a26;white-space:nowrap;font-weight:600}
+.st.tot{background:#e8efe6;border-color:#4a6741;font-weight:600}
+.st.tax{border-left:5px solid #b34040}
+.st.back{border-left:5px solid #3d5a80}
+.flow{max-width:820px}
+.map{display:grid;grid-template-columns:1fr 110px 1fr;gap:10px;align-items:center;max-width:900px}
+.map .arr{font-size:1rem;text-align:center;color:#9a7b2f;font-weight:700}
+.map .arr b{display:block;font-size:2.2rem;line-height:1}
+.steps{counter-reset:s;display:grid;gap:8px;max-width:900px}
+.steps .s{display:grid;grid-template-columns:44px 120px 1fr 130px;gap:10px;align-items:center;background:#fff;border:1px solid #e0ddd6;border-radius:10px;padding:8px 12px;font-size:1.05rem}
+.steps .s:before{counter-increment:s;content:counter(s);width:32px;height:32px;border-radius:50%;background:#4a6741;color:#fff;display:grid;place-items:center;font-weight:700}
+.steps .s b.row{color:#3a5233}
+.steps .s .v{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.steps .s.hi{border-color:#4a6741;background:#e8efe6}
+@media(max-width:700px){.steps .s{grid-template-columns:36px 1fr 90px}.steps .s b.row{display:none}}
+.sim{background:#fff;border:1px solid #e0ddd6;border-radius:12px;padding:14px 18px;max-width:900px}
+.sim label{font-size:1rem;margin-right:16px;white-space:nowrap}
+.sim input[type=range]{width:240px;vertical-align:middle}
+.sim .val{font-weight:700;color:#3a5233}
+.bar2{display:grid;grid-template-columns:230px 1fr 110px;gap:10px;align-items:center;margin:7px 0;font-size:15px}
+.bar2 .bw{background:#f1efe9;border-radius:6px;height:24px;overflow:hidden;position:relative}
+.bar2 .bw i{display:block;height:100%;border-radius:6px}
+.bar2 .v{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+@media(max-width:700px){.bar2{grid-template-columns:110px 1fr 80px;font-size:13px}}
+.tag2{display:inline-block;padding:2px 9px;border-radius:999px;font-size:13px;font-weight:700}
+.t-no{background:#e8efe6;color:#4a6741}.t-yes{background:#fce8e8;color:#b34040}
+</style>
+
+<section class="slide"><div class="sec-label">Prednáška 6 · 29. 10. 2026</div>
+<h1>Peniaze cez hranice. Zrážková daň a zápočet dane zaplatenej v zahraničí</h1>
+<p class="lead">Firma neplatí daň len zo svojho zisku. Niekedy ju strhne iným - a niekedy jej ju strhne niekto v cudzine. Kto má právo zdaniť a ako sa vyhnúť tomu, aby sa ten istý príjem zdanil dvakrát?</p>
+<ol><li><b>Časť A:</b> keď firma zráža daň za iného (platiteľ dane)</li>
+<li><b>Časť B:</b> licencia cez hranice - štát zdroja a štát rezidencie</li>
+<li><b>Časť C:</b> zápočet zahraničnej dane a tabuľka E v priznaní</li>
+<li><b>Časť D:</b> čo z toho vyplýva pre firmy, ktoré predávajú nápady do sveta</li></ol>
+<p class="hint">Ak cvičenia študujete samostatne: prejdite si prednášku, potom <a href="zadania.html#malachit-licencie">Zadanie 7 - MALACHIT s. r. o. (licencie)</a> a <a href="dppo.html">Postup vyplnenia DPPO</a>. MD a D si precvičíte v aplikácii na karte <a href="app.html#test">Testovacia zóna</a>.</p>
+</section>
+
+<section class="slide"><div class="sec-label">Najprv slovník</div>
+<h2>Päť pojmov na dnes</h2>
+<div class="cols">
+<div class="box"><h3>Licenčný poplatok</h3><p>Platba za to, že niekto smie používať cudzí <b>návrh, vynález, softvér</b> alebo <b>autorské dielo</b> (text, fotku, hudbu, film). Pre toho, kto platí, je to náklad, pre toho, kto dostáva, výnos.</p></div>
+<div class="box"><h3>Platiteľ dane</h3><p>Firma, ktorá daň za niekoho iného <b>strhne</b> z platby a pošle štátu. Daň nie je jej - len ju vyberie. Poznáme to z dividend aj zo mzdy.</p></div>
+<div class="box"><h3>Štát zdroja</h3><p>Štát, <b>odkiaľ peniaze prišli</b> - sídli v ňom ten, kto platí. Chce si zobrať daň hneď, kým peniaze neodídu z krajiny.</p></div>
+<div class="box"><h3>Štát rezidencie</h3><p>Štát, <b>kde je príjemca doma</b>. Zdaňuje svoje firmy z príjmov z celého sveta - aj z tých, ktoré už zdanil niekto iný.</p></div>
+</div>
+<div class="note"><b>Zápočet</b> = zahraničnú daň si firma odpočíta od slovenskej dane. Tak sa ten istý príjem v úhrne nezdaní dvakrát.</div>
+</section>
+
+<section class="slide"><div class="sec-label">Časť A · Firma ako výberca dane</div>
+<h2>Kedy slovenská firma zráža daň za iného</h2>
+<table class="tbl2">
+<tr><th>Komu firma platí</th><th>Za čo</th><th>Čo urobí</th><th>Zákon</th></tr>
+<tr><td>Slovenský spoločník - človek</td><td>podiel na zisku</td><td>zrazí 7 % (zo zisku za rok 2024 10 %)</td><td>§ 43 ods. 3 písm. r)</td></tr>
+<tr><td>Slovenský autor - človek</td><td>odmena za dielo, napr. scenár</td><td>zrazí 19 % - <b>alebo</b> sa s autorom písomne dohodne, že si príjem zdaní sám v priznaní</td><td>§ 43 ods. 3 písm. h), ods. 14</td></tr>
+<tr><td>Zahraničná firma alebo človek</td><td>licencia, úrok, služby na Slovensku</td><td>zrazí 19 %, štát mimo zoznamu spolupracujúcich štátov 35 % - zmluva sadzbu môže znížiť</td><td>§ 16, § 43 ods. 1 a 2</td></tr>
+<tr><td>Slovenská firma</td><td>licencia, služba</td><td>nezráža nič - firma si to zdaní sama v DPPO</td><td>-</td></tr>
+</table>
+<div class="k">Zrazenú daň firma odvedie do 15. dňa nasledujúceho mesiaca a v tej istej lehote podá oznámenie (§ 43 ods. 11).</div>
+</section>
+
+<section class="slide"><div class="sec-label">Časť A · Príklad LUMEN FILM s. r. o.</div>
+<h2>Filmové štúdio platí dvom autorom</h2>
+<p>Slovenské štúdio LUMEN FILM s. r. o. (fiktívne) nakrúca dokument. Platí scenáristke zo Slovenska a hudobnému vydavateľstvu z Česka za licenciu na hudbu.</p>
+<div class="cols"><div class="box"><h3>Scenáristka Eva (Slovensko), 3 000 €</h3>
+<p>Ešte pred výplatou podpísala s LUMEN písomnú dohodu, že daň sa nezrazí (§ 43 ods. 14). LUMEN jej vyplatí celých <b>3 000 €</b> a dohodu oznámi správcovi dane do konca januára nasledujúceho roka. Eva si príjem zdaní sama v priznaní.</p>
+<p class="small">Bez dohody: zrážka 19 % a Eva by nič nepodávala.</p></div>
+<div class="box"><h3>Vydavateľstvo NOTA s.r.o. (Česko), 4 000 €</h3>
+<p>Licencia na hudbu je <b>autorské právo</b>. Zmluva SR - ČR (čl. 12) dovoľuje pri autorských právach zdaniť len štátu, kde je príjemca doma. LUMEN nezrazí nič - ak má potvrdenie o rezidencii NOTA v Česku.</p>
+<p class="small">Bez potvrdenia by LUMEN musela zraziť 19 %.</p></div></div>
+<table class="dance"><tr><th>Prípad</th><th>MD</th><th>D</th><th>Mení sa VH?</th></tr>
+<tr><td>Faktúra NOTA za licenciu</td><td>N</td><td>KZ</td><td><span class="tag2 t-yes">áno</span> náklad - 4 000 €</td></tr>
+<tr><td>Keby sa zrážala daň: časť dlhu voči NOTA sa mení na dlh voči štátu</td><td>KZ</td><td>KZ</td><td><span class="tag2 t-no">nie</span></td></tr>
+<tr><td>Úhrada</td><td>KZ</td><td>OM</td><td><span class="tag2 t-no">nie</span></td></tr></table>
+</section>
+
+<section class="slide"><div class="sec-label">Časť B · Dva štáty, jeden príjem</div>
+<h2>Kto smie zdaniť licenčný poplatok?</h2>
+<div class="map">
+<div class="box"><h3>Štát zdroja</h3><p>Tu sídli ten, kto platí. Podľa svojho zákona by zrazil plnú sadzbu - v Nemecku 15,825 %, na Slovensku 19 %.</p></div>
+<div class="arr"><b>⇄</b>zmluva o zamedzení dvojitého zdanenia</div>
+<div class="box"><h3>Štát rezidencie</h3><p>Tu je príjemca doma. Zdaní celý zisk z celého sveta.</p></div>
+</div>
+<table style="margin-top:16px">
+<tr><th>Zmluva so Slovenskom</th><th>Návrh, model, vynález, softvér</th><th>Autorské práva (texty, fotky, hudba, filmy)</th></tr>
+<tr><td>Nemecko (zmluva ČSSR - SRN, čl. 12)</td><td class="num">najviac 5 %</td><td class="num">najviac 5 %</td></tr>
+<tr><td>Česko (zmluva SR - ČR, čl. 12)</td><td class="num">najviac 10 %</td><td class="num">0 % - zdaní len štát rezidencie</td></tr>
+</table>
+<div class="note">Zmluva daň <b>neukladá</b>, len obmedzuje štát zdroja. Aby ju zahraničný platiteľ použil, potrebuje od príjemcu <b>potvrdenie o daňovej rezidencii</b> - inak zrazí plnú sadzbu podľa svojho zákona. <b>Nemecko</b> je prísnejšie: zmluvnú sadzbu uplatní, len ak má príjemca vopred <b>potvrdenie o oslobodení</b> (Freistellungsbescheinigung) od nemeckého spolkového daňového úradu (BZSt). Bez neho zrazí vždy 15 % + solidárnu prirážku 5,5 % z dane = <b>15,825 %</b> a rozdiel nad zmluvu vracia BZSt na žiadosť.</div>
+<p class="hint">Zdroj: <a href="https://static.slov-lex.sk/static/SK/ZZ/1984/18/vyhlasene_znenie.html">18/1984 Zb.</a> (Nemecko), <a href="https://static.slov-lex.sk/static/SK/ZZ/2003/238/20030714.html">238/2003 Z. z.</a> (Česko).</p>
+</section>
+
+<section class="slide"><div class="sec-label">Časť B · LUMEN predáva do Nemecka</div>
+<h2>Nemecká televízia kúpi licenciu na vysielanie dokumentu za 20 000 €</h2>
+<div class="flow">
+<div class="st"><span class="o">&nbsp;</span><span>Licenčný poplatok podľa faktúry (výnos LUMEN)</span><span class="r">20 000 €</span></div>
+<div class="st tax"><span class="o">−</span><span>Nemecká zrážka 15,825 % - LUMEN nemala nemecké potvrdenie o oslobodení</span><span class="r">3 165 €</span></div>
+<div class="st tot"><span class="o">=</span><span>Prišlo na účet</span><span class="r">16 835 €</span></div>
+</div>
+<div class="cols" style="margin-top:14px"><div class="box"><h3>Započíta sa na Slovensku</h3><p>Len toľko, koľko smie Nemecko zobrať podľa zmluvy: 5 % z 20 000 € = <b>1 000 €</b> (§ 45 ods. 1 ZDP).</p></div>
+<div class="box"><h3>Zvyšok 2 165 €</h3><p>Slovensko ho nezapočíta. LUMEN ho musí <b>vypýtať späť v Nemecku</b> - žiadosťou na BZSt s potvrdením o slovenskej rezidencii. Kým peniaze neprídu, je to pohľadávka.</p></div></div>
+<div class="q">Z praxe: slovenská filmová produkcia predala licenciu nemeckému vysielateľovi a nemecký platiteľ zrazil plnú nemeckú daň - nemecké potvrdenie o oslobodení nemala. Na Slovensku sa započítalo zmluvných 5 %, o zvyšok sa žiadalo v Nemecku. Potvrdenie vybavené vopred by ušetrilo mesiace čakania.</div>
+</section>
+
+<section class="slide"><div class="sec-label">Časť B · LUMEN predáva do Česka</div>
+<h2>Česká televízia kúpi licenciu na film za 10 000 €</h2>
+<div class="cols"><div>
+<p>Film je autorské dielo - zmluva SR - ČR ho radí medzi autorské práva (čl. 12 ods. 3 písm. b), výslovne aj filmy a nahrávky pre televízne vysielanie). Pri autorských právach Česko <b>nesmie</b> zdaniť nič.</p>
+<p>Ak má česká televízia potvrdenie o rezidencii LUMEN, pošle celých <b>10 000 €</b>. Celý príjem zdaní Slovensko.</p>
+</div><div>
+<div class="box"><h3>Keby Česko aj tak zrazilo 1 500 €</h3><p>Slovensko by nezapočítalo nič - zmluva Česku zdanenie nedovoľuje. LUMEN by si 1 500 € pýtala späť v Česku.</p></div>
+<div class="box" style="margin-top:12px"><h3>Pozor na druh licencie</h3><p>Za návrh nábytku (model) by Česko smelo zraziť 10 %. Rozhoduje, <b>za čo</b> sa platí.</p></div>
+</div></div>
+</section>
+
+<section class="slide"><div class="sec-label">Časť C · Ako Slovensko odstráni dvojité zdanenie</div>
+<h2>Zápočet: od slovenskej dane odpočítam zahraničnú</h2>
+<div class="cols"><div>
+<div class="st"><span class="o">&nbsp;</span><span>Základ dane LUMEN za rok 2025 (aj s licenciou z Nemecka)</span><span class="r">100 000 €</span></div>
+<div class="st"><span class="o">×</span><span>sadzba 21 %</span><span class="r">21 000 €</span></div>
+<div class="st back"><span class="o">−</span><span>zápočet nemeckej dane (zmluvných 5 %)</span><span class="r">1 000 €</span></div>
+<div class="st tot"><span class="o">=</span><span>daň na Slovensku (r. 800)</span><span class="r">20 000 €</span></div>
+</div><div>
+<p>Spolu LUMEN zaplatila 21 000 € dane: 1 000 € v Nemecku a 20 000 € na Slovensku. Rovnako, ako keby celý zisk bol slovenský.</p>
+<p>Druhá metóda je <b>vyňatie</b> - príjem sa zo slovenského základu dane úplne vynechá (napr. zisk zahraničnej prevádzky). Pri licenciách zmluvy s Nemeckom aj s Českom predpisujú zápočet.</p>
+</div></div>
+<div class="k">Zápočet má strop: Slovensko odpočíta najviac toľko, koľko slovenskej dane pripadá na zahraničný zisk.</div>
+</section>
+
+<section class="slide"><div class="sec-label">Časť C · Strop zápočtu</div>
+<h2>Čím viac nákladov k licencii, tým nižší strop</h2>
+<div class="sim">
+<label>Náklady súvisiace s nemeckou licenciou (dabing, titulky): <input type="range" id="nk" min="0" max="20000" step="500" value="8000"> <span class="val" id="nkv"></span></label>
+<div id="lim" style="margin-top:12px"></div>
+<p id="lmsg" style="font-size:1.05rem;margin:10px 0 0"></p>
+</div>
+<p class="hint">Model: licencia 20 000 €, zmluvná nemecká daň 5 % = 1 000 €, zvyšok základu dane LUMEN zo Slovenska tak, aby pri nákladoch 8 000 € bol celkový základ dane 100 000 €. Strop = slovenská daň (21 %) pripadajúca na zahraničný základ dane = príjem mínus daňové výdavky (§ 45 ods. 1 ZDP).</p>
+<div class="note">Zisk zo zahraničia sa počíta po odpočítaní nákladov, nie z celej faktúry. Keď náklady zjedia skoro celý príjem, Slovensko z neho takmer nič nevyberie - a teda ani nemá z čoho zahraničnú daň odpočítať. Čo sa nezapočíta, prepadne; do ďalšieho roka sa neprenáša.</div>
+</section>
+
+<section class="slide"><div class="sec-label">Časť C · Tabuľka E v priznaní DPPO</div>
+<h2>Päť krokov k riadku 710 (LUMEN, náklady k licencii 8 000 €)</h2>
+<div class="steps">
+<div class="s"><b class="row">r. 1</b><span>základ dane z r. 400</span><span class="v">100 000,00</span></div>
+<div class="s"><b class="row">r. 2</b><span>základ dane zo zahraničia: 20 000 - 8 000</span><span class="v">12 000,00</span></div>
+<div class="s"><b class="row">r. 3</b><span>podiel v %: 12 000 / 100 000 x 100 (2 desatinné miesta)</span><span class="v">12,00 %</span></div>
+<div class="s"><b class="row">r. 4</b><span>strop: daň r. 700 21 000 x 12 %</span><span class="v">2 520,00</span></div>
+<div class="s"><b class="row">r. 8</b><span>zahraničná daň podľa zmluvy (nie celá zrazená!)</span><span class="v">1 000,00</span></div>
+<div class="s hi"><b class="row">r. 10 → r. 710</b><span>nižšia suma z r. 8 a stropu</span><span class="v">1 000,00</span></div>
+</div>
+<p>Do VIII. časti priznania sa napíše rozpis podľa štátov: Nemecko, základ dane 12 000 €, daň na zápočet 1 000 €. Výšku príjmu a zahraničnej dane musí firma vedieť preukázať (potvrdenie od zahraničného platiteľa alebo úradu).</p>
+<p class="hint">Postup celého priznania krok za krokom: <a href="dppo.html">Postup vyplnenia DPPO</a>. Formulár: <a href="https://pfseform.financnasprava.sk/Formulare/eFormVzor/DP/form.622.html">DPPO 2025 na portáli finančnej správy</a>.</p>
+</section>
+
+<section class="slide"><div class="sec-label">Časť C · Kategórie a účty</div>
+<h2>Kam sa zahraničná daň zapíše - a prečo nie je náklad</h2>
+<table class="dance"><tr><th>Prípad (LUMEN, Nemecko)</th><th>MD</th><th>D</th><th>Mení sa VH?</th></tr>
+<tr><td>Faktúra za licenciu 20 000 €</td><td>OM</td><td>V</td><td><span class="tag2 t-yes">áno</span> výnos + 20 000 €</td></tr>
+<tr><td>Prišlo na účet 16 835 €</td><td>OM</td><td>OM</td><td><span class="tag2 t-no">nie</span> pohľadávka sa mení na peniaze</td></tr>
+<tr><td>Nemecká daň, ktorú započítame (1 000 €)</td><td>DU</td><td>OM</td><td><span class="tag2 t-no">nie</span> je to vlastne preddavok na našu daň</td></tr>
+<tr><td>Nemecká daň nad zmluvu (2 165 €) - žiadame späť</td><td>OM</td><td>OM</td><td><span class="tag2 t-no">nie</span> nová pohľadávka voči nemeckému úradu</td></tr>
+<tr><td>Splatná daň za rok (21 000 €)</td><td>ND</td><td>DU</td><td>áno, ale až <b>po</b> zdanení</td></tr></table>
+<p>Daň z príjmov nie je bežný náklad - je až pod čiarou výsledku hospodárenia pred zdanením. Preto zahraničná daň nemení základ dane, len samotnú daň. Na účtoch: daň na zápočet 341, preplatok 378, splatná daň 591 / 341.</p>
+</section>
+
+<section class="slide"><div class="sec-label">Časť D · Čo z toho pre firmy</div>
+<h2>Predávate nápady do sveta? Štyri pravidlá</h2>
+<div class="cols">
+<div class="box"><h3>1. Potvrdenie o rezidencii vopred</h3><p>Pošlite ho zahraničnému odberateľovi skôr, ako zaplatí. Pri Nemecku treba navyše včas požiadať BZSt o potvrdenie o oslobodení. Ušetríte žiadosť o vrátenie v cudzine.</p></div>
+<div class="box"><h3>2. Za čo sa platí</h3><p>Návrh, softvér, autorské dielo či služba - v zmluvách majú rôzne pravidlá. Od toho závisí, či a koľko štát zdroja zrazí.</p></div>
+<div class="box"><h3>3. Zahraničná daň nie je náklad</h3><p>Započítaná ide na účet dane (DU), nadmerne zrazená je pohľadávka. Základ dane nemení.</p></div>
+<div class="box"><h3>4. Čas na priznanie</h3><p>S príjmami zo zahraničia sa dá lehota na DPPO predĺžiť oznámením až o šesť mesiacov - do 30. 9. (§ 49 ods. 3 písm. b) ZDP).</p></div>
+</div>
+<div class="note">V EÚ smernica o úrokoch a licenčných poplatkoch (2003/49/ES) vylučuje zrážku pri platbách medzi prepojenými firmami (podiel aspoň 25 %). Pri nezávislých firmách platia zmluvy o zamedzení dvojitého zdanenia.</div>
+</section>
+
+<section class="slide"><div class="sec-label">Zhrnutie</div>
+<h2>Čo si odniesť</h2>
+<div class="k">1. Keď slovenská firma platí cudzincovi (alebo autorovi), často musí daň zraziť a odviesť do 15. dňa ďalšieho mesiaca. Zmluva sadzbu zníži, ak je potvrdenie o rezidencii.<br>2. Keď slovenská firma dostane licenčný poplatok zo zahraničia, zdaní ho na Slovensku a zahraničnú daň si započíta v tabuľke E - len zmluvnú sumu a najviac do stropu.<br>3. Strop sa počíta zo zahraničného zisku po nákladoch. Čo sa nezapočíta a štát zdroja to zrazil správne, prepadne.</div>
+<p>Na cvičení: <a href="zadania.html#malachit-licencie">Zadanie 7 - MALACHIT s. r. o. (licencie)</a> v aplikácii <a href="app.html">IUP 2 NHF</a>, priznanie na <a href="https://pfseform.financnasprava.sk/Formulare/eFormVzor/DP/form.622.html">portáli finančnej správy</a> podľa <a href="dppo.html">postupu</a>.</p>
+<div class="q">Na diskusiu: slovenská IT firma predáva softvér zákazníkom v desiatich krajinách a každá zráža inú daň. Oplatí sa jej viac zápočet, alebo by pre ňu bolo lepšie vyňatie? Od čoho to závisí?</div>
+</section>
+</div>
+<script>
+(function(){
+ const nk=document.getElementById('nk'),nkv=document.getElementById('nkv'),lim=document.getElementById('lim'),msg=document.getElementById('lmsg');
+ const LIC=20000,TAXDE=1000,SK=88000,R=0.21;
+ const f=x=>x.toLocaleString('sk-SK',{minimumFractionDigits:2,maximumFractionDigits:2})+' €';
+ function draw(){
+  const n=+nk.value; nkv.textContent=n.toLocaleString('sk-SK')+' €';
+  const base=Math.max(0,LIC-n), zd=SK+base, d700=Math.round(zd*R*100)/100;
+  const r3=Math.min(100,Math.round(base/zd*10000)/100), r4=Math.round(d700*r3)/100, zap=Math.min(TAXDE,r4), lost=Math.round((TAXDE-zap)*100)/100;
+  const mx=Math.max(TAXDE,r4,1);
+  const row=(l,v,c)=>`<div class="bar2"><span>${l}</span><span class="bw"><i style="width:${Math.min(100,v/mx*100)}%;background:${c}"></i></span><span class="v">${f(v)}</span></div>`;
+  lim.innerHTML=row('Zahraničný základ dane',base,'#9a7b2f').replace(/width:[^%]*%/,`width:${base/LIC*100}%`)+row('Strop zápočtu (r. 4)',r4,'#3d5a80')+row('Nemecká daň podľa zmluvy (r. 8)',TAXDE,'#4a6741')+row('Prepadne',lost,'#b34040');
+  msg.innerHTML= lost>0 ? `Strop ${f(r4)} je nižší ako nemecká daň - započíta sa len ${f(zap)} a <b>${f(lost)} prepadne</b>.` : `Strop ${f(r4)} je vyšší ako nemecká daň ${f(TAXDE)} - započíta sa celá.`;
+ }
+ nk.addEventListener('input',draw); draw();
+})();
+</script>
+
+<div class="ctl"><button id="prev">◀</button><button id="next">▶</button><span class="n" id="n"></span><div class="bar"><i id="bar"></i></div><button id="all" style="background:var(--white);color:var(--moss);border:1px solid var(--moss)">Všetky slidy</button></div>
+<script>
+(function(){
+  const s=[...document.querySelectorAll('.slide')];let i=0;
+  const n=document.getElementById('n'),bar=document.getElementById('bar');
+  function show(k){i=Math.max(0,Math.min(s.length-1,k));s.forEach((x,j)=>x.classList.toggle('on',j===i));n.textContent=(i+1)+' / '+s.length;bar.style.width=((i+1)/s.length*100)+'%';history.replaceState(null,'','#'+(i+1));window.scrollTo(0,0);}
+  const h=parseInt((location.hash||'').slice(1),10);show(isNaN(h)?0:h-1);
+  document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();show(i+1);}else if(['ArrowLeft','PageUp','Backspace'].includes(e.key)){e.preventDefault();show(i-1);}else if(e.key==='Home')show(0);else if(e.key==='End')show(s.length-1);});
+  document.getElementById('prev').onclick=()=>show(i-1);document.getElementById('next').onclick=()=>show(i+1);
+  document.getElementById('all').onclick=()=>{document.body.classList.toggle('all');s.forEach(x=>x.style.display=document.body.classList.contains('all')?'block':'');if(!document.body.classList.contains('all'))show(i);};
+  let tx=null;document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);document.addEventListener('touchend',e=>{if(tx===null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60)show(d<0?i+1:i-1);tx=null;});
+})();
+</script>
+
+</main>
+<footer class="bot"><div class="in"><span>Ing. Anton Marci, PhD. - Katedra účtovníctva a audítorstva FHI EU v Bratislave - anton.marci@euba.sk</span><span>Zákony: <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2003/595/20260101">ZDP</a> · <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2004/222/20260101">ZDPH</a> · <a href="https://www.slov-lex.sk/ezbierky-fe/pravne-predpisy/SK/ZZ/2002/431/20260101">zákon o účtovníctve</a> (slov-lex.sk, znenie od 1. 1. 2026)</span></div></footer>
+</body>
+</html>

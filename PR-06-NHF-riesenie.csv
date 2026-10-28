@@ -1,0 +1,62 @@
+﻿poradie;datum;doklad;popis;suma;md;dal;pripocitatelna;odpocitatelna;paragraf
+1;01.01.2025;PS;Začiatočný stav: stroje a zariadenia (420 000 - oprávky 180 000) a podiely v dcérskych firmách (50 000 + 90 000);380000;NM;VI;;;
+2;01.01.2025;PS;Začiatočný stav: materiál na sklade;85000;OM;VI;;;
+3;01.01.2025;PS;Začiatočný stav: pohľadávky voči odberateľom (z toho ATRIUM 7 200);160000;OM;VI;;;
+4;01.01.2025;PS;Začiatočný stav: peniaze na bankových účtoch;205800;OM;VI;;;
+5;01.01.2025;PS;Začiatočný stav: dodávatelia (z toho DREVOPLUS 9 000, splatné 30. 9. 2024);95000;VI;KZ;;;
+6;01.01.2025;PS;Začiatočný stav: rezerva na audit za rok 2024 (nedaňová);2800;VI;KZ;;;
+7;01.01.2025;PS;Začiatočný stav: nájomné za 12/2024 (nezaplatené);3000;VI;KZ;;;
+8;01.01.2025;PS;Začiatočný stav: zamestnanci, poisťovne, DPH (24 000 + 16 000 + 14 000);54000;VI;KZ;;;
+9;01.01.2025;PS;Začiatočný stav: doplatok dane z príjmov za rok 2024;6000;VI;DU;;;
+10;31.12.2025;SÚH01;Tržby za nábytok na mieru (súhrnne za rok 2025) - základ dane;1450000;OM;V;;;
+11;31.12.2025;SÚH01;DPH 23 % k tržbám (dlžíme štátu);333500;OM;KZ;;;
+12;31.12.2025;SÚH02;Inkasá pohľadávok od odberateľov (súhrnne);1700000;OM;OM;;;
+13;31.12.2025;SÚH03;Nákup materiálu na sklad (drevotrieska, MDF, kovanie) - základ dane;510000;OM;KZ;;;
+14;31.12.2025;SÚH03;DPH 23 % k materiálu (nárok na odpočítanie);117300;OM;KZ;;;
+15;31.12.2025;SÚH04;Spotreba materiálu vo výrobe;515000;N;OM;;;
+16;31.12.2025;SÚH05;Spotreba energie a služby (doprava, údržba strojov, IT) - základ dane;143000;N;KZ;;;
+17;31.12.2025;SÚH05;DPH 23 % k energii a službám (nárok na odpočítanie);32890;OM;KZ;;;
+18;31.12.2025;SÚH07;Nájomné za výrobnú halu za rok 2025 (12 x 3 000 €, oslobodené od DPH, nájomné za 12/2025 nezaplatené k 31. 12. 2025);36000;N;KZ;3000;;§ 17 ods. 19 písm. b) - r. 140
+19;31.12.2025;SÚH08;Reprezentácia - pohostenie zákazníkov na veľtrhu Mobitex (1 500 € + neodpočítateľná DPH 345 €);1845;N;KZ;1845;;§ 21 ods. 1 písm. h) - tab. A r. 6
+20;31.12.2025;SÚH09;Hrubé mzdy zamestnancov;360000;N;KZ;;;
+21;31.12.2025;SÚH09;Poistné zamestnávateľa (35,2 %);126720;N;KZ;;;
+22;31.12.2025;SÚH10;Odpisy strojov a zariadení (účtovné = daňové);60000;N;NM;;;
+23;18.06.2025;IÚD01;Pokuta od Slovenskej obchodnej inšpekcie;300;N;KZ;300;;§ 21 ods. 2 písm. a) - tab. A r. 16
+24;31.12.2025;IÚD02;Tvorba opravnej položky 100 % k pohľadávke ATRIUM s. r. o. 7 200 € (6 000 € + DPH 20 %, splatná 31. 10. 2024, 426 dní po splatnosti), daňovo uznaná len 20 % = 1 440 €;7200;N;OM;5760;;§ 20 ods. 14, § 21 ods. 2 písm. j) - tab. A r. 9
+25;31.12.2025;IÚD03;Tvorba rezervy na overenie účtovnej závierky za rok 2025 audítorom;3200;N;KZ;3200;;§ 20 ods. 9, § 21 ods. 2 písm. j) - tab. A r. 10
+26;28.02.2025;IÚD04;Faktúra audítora za audit 2024 - použitie rezervy (rezerva sa mení na skutočný záväzok);2800;KZ;KZ;;2800;§ 17 ods. 23 - r. 290
+27;28.02.2025;IÚD04;DPH 23 % k faktúre audítora;644;OM;KZ;;;
+28;10.01.2025;VBÚ01;Úhrada nájomného za 12/2024 (v roku 2024 položka zvyšujúca VH v r. 140);3000;KZ;OM;;3000;§ 17 ods. 19 písm. b) - r. 270
+29;31.03.2025;VBÚ02;Úhrada doplatku dane z príjmov za rok 2024;6000;DU;OM;;;
+30;31.12.2025;VBÚ03;Preddavky na daň z príjmov zaplatené v roku 2025 (1 až 3/2025 po 3 000 €, 4 až 12/2025 po 3 500 €);40500;DU;OM;;;
+31;31.12.2025;VBÚ04;Úhrady nájomného za 1 až 11/2025;33000;KZ;OM;;;
+32;31.12.2025;VBÚ05;Úhrady dodávateľom (súhrnne);803479;KZ;OM;;;
+33;31.12.2025;VBÚ06;Výplaty miezd a odvody poistného (zjednodušene);486720;KZ;OM;;;
+34;31.12.2025;VBÚ08;Úhrady DPH daňovému úradu (súhrnne);182666;KZ;OM;;;
+35;25.06.2025;VBÚ09;Úhrada pokuty Slovenskej obchodnej inšpekcii;300;KZ;OM;;;
+36;30.04.2025;IÚD05;Valné zhromaždenie rozdelilo zisk za rok 2024 - podiely na zisku spoločníkom (dlžíme ich spoločníkom);150000;VI;KZ;;;
+37;30.04.2025;IÚD05;Zvyšok zisku za rok 2024 zostáva vo firme ako nerozdelený zisk;30000;VI;VI;;;
+38;20.05.2025;IÚD06;Zrážková daň z podielov na zisku (časť dlhu voči spoločníkom sa mení na dlh voči štátu);10500;KZ;KZ;;;
+39;20.05.2025;VBÚ10;Výplata podielov na zisku spoločníkom (po zrážke dane);139500;KZ;OM;;;
+40;13.06.2025;VBÚ11;Odvod zrazenej dane z podielov na zisku za máj 2025 daňovému úradu;10500;KZ;OM;;;
+41;15.05.2025;IÚD07;Podiel na zisku od dcérskej firmy MALACHIT Interiér s. r. o. (Košice, 100 %) zo zisku za rok 2024 - nárok;40000;OM;V;;40000;§ 12 ods. 7 písm. c) - r. 210
+42;26.05.2025;VBÚ12;Inkaso podielu na zisku od MALACHIT Interiér s. r. o.;40000;OM;OM;;;
+43;20.06.2025;IÚD08;Podiel na zisku od dcérskej firmy MALACHIT Möbel GmbH (Viedeň, 60 %) zo zisku za rok 2024 - nárok, Rakúsko daň nezrazilo;25000;OM;V;;25000;§ 12 ods. 7 písm. c) - r. 210
+44;02.07.2025;VBÚ13;Inkaso podielu na zisku od MALACHIT Möbel GmbH;25000;OM;OM;;;
+45;15.03.2025;DF01;DESIGNLAB Brno - licencia: MALACHIT smie v roku 2025 vyrábať kreslo AURA podľa ich návrhu;8000;N;KZ;;;
+46;10.04.2025;IÚD09;Zrážková daň z licenčného poplatku DESIGNLAB (časť dlhu voči DESIGNLAB sa mení na dlh voči štátu);800;KZ;KZ;;;§ 43 ods. 2; čl. 12 zmluvy SR-ČR
+47;10.04.2025;VBÚ14;Úhrada licenčného poplatku DESIGNLAB po zrážke dane;7200;KZ;OM;;;
+48;12.05.2025;VBÚ15;Odvod zrazenej dane daňovému úradu;800;KZ;OM;;;§ 43 ods. 11
+49;30.09.2025;OF01;Holzwerk Alpen (Nemecko) - licenčný poplatok za návrhy kuchýň LINEA za rok 2025;30000;OM;V;;;
+50;27.10.2025;VBÚ16;Holzwerk Alpen zaplatil po zrážke nemeckej dane 15,825 %;25252,50;OM;OM;;;
+51;27.10.2025;IÚD10;Nemecká daň - časť, ktorú si MALACHIT započíta v slovenskom priznaní;1500;DU;OM;;;§ 45 ods. 1; čl. 12 a 23 zmluvy ČSSR-SRN
+52;27.10.2025;IÚD11;Nemecká daň nad túto časť - MALACHIT ju žiada späť od nemeckého daňového úradu (pohľadávka);3247,50;OM;OM;;;
+53;31.10.2025;DF02;TECHNODREVO (Žilina) - prispôsobenie návrhov HOTELIA pre výrobu v NÁBYTOK NOVA - bez DPH;18000;N;KZ;;;
+54;31.10.2025;DF02;DPH 23 % k faktúre TECHNODREVO (nárok na odpočítanie);4140;OM;KZ;;;
+55;20.11.2025;VBÚ17;Úhrada faktúry TECHNODREVO;22140;KZ;OM;;;
+56;30.11.2025;OF02;NÁBYTOK NOVA (Česko) - licenčný poplatok za návrhy hotelového nábytku HOTELIA;40000;OM;V;;;
+57;15.12.2025;VBÚ18;NÁBYTOK NOVA zaplatila po zrážke českej dane 10 %;36000;OM;OM;;;
+58;15.12.2025;IÚD12;Česká daň - MALACHIT si ju započíta v slovenskom priznaní;4000;DU;OM;;;§ 45 ods. 1; čl. 12 a 22 zmluvy SR-ČR
+59;30.12.2025;DF03;TRADE LINK (Trnava) - provízia za sprostredkovanie zmluvy s NÁBYTOK NOVA - bez DPH, do 31. 12. 2025 nezaplatená;4000;N;KZ;4000;;§ 17 ods. 19 písm. d) - r. 140
+60;30.12.2025;DF03;DPH 23 % k faktúre TRADE LINK;920;OM;KZ;;;
+61;31.12.2025;IÚD13;Splatná daň z príjmov za rok 2025 (r. 700: 250 840 x 21 %; zápočet 5 500 je už na DU);52676,40;ND;DU;;;§ 15 písm. b), § 45 ZDP
