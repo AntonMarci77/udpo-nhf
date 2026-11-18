@@ -4,12 +4,14 @@ Statická stránka, žiadny build nie je potrebný. Otvorí sa aj priamo z disku
 
 Obsah:
 - index.html      úvod do predmetu (hodnotenie, harmonogram, ako prebieha cvičenie, odkazy na zákony)
-- prednaska.html  prednáška 1 (24 slidov, ovládanie šípkami, tlačidlo "Všetky slidy" na tlač); prednaska2 až prednaska6.html ďalšie prednášky
+- prednaska.html  prednáška 1 (24 slidov, ovládanie šípkami, tlačidlo "Všetky slidy" na tlač); prednaska2 až prednaska7.html ďalšie prednášky
 - dppo.html       postup vyplnenia DPPO 2025 riadok po riadku + odkaz na formulár FS SR (rovnaký obsah ako karta Postup DPPO v appke, zdroj app-src/src/data/dppoSteps.js)
 - tahak.html      ťahák: prečo vznikajú PP a OP, tabuľka prípadov s odkazmi na slov-lex, Advers riadok po riadku
 - zadania.html    zadania Kaviareň a Advers (NHF verzia) + návod na aplikáciu
 - zadania/*.csv   CSV zadaní a riešení (načítajú sa v appke cez Zadania alebo "CSV z internetu")
 - app.html        IUP 2 NHF - zbuildovaná aplikácia (jeden súbor, funguje offline); kópia aj v app/index.html; karta Postup DPPO (app.html#dppo), karta Testovacia zóna (app.html#test) - prípady sú v app-src/src/data/scenarios.js
+- KPMG-01-*.pdf, KPMG-02-*.pdf  prezentácie z prednášok KPMG (5. 11. a 12. 11. 2026), odkazy sú na index.html
+- PR-07-NHF-zadanie.docx  zadanie 8 (JASPIS) - bez CSV, v tomto zadaní sa neúčtuje
 - *.csv v koreni  kópie zadaní na stiahnutie (GitHub web upload nezoberie priečinky, preto sú v koreni)
 - app-src/        zdrojový kód aplikácie (Vite + React); npm install, npm run build -> dist/index.html, skopírovať do app/
 
